@@ -40,7 +40,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.label2.Location = new System.Drawing.Point(253, 13);
+            this.label2.Location = new System.Drawing.Point(170, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(172, 37);
             this.label2.TabIndex = 7;
@@ -67,7 +67,7 @@
             // 
             // bHome
             // 
-            this.bHome.Location = new System.Drawing.Point(28, 468);
+            this.bHome.Location = new System.Drawing.Point(16, 250);
             this.bHome.Name = "bHome";
             this.bHome.Size = new System.Drawing.Size(111, 30);
             this.bHome.TabIndex = 8;
@@ -77,7 +77,7 @@
             // 
             // bEdit
             // 
-            this.bEdit.Location = new System.Drawing.Point(483, 468);
+            this.bEdit.Location = new System.Drawing.Point(275, 400);
             this.bEdit.Name = "bEdit";
             this.bEdit.Size = new System.Drawing.Size(80, 29);
             this.bEdit.TabIndex = 9;
@@ -87,7 +87,7 @@
             // 
             // bViewOwnersAnimals
             // 
-            this.bViewOwnersAnimals.Location = new System.Drawing.Point(578, 468);
+            this.bViewOwnersAnimals.Location = new System.Drawing.Point(369, 400);
             this.bViewOwnersAnimals.Name = "bViewOwnersAnimals";
             this.bViewOwnersAnimals.Size = new System.Drawing.Size(83, 29);
             this.bViewOwnersAnimals.TabIndex = 10;
@@ -99,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(695, 520);
+            this.ClientSize = new System.Drawing.Size(464, 441);
             this.Controls.Add(this.bViewOwnersAnimals);
             this.Controls.Add(this.bEdit);
             this.Controls.Add(this.bHome);

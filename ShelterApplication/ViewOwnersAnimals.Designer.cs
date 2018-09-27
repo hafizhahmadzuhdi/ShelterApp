@@ -33,7 +33,7 @@
             // 
             // bBack
             // 
-            this.bBack.Location = new System.Drawing.Point(30, 398);
+            this.bBack.Location = new System.Drawing.Point(183, 399);
             this.bBack.Name = "bBack";
             this.bBack.Size = new System.Drawing.Size(124, 30);
             this.bBack.TabIndex = 0;
@@ -45,7 +45,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(631, 450);
+            this.ClientSize = new System.Drawing.Size(464, 441);
             this.Controls.Add(this.bBack);
             this.Name = "ViewOwnersAnimals";
             this.Text = "ViewOwnersAnimals";

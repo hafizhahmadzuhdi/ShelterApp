@@ -60,7 +60,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.label2.Location = new System.Drawing.Point(255, 8);
+            this.label2.Location = new System.Drawing.Point(146, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(177, 37);
             this.label2.TabIndex = 2;
@@ -69,7 +69,7 @@
             // cbAdoptable
             // 
             this.cbAdoptable.AutoSize = true;
-            this.cbAdoptable.Location = new System.Drawing.Point(406, 50);
+            this.cbAdoptable.Location = new System.Drawing.Point(64, 84);
             this.cbAdoptable.Name = "cbAdoptable";
             this.cbAdoptable.Size = new System.Drawing.Size(74, 17);
             this.cbAdoptable.TabIndex = 3;
@@ -79,7 +79,7 @@
             // tbNotYetAdoptable
             // 
             this.tbNotYetAdoptable.AutoSize = true;
-            this.tbNotYetAdoptable.Location = new System.Drawing.Point(500, 49);
+            this.tbNotYetAdoptable.Location = new System.Drawing.Point(182, 75);
             this.tbNotYetAdoptable.Name = "tbNotYetAdoptable";
             this.tbNotYetAdoptable.Size = new System.Drawing.Size(113, 17);
             this.tbNotYetAdoptable.TabIndex = 4;
@@ -88,7 +88,7 @@
             // 
             // bHome
             // 
-            this.bHome.Location = new System.Drawing.Point(27, 469);
+            this.bHome.Location = new System.Drawing.Point(12, 399);
             this.bHome.Name = "bHome";
             this.bHome.Size = new System.Drawing.Size(111, 30);
             this.bHome.TabIndex = 5;
@@ -98,7 +98,7 @@
             // 
             // bEdit
             // 
-            this.bEdit.Location = new System.Drawing.Point(359, 471);
+            this.bEdit.Location = new System.Drawing.Point(173, 399);
             this.bEdit.Name = "bEdit";
             this.bEdit.Size = new System.Drawing.Size(90, 28);
             this.bEdit.TabIndex = 6;
@@ -108,7 +108,7 @@
             // 
             // bAdopt
             // 
-            this.bAdopt.Location = new System.Drawing.Point(468, 471);
+            this.bAdopt.Location = new System.Drawing.Point(269, 399);
             this.bAdopt.Name = "bAdopt";
             this.bAdopt.Size = new System.Drawing.Size(90, 28);
             this.bAdopt.TabIndex = 7;
@@ -118,7 +118,7 @@
             // 
             // bClaim
             // 
-            this.bClaim.Location = new System.Drawing.Point(576, 471);
+            this.bClaim.Location = new System.Drawing.Point(365, 399);
             this.bClaim.Name = "bClaim";
             this.bClaim.Size = new System.Drawing.Size(90, 28);
             this.bClaim.TabIndex = 8;
@@ -130,7 +130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 511);
+            this.ClientSize = new System.Drawing.Size(464, 441);
             this.Controls.Add(this.bClaim);
             this.Controls.Add(this.bAdopt);
             this.Controls.Add(this.bEdit);

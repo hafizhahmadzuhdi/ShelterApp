@@ -105,7 +105,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F);
-            this.label1.Location = new System.Drawing.Point(81, 26);
+            this.label1.Location = new System.Drawing.Point(64, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(352, 51);
             this.label1.TabIndex = 16;
@@ -195,7 +195,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 490);
+            this.ClientSize = new System.Drawing.Size(464, 441);
             this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.tbPhone);
             this.Controls.Add(this.tbEmail);

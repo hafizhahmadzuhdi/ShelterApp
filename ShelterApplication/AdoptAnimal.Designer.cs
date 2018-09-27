@@ -43,7 +43,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F);
-            this.label1.Location = new System.Drawing.Point(145, 9);
+            this.label1.Location = new System.Drawing.Point(109, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(279, 51);
             this.label1.TabIndex = 19;
@@ -61,7 +61,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(164, 246);
+            this.label3.Location = new System.Drawing.Point(115, 243);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 13);
             this.label3.TabIndex = 21;
@@ -70,7 +70,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(181, 281);
+            this.label4.Location = new System.Drawing.Point(132, 278);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 22;
@@ -78,14 +78,14 @@
             // 
             // tbOwner
             // 
-            this.tbOwner.Location = new System.Drawing.Point(277, 243);
+            this.tbOwner.Location = new System.Drawing.Point(228, 240);
             this.tbOwner.Name = "tbOwner";
             this.tbOwner.Size = new System.Drawing.Size(125, 20);
             this.tbOwner.TabIndex = 23;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(278, 278);
+            this.textBox1.Location = new System.Drawing.Point(229, 275);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(125, 20);
@@ -95,7 +95,7 @@
             // cbPaid
             // 
             this.cbPaid.AutoSize = true;
-            this.cbPaid.Location = new System.Drawing.Point(278, 313);
+            this.cbPaid.Location = new System.Drawing.Point(229, 310);
             this.cbPaid.Name = "cbPaid";
             this.cbPaid.Size = new System.Drawing.Size(47, 17);
             this.cbPaid.TabIndex = 25;
@@ -114,7 +114,7 @@
             // 
             // bAdopt
             // 
-            this.bAdopt.Location = new System.Drawing.Point(428, 384);
+            this.bAdopt.Location = new System.Drawing.Point(334, 384);
             this.bAdopt.Name = "bAdopt";
             this.bAdopt.Size = new System.Drawing.Size(118, 30);
             this.bAdopt.TabIndex = 27;
@@ -126,7 +126,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(581, 450);
+            this.ClientSize = new System.Drawing.Size(464, 441);
             this.Controls.Add(this.bAdopt);
             this.Controls.Add(this.bCancel);
             this.Controls.Add(this.cbPaid);

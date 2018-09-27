@@ -63,28 +63,28 @@
             this.tbAddress.Location = new System.Drawing.Point(157, 276);
             this.tbAddress.Multiline = true;
             this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(175, 64);
+            this.tbAddress.Size = new System.Drawing.Size(215, 64);
             this.tbAddress.TabIndex = 54;
             // 
             // tbPhone
             // 
             this.tbPhone.Location = new System.Drawing.Point(157, 242);
             this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(175, 20);
+            this.tbPhone.Size = new System.Drawing.Size(215, 20);
             this.tbPhone.TabIndex = 53;
             // 
             // tbEmail
             // 
             this.tbEmail.Location = new System.Drawing.Point(157, 208);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(175, 20);
+            this.tbEmail.Size = new System.Drawing.Size(215, 20);
             this.tbEmail.TabIndex = 52;
             // 
             // tbDoB
             // 
             this.tbDoB.Location = new System.Drawing.Point(157, 172);
             this.tbDoB.Name = "tbDoB";
-            this.tbDoB.Size = new System.Drawing.Size(175, 20);
+            this.tbDoB.Size = new System.Drawing.Size(215, 20);
             this.tbDoB.TabIndex = 51;
             this.tbDoB.Text = "ddmmyy";
             // 
@@ -92,14 +92,14 @@
             // 
             this.tbLName.Location = new System.Drawing.Point(157, 131);
             this.tbLName.Name = "tbLName";
-            this.tbLName.Size = new System.Drawing.Size(175, 20);
+            this.tbLName.Size = new System.Drawing.Size(215, 20);
             this.tbLName.TabIndex = 50;
             // 
             // tbFName
             // 
             this.tbFName.Location = new System.Drawing.Point(157, 98);
             this.tbFName.Name = "tbFName";
-            this.tbFName.Size = new System.Drawing.Size(175, 20);
+            this.tbFName.Size = new System.Drawing.Size(215, 20);
             this.tbFName.TabIndex = 49;
             // 
             // label4
@@ -142,12 +142,12 @@
             // 
             this.tbOwnerID.Location = new System.Drawing.Point(157, 61);
             this.tbOwnerID.Name = "tbOwnerID";
-            this.tbOwnerID.Size = new System.Drawing.Size(175, 20);
+            this.tbOwnerID.Size = new System.Drawing.Size(215, 20);
             this.tbOwnerID.TabIndex = 44;
             // 
             // bEditOwner
             // 
-            this.bEditOwner.Location = new System.Drawing.Point(276, 366);
+            this.bEditOwner.Location = new System.Drawing.Point(302, 415);
             this.bEditOwner.Name = "bEditOwner";
             this.bEditOwner.Size = new System.Drawing.Size(70, 24);
             this.bEditOwner.TabIndex = 56;
@@ -157,7 +157,7 @@
             // 
             // bCancelAdd
             // 
-            this.bCancelAdd.Location = new System.Drawing.Point(129, 366);
+            this.bCancelAdd.Location = new System.Drawing.Point(70, 415);
             this.bCancelAdd.Name = "bCancelAdd";
             this.bCancelAdd.Size = new System.Drawing.Size(70, 24);
             this.bCancelAdd.TabIndex = 55;
@@ -194,7 +194,7 @@
             // 
             // bDelete
             // 
-            this.bDelete.Location = new System.Drawing.Point(352, 366);
+            this.bDelete.Location = new System.Drawing.Point(382, 415);
             this.bDelete.Name = "bDelete";
             this.bDelete.Size = new System.Drawing.Size(70, 24);
             this.bDelete.TabIndex = 57;
@@ -205,7 +205,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 450);
+            this.ClientSize = new System.Drawing.Size(464, 441);
             this.Controls.Add(this.bDelete);
             this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.tbPhone);

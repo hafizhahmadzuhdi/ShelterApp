@@ -106,7 +106,7 @@
             // 
             // bCancelAdd
             // 
-            this.bCancelAdd.Location = new System.Drawing.Point(124, 407);
+            this.bCancelAdd.Location = new System.Drawing.Point(32, 407);
             this.bCancelAdd.Name = "bCancelAdd";
             this.bCancelAdd.Size = new System.Drawing.Size(70, 24);
             this.bCancelAdd.TabIndex = 31;
@@ -116,7 +116,7 @@
             // 
             // bSave
             // 
-            this.bSave.Location = new System.Drawing.Point(331, 407);
+            this.bSave.Location = new System.Drawing.Point(301, 407);
             this.bSave.Name = "bSave";
             this.bSave.Size = new System.Drawing.Size(70, 24);
             this.bSave.TabIndex = 32;
@@ -152,7 +152,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(328, 100);
+            this.label3.Location = new System.Drawing.Point(328, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 13);
             this.label3.TabIndex = 31;
@@ -169,9 +169,9 @@
             // 
             // tbDateWalked
             // 
-            this.tbDateWalked.Location = new System.Drawing.Point(428, 97);
+            this.tbDateWalked.Location = new System.Drawing.Point(331, 94);
             this.tbDateWalked.Name = "tbDateWalked";
-            this.tbDateWalked.Size = new System.Drawing.Size(134, 20);
+            this.tbDateWalked.Size = new System.Drawing.Size(121, 20);
             this.tbDateWalked.TabIndex = 29;
             this.tbDateWalked.Text = "ddmmyy";
             // 
@@ -180,12 +180,12 @@
             this.tbExtra.Location = new System.Drawing.Point(331, 148);
             this.tbExtra.Multiline = true;
             this.tbExtra.Name = "tbExtra";
-            this.tbExtra.Size = new System.Drawing.Size(231, 123);
+            this.tbExtra.Size = new System.Drawing.Size(121, 123);
             this.tbExtra.TabIndex = 30;
             // 
             // bDelete
             // 
-            this.bDelete.Location = new System.Drawing.Point(407, 407);
+            this.bDelete.Location = new System.Drawing.Point(377, 407);
             this.bDelete.Name = "bDelete";
             this.bDelete.Size = new System.Drawing.Size(70, 24);
             this.bDelete.TabIndex = 33;
@@ -203,7 +203,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(124, 198);
+            this.textBox1.Location = new System.Drawing.Point(127, 194);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(175, 20);
@@ -231,7 +231,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 450);
+            this.ClientSize = new System.Drawing.Size(464, 441);
             this.Controls.Add(this.tbOwner);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox1);

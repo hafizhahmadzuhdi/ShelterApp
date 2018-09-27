@@ -43,7 +43,7 @@
             // 
             // bClaim
             // 
-            this.bClaim.Location = new System.Drawing.Point(462, 398);
+            this.bClaim.Location = new System.Drawing.Point(317, 398);
             this.bClaim.Name = "bClaim";
             this.bClaim.Size = new System.Drawing.Size(118, 30);
             this.bClaim.TabIndex = 36;
@@ -53,7 +53,7 @@
             // 
             // bCancel
             // 
-            this.bCancel.Location = new System.Drawing.Point(71, 398);
+            this.bCancel.Location = new System.Drawing.Point(47, 399);
             this.bCancel.Name = "bCancel";
             this.bCancel.Size = new System.Drawing.Size(118, 30);
             this.bCancel.TabIndex = 35;
@@ -64,7 +64,7 @@
             // cbPaid
             // 
             this.cbPaid.AutoSize = true;
-            this.cbPaid.Location = new System.Drawing.Point(446, 356);
+            this.cbPaid.Location = new System.Drawing.Point(223, 337);
             this.cbPaid.Name = "cbPaid";
             this.cbPaid.Size = new System.Drawing.Size(47, 17);
             this.cbPaid.TabIndex = 34;
@@ -73,7 +73,7 @@
             // 
             // tbFee
             // 
-            this.tbFee.Location = new System.Drawing.Point(446, 330);
+            this.tbFee.Location = new System.Drawing.Point(317, 302);
             this.tbFee.Name = "tbFee";
             this.tbFee.ReadOnly = true;
             this.tbFee.Size = new System.Drawing.Size(125, 20);
@@ -83,7 +83,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(349, 333);
+            this.label4.Location = new System.Drawing.Point(220, 305);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 31;
@@ -102,7 +102,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F);
-            this.label1.Location = new System.Drawing.Point(179, 4);
+            this.label1.Location = new System.Drawing.Point(104, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(277, 51);
             this.label1.TabIndex = 28;
@@ -120,7 +120,7 @@
             // cbConfirmInfo
             // 
             this.cbConfirmInfo.AutoSize = true;
-            this.cbConfirmInfo.Location = new System.Drawing.Point(221, 298);
+            this.cbConfirmInfo.Location = new System.Drawing.Point(165, 241);
             this.cbConfirmInfo.Name = "cbConfirmInfo";
             this.cbConfirmInfo.Size = new System.Drawing.Size(157, 17);
             this.cbConfirmInfo.TabIndex = 32;
@@ -130,7 +130,7 @@
             // 
             // tbTotalDays
             // 
-            this.tbTotalDays.Location = new System.Drawing.Point(84, 330);
+            this.tbTotalDays.Location = new System.Drawing.Point(74, 302);
             this.tbTotalDays.Name = "tbTotalDays";
             this.tbTotalDays.ReadOnly = true;
             this.tbTotalDays.Size = new System.Drawing.Size(125, 20);
@@ -140,7 +140,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 333);
+            this.label3.Location = new System.Drawing.Point(7, 305);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 38;
@@ -150,7 +150,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 468);
+            this.ClientSize = new System.Drawing.Size(464, 441);
             this.Controls.Add(this.tbTotalDays);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbConfirmInfo);

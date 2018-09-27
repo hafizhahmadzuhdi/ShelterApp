@@ -62,7 +62,7 @@
             // 
             // bSubmitRFID
             // 
-            this.bSubmitRFID.Location = new System.Drawing.Point(223, 281);
+            this.bSubmitRFID.Location = new System.Drawing.Point(180, 273);
             this.bSubmitRFID.Name = "bSubmitRFID";
             this.bSubmitRFID.Size = new System.Drawing.Size(117, 28);
             this.bSubmitRFID.TabIndex = 3;
@@ -74,7 +74,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 433);
+            this.ClientSize = new System.Drawing.Size(464, 441);
             this.Controls.Add(this.bSubmitRFID);
             this.Controls.Add(this.tbRFID);
             this.Controls.Add(this.label2);
