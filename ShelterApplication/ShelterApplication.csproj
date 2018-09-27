@@ -63,6 +63,36 @@
     <Compile Include="AddNewOwner.Designer.cs">
       <DependentUpon>AddNewOwner.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdoptAnimal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdoptAnimal.Designer.cs">
+      <DependentUpon>AdoptAnimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssignOwner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssignOwner.Designer.cs">
+      <DependentUpon>AssignOwner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClaimAnimal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClaimAnimal.Designer.cs">
+      <DependentUpon>ClaimAnimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditAnimals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditAnimals.Designer.cs">
+      <DependentUpon>EditAnimals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditOwner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditOwner.Designer.cs">
+      <DependentUpon>EditOwner.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +113,12 @@
     <Compile Include="ShowOwners.Designer.cs">
       <DependentUpon>ShowOwners.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewOwnersAnimals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewOwnersAnimals.Designer.cs">
+      <DependentUpon>ViewOwnersAnimals.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddAnimalRFID.resx">
       <DependentUpon>AddAnimalRFID.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,6 +127,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddNewOwner.resx">
       <DependentUpon>AddNewOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdoptAnimal.resx">
+      <DependentUpon>AdoptAnimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssignOwner.resx">
+      <DependentUpon>AssignOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClaimAnimal.resx">
+      <DependentUpon>ClaimAnimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditAnimals.resx">
+      <DependentUpon>EditAnimals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditOwner.resx">
+      <DependentUpon>EditOwner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -110,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ShowOwners.resx">
       <DependentUpon>ShowOwners.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewOwnersAnimals.resx">
+      <DependentUpon>ViewOwnersAnimals.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

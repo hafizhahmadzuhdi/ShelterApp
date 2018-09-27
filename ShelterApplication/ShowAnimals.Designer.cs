@@ -34,6 +34,9 @@
             this.cbAdoptable = new System.Windows.Forms.CheckBox();
             this.tbNotYetAdoptable = new System.Windows.Forms.CheckBox();
             this.bHome = new System.Windows.Forms.Button();
+            this.bEdit = new System.Windows.Forms.Button();
+            this.bAdopt = new System.Windows.Forms.Button();
+            this.bClaim = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbSearchAnimals
@@ -93,11 +96,44 @@
             this.bHome.UseVisualStyleBackColor = true;
             this.bHome.Click += new System.EventHandler(this.bHome_Click);
             // 
+            // bEdit
+            // 
+            this.bEdit.Location = new System.Drawing.Point(359, 471);
+            this.bEdit.Name = "bEdit";
+            this.bEdit.Size = new System.Drawing.Size(90, 28);
+            this.bEdit.TabIndex = 6;
+            this.bEdit.Text = "Edit";
+            this.bEdit.UseVisualStyleBackColor = true;
+            this.bEdit.Click += new System.EventHandler(this.bEdit_Click);
+            // 
+            // bAdopt
+            // 
+            this.bAdopt.Location = new System.Drawing.Point(468, 471);
+            this.bAdopt.Name = "bAdopt";
+            this.bAdopt.Size = new System.Drawing.Size(90, 28);
+            this.bAdopt.TabIndex = 7;
+            this.bAdopt.Text = "Adopt";
+            this.bAdopt.UseVisualStyleBackColor = true;
+            this.bAdopt.Click += new System.EventHandler(this.bAdopt_Click);
+            // 
+            // bClaim
+            // 
+            this.bClaim.Location = new System.Drawing.Point(576, 471);
+            this.bClaim.Name = "bClaim";
+            this.bClaim.Size = new System.Drawing.Size(90, 28);
+            this.bClaim.TabIndex = 8;
+            this.bClaim.Text = "Claim";
+            this.bClaim.UseVisualStyleBackColor = true;
+            this.bClaim.Click += new System.EventHandler(this.bClaim_Click);
+            // 
             // ShowAnimals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(705, 511);
+            this.Controls.Add(this.bClaim);
+            this.Controls.Add(this.bAdopt);
+            this.Controls.Add(this.bEdit);
             this.Controls.Add(this.bHome);
             this.Controls.Add(this.tbNotYetAdoptable);
             this.Controls.Add(this.cbAdoptable);
@@ -120,5 +156,8 @@
         private System.Windows.Forms.CheckBox cbAdoptable;
         private System.Windows.Forms.CheckBox tbNotYetAdoptable;
         private System.Windows.Forms.Button bHome;
+        private System.Windows.Forms.Button bEdit;
+        private System.Windows.Forms.Button bAdopt;
+        private System.Windows.Forms.Button bClaim;
     }
 }

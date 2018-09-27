@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tbOwnerID = new System.Windows.Forms.TextBox();
-            this.bCreateAnimal = new System.Windows.Forms.Button();
+            this.bCreateOwner = new System.Windows.Forms.Button();
             this.bCancelAdd = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,15 +54,15 @@
             this.tbOwnerID.Size = new System.Drawing.Size(175, 20);
             this.tbOwnerID.TabIndex = 21;
             // 
-            // bCreateAnimal
+            // bCreateOwner
             // 
-            this.bCreateAnimal.Location = new System.Drawing.Point(323, 391);
-            this.bCreateAnimal.Name = "bCreateAnimal";
-            this.bCreateAnimal.Size = new System.Drawing.Size(70, 24);
-            this.bCreateAnimal.TabIndex = 40;
-            this.bCreateAnimal.Text = "Add";
-            this.bCreateAnimal.UseVisualStyleBackColor = true;
-            this.bCreateAnimal.Click += new System.EventHandler(this.bCreateAnimal_Click);
+            this.bCreateOwner.Location = new System.Drawing.Point(323, 391);
+            this.bCreateOwner.Name = "bCreateOwner";
+            this.bCreateOwner.Size = new System.Drawing.Size(70, 24);
+            this.bCreateOwner.TabIndex = 40;
+            this.bCreateOwner.Text = "Add";
+            this.bCreateOwner.UseVisualStyleBackColor = true;
+            this.bCreateOwner.Click += new System.EventHandler(this.bCreateAnimal_Click);
             // 
             // bCancelAdd
             // 
@@ -167,6 +167,7 @@
             this.tbDoB.Name = "tbDoB";
             this.tbDoB.Size = new System.Drawing.Size(175, 20);
             this.tbDoB.TabIndex = 35;
+            this.tbDoB.Text = "ddmmyy";
             // 
             // tbEmail
             // 
@@ -206,7 +207,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbOwnerID);
-            this.Controls.Add(this.bCreateAnimal);
+            this.Controls.Add(this.bCreateOwner);
             this.Controls.Add(this.bCancelAdd);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -222,7 +223,7 @@
 
         #endregion
         private System.Windows.Forms.TextBox tbOwnerID;
-        private System.Windows.Forms.Button bCreateAnimal;
+        private System.Windows.Forms.Button bCreateOwner;
         private System.Windows.Forms.Button bCancelAdd;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;

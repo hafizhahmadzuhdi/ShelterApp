@@ -45,7 +45,7 @@
             this.addOwner.Name = "addOwner";
             this.addOwner.Size = new System.Drawing.Size(127, 24);
             this.addOwner.TabIndex = 3;
-            this.addOwner.Text = "Add a new owner";
+            this.addOwner.Text = "Add a New Owner";
             this.addOwner.UseVisualStyleBackColor = true;
             this.addOwner.Click += new System.EventHandler(this.addOwner_Click);
             // 
@@ -55,7 +55,7 @@
             this.addAnimal.Name = "addAnimal";
             this.addAnimal.Size = new System.Drawing.Size(127, 24);
             this.addAnimal.TabIndex = 4;
-            this.addAnimal.Text = "Add a new animal";
+            this.addAnimal.Text = "Add a New Animal";
             this.addAnimal.UseVisualStyleBackColor = true;
             this.addAnimal.Click += new System.EventHandler(this.addAnimal_Click);
             // 

@@ -33,5 +33,26 @@ namespace ShelterApplication
             home.Show();
             this.Close();
         }
+
+        private void bEdit_Click(object sender, EventArgs e)
+        {
+            EditAnimals editAnimals = new EditAnimals();
+            this.Close();
+            editAnimals.Show();
+        }
+
+        private void bAdopt_Click(object sender, EventArgs e)
+        {
+            AdoptAnimal adoptAnimal = new AdoptAnimal();
+            adoptAnimal.Show();
+            this.Close();
+        }
+
+        private void bClaim_Click(object sender, EventArgs e)
+        {
+            ClaimAnimal claimAnimal = new ClaimAnimal();
+            claimAnimal.Show();
+            this.Close();
+        }
     }
 }

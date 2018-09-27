@@ -32,6 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbSearchAnimals = new System.Windows.Forms.TextBox();
             this.bHome = new System.Windows.Forms.Button();
+            this.bEdit = new System.Windows.Forms.Button();
+            this.bViewOwnersAnimals = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -73,11 +75,33 @@
             this.bHome.UseVisualStyleBackColor = true;
             this.bHome.Click += new System.EventHandler(this.bHome_Click);
             // 
+            // bEdit
+            // 
+            this.bEdit.Location = new System.Drawing.Point(483, 468);
+            this.bEdit.Name = "bEdit";
+            this.bEdit.Size = new System.Drawing.Size(80, 29);
+            this.bEdit.TabIndex = 9;
+            this.bEdit.Text = "Edit";
+            this.bEdit.UseVisualStyleBackColor = true;
+            this.bEdit.Click += new System.EventHandler(this.bEdit_Click);
+            // 
+            // bViewOwnersAnimals
+            // 
+            this.bViewOwnersAnimals.Location = new System.Drawing.Point(578, 468);
+            this.bViewOwnersAnimals.Name = "bViewOwnersAnimals";
+            this.bViewOwnersAnimals.Size = new System.Drawing.Size(83, 29);
+            this.bViewOwnersAnimals.TabIndex = 10;
+            this.bViewOwnersAnimals.Text = "View Animals";
+            this.bViewOwnersAnimals.UseVisualStyleBackColor = true;
+            this.bViewOwnersAnimals.Click += new System.EventHandler(this.bViewOwnersAnimals_Click);
+            // 
             // ShowOwners
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 520);
+            this.Controls.Add(this.bViewOwnersAnimals);
+            this.Controls.Add(this.bEdit);
             this.Controls.Add(this.bHome);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -95,5 +119,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbSearchAnimals;
         private System.Windows.Forms.Button bHome;
+        private System.Windows.Forms.Button bEdit;
+        private System.Windows.Forms.Button bViewOwnersAnimals;
     }
 }

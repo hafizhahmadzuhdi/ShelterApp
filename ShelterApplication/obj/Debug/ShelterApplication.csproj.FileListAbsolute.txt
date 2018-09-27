@@ -23,3 +23,9 @@ C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication
 C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication.AddNewAnimal.resources
 C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication.AddNewOwner.resources
 C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication.ShowAnimals.resources
+C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication.EditOwner.resources
+C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication.EditAnimals.resources
+C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication.ViewOwnersAnimals.resources
+C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication.AssignOwner.resources
+C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication.AdoptAnimal.resources
+C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication.ClaimAnimal.resources
