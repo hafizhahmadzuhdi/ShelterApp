@@ -18,3 +18,8 @@ C:\Users\nhies\source\repos\ood1\ShelterApplication\bin\Debug\ShelterApplication
 C:\Users\nhies\source\repos\ood1\ShelterApplication\bin\Debug\ShelterApplication.pdb
 C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication.Properties.Resources.resources
 C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication.csproj.CoreCompileInputs.cache
+C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication.ShowOwners.resources
+C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication.AddAnimalRFID.resources
+C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication.AddNewAnimal.resources
+C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication.AddNewOwner.resources
+C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication.ShowAnimals.resources
