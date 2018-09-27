@@ -50,3 +50,9 @@ F:\FONTYS\3rd Semester\OOD1\Project\ood1\ShelterApplication\obj\Debug\ShelterApp
 F:\FONTYS\3rd Semester\OOD1\Project\ood1\ShelterApplication\obj\Debug\ShelterApplication.csproj.CoreCompileInputs.cache
 F:\FONTYS\3rd Semester\OOD1\Project\ood1\ShelterApplication\obj\Debug\ShelterApplication.exe
 F:\FONTYS\3rd Semester\OOD1\Project\ood1\ShelterApplication\obj\Debug\ShelterApplication.pdb
+F:\FONTYS\3rd Semester\OOD1\Project\ood1\ShelterApplication\bin\Debug\MySql.Data.dll
+F:\FONTYS\3rd Semester\OOD1\Project\ood1\ShelterApplication\bin\Debug\MySql.Web.dll
+F:\FONTYS\3rd Semester\OOD1\Project\ood1\ShelterApplication\bin\Debug\Google.Protobuf.dll
+F:\FONTYS\3rd Semester\OOD1\Project\ood1\ShelterApplication\bin\Debug\MySql.Data.xml
+F:\FONTYS\3rd Semester\OOD1\Project\ood1\ShelterApplication\bin\Debug\MySql.Web.xml
+F:\FONTYS\3rd Semester\OOD1\Project\ood1\ShelterApplication\obj\Debug\ShelterApplication.csproj.CopyComplete

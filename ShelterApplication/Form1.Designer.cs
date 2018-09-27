@@ -106,7 +106,7 @@
             // 
             // bExitApp
             // 
-            this.bExitApp.Location = new System.Drawing.Point(174, 322);
+            this.bExitApp.Location = new System.Drawing.Point(174, 387);
             this.bExitApp.Name = "bExitApp";
             this.bExitApp.Size = new System.Drawing.Size(108, 28);
             this.bExitApp.TabIndex = 5;
@@ -128,7 +128,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(102, 363);
+            this.label2.Location = new System.Drawing.Point(93, 418);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(293, 14);
             this.label2.TabIndex = 8;
@@ -148,7 +148,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 382);
+            this.ClientSize = new System.Drawing.Size(464, 441);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
