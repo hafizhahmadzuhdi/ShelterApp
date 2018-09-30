@@ -50,8 +50,11 @@ namespace ShelterApplication
             string user = "dbi409310";
             string password = "halobekasi";
             string database = "dbi409310";
-            string connStr = "server=" + host + ";user=" + user + ";database=" + database + ";password=" + password + ";";
-                            MySqlConnection conn = new MySqlConnection(connStr);
+            string connStr = "server=" + host + ";user=" + user + ";database=" + database + ";password=" + password + ";" +"SslMode=none";
+
+
+            MySqlConnection conn = new MySqlConnection(connStr);
+
             try
             {
                 conn.Open();
