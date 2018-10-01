@@ -56,3 +56,8 @@ F:\FONTYS\3rd Semester\OOD1\Project\ood1\ShelterApplication\bin\Debug\Google.Pro
 F:\FONTYS\3rd Semester\OOD1\Project\ood1\ShelterApplication\bin\Debug\MySql.Data.xml
 F:\FONTYS\3rd Semester\OOD1\Project\ood1\ShelterApplication\bin\Debug\MySql.Web.xml
 F:\FONTYS\3rd Semester\OOD1\Project\ood1\ShelterApplication\obj\Debug\ShelterApplication.csproj.CopyComplete
+C:\Users\nhies\source\repos\ood1\ShelterApplication\bin\Debug\MySql.Data.dll
+C:\Users\nhies\source\repos\ood1\ShelterApplication\bin\Debug\MySql.Web.dll
+C:\Users\nhies\source\repos\ood1\ShelterApplication\bin\Debug\MySql.Data.xml
+C:\Users\nhies\source\repos\ood1\ShelterApplication\bin\Debug\MySql.Web.xml
+C:\Users\nhies\source\repos\ood1\ShelterApplication\obj\Debug\ShelterApplication.csproj.CopyComplete
