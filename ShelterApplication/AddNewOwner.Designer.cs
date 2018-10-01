@@ -41,10 +41,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbFName = new System.Windows.Forms.TextBox();
             this.tbLName = new System.Windows.Forms.TextBox();
-            this.tbDoB = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.tbPhone = new System.Windows.Forms.TextBox();
             this.tbAddress = new System.Windows.Forms.TextBox();
+            this.dtpDobOwner = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // tbOwnerID
@@ -161,14 +161,6 @@
             this.tbLName.Size = new System.Drawing.Size(175, 20);
             this.tbLName.TabIndex = 34;
             // 
-            // tbDoB
-            // 
-            this.tbDoB.Location = new System.Drawing.Point(144, 197);
-            this.tbDoB.Name = "tbDoB";
-            this.tbDoB.Size = new System.Drawing.Size(175, 20);
-            this.tbDoB.TabIndex = 35;
-            this.tbDoB.Text = "ddmmyy";
-            // 
             // tbEmail
             // 
             this.tbEmail.Location = new System.Drawing.Point(144, 233);
@@ -191,15 +183,22 @@
             this.tbAddress.Size = new System.Drawing.Size(175, 64);
             this.tbAddress.TabIndex = 38;
             // 
+            // dtpDobOwner
+            // 
+            this.dtpDobOwner.Location = new System.Drawing.Point(144, 197);
+            this.dtpDobOwner.Name = "dtpDobOwner";
+            this.dtpDobOwner.Size = new System.Drawing.Size(175, 20);
+            this.dtpDobOwner.TabIndex = 41;
+            // 
             // AddNewOwner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 441);
+            this.Controls.Add(this.dtpDobOwner);
             this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.tbPhone);
             this.Controls.Add(this.tbEmail);
-            this.Controls.Add(this.tbDoB);
             this.Controls.Add(this.tbLName);
             this.Controls.Add(this.tbFName);
             this.Controls.Add(this.label4);
@@ -235,9 +234,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbFName;
         private System.Windows.Forms.TextBox tbLName;
-        private System.Windows.Forms.TextBox tbDoB;
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.TextBox tbPhone;
         private System.Windows.Forms.TextBox tbAddress;
+        private System.Windows.Forms.DateTimePicker dtpDobOwner;
     }
 }
