@@ -67,7 +67,7 @@
             // 
             // bHome
             // 
-            this.bHome.Location = new System.Drawing.Point(16, 250);
+            this.bHome.Location = new System.Drawing.Point(12, 399);
             this.bHome.Name = "bHome";
             this.bHome.Size = new System.Drawing.Size(111, 30);
             this.bHome.TabIndex = 8;

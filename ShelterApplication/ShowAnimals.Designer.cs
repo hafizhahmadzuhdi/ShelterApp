@@ -69,7 +69,7 @@
             // cbAdoptable
             // 
             this.cbAdoptable.AutoSize = true;
-            this.cbAdoptable.Location = new System.Drawing.Point(64, 84);
+            this.cbAdoptable.Location = new System.Drawing.Point(63, 75);
             this.cbAdoptable.Name = "cbAdoptable";
             this.cbAdoptable.Size = new System.Drawing.Size(74, 17);
             this.cbAdoptable.TabIndex = 3;

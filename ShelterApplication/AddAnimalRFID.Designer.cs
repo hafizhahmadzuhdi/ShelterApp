@@ -80,7 +80,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddAnimalRFID";
-            this.Text = "AddAnimalRFID";
             this.Load += new System.EventHandler(this.AddAnimalRFID_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
