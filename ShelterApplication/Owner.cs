@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShelterApplication
 {
+<<<<<<< HEAD
     class Owner
     {
         int ownerID, phoneOwner;
@@ -23,5 +24,15 @@ namespace ShelterApplication
         }
     
 
+=======
+    class OwnerClass
+    {
+        public OwnerClass()
+        {
+
+        }
+
+        private int ownerID, DoB
+>>>>>>> ff715137d436fba1374d9f44eb92ec9d28b46ade
     }
 }
