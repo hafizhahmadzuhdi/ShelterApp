@@ -16,6 +16,9 @@ namespace ShelterApplication
     {
         String fname, lname, address, dob, email;
         int ownerID, phone;
+        HomeForm home = new HomeForm();
+        Owner myOwner;
+
 
         public AddNewOwner()
         {
@@ -39,7 +42,6 @@ namespace ShelterApplication
 
         private void bCancelAdd_Click(object sender, EventArgs e)
         {
-            HomeForm home = new HomeForm();
             this.Close();
             home.Show();
         }
@@ -52,45 +54,62 @@ namespace ShelterApplication
              home.Show();
              */
 
-            fname = tbFName.Text;
-            lname = tbLName.Text;
-            email = tbEmail.Text;
-            phone = Convert.ToInt32(tbPhone.Text);
-            dob = Convert.ToString(dtpDobOwner.Text);
-            address = tbAddress.Text;
-            ownerID = Convert.ToInt32(tbOwnerID.Text);
+            if (tbFName.Text == string.Empty || tbLName.Text == string.Empty || tbEmail.Text == string.Empty || tbPhone.Text == string.Empty || dtpDobOwner.Text == string.Empty || tbAddress.Text == string.Empty || tbOwnerID.Text == string.Empty)
+            {
+                MessageBox.Show("Please Enter a valid value");
+            }
+            else
+            {
+                fname = tbFName.Text;
+                lname = tbLName.Text;
+                email = tbEmail.Text;
+                phone = Convert.ToInt32(tbPhone.Text);
+                dob = Convert.ToString(dtpDobOwner.Text);
+                address = tbAddress.Text;
+                ownerID = Convert.ToInt32(tbOwnerID.Text);
 
+                try
+                {
+                    string host = "studmysql01.fhict.local";
+                    string user = "dbi409310";
+                    string password = "halobekasi";
+                    string database = "dbi409310";
+                    string connStr = "server=" + host + ";user=" + user + ";database=" + database + ";password=" + password + ";" + "SslMode=none";
 
+                    MySqlConnection conn = new MySqlConnection(connStr);
+                    conn.Open();
 
-            string host = "studmysql01.fhict.local";
-            string user = "dbi409310";
-            string password = "halobekasi";
-            string database = "dbi409310";
-            string connStr = "server=" + host + ";user=" + user + ";database=" + database + ";password=" + password + ";" + "SslMode=none";
+                    MySqlCommand mycommand;
+                    mycommand = conn.CreateCommand();
+                    mycommand.CommandText = "INSERT INTO owner (ownerID, lastName, firstName, dob, address, phone, email) VALUES (" + "'" +
+                                            ownerID + "', '" +
+                                            lname + "', '" +
+                                            fname + "', '" +
+                                            dob + "', '" +
+                                            address + "', '" +
+                                            phone + "', '" +
+                                            email + "');";
 
-            MySqlConnection conn = new MySqlConnection(connStr);
-            conn.Open();
+                    mycommand.ExecuteNonQuery();
 
-            MySqlCommand mycommand;
-            mycommand = conn.CreateCommand();
-            mycommand.CommandText = "INSERT INTO owner (ownerID, lastName, firstName, dob, address, phone, email) VALUES (" + "'" +
-                                    ownerID + "', '" +
-                                    lname + "', '" +
-                                    fname + "', '" +
-                                    dob + "', '" +
-                                    address + "', '" +
-                                    phone + "', '" +
-                                    email + "');";
+                    fname = "";
+                    lname = "";
+                    email = "";
+                    phone = 0;
+                    dob = "";
+                    address = "";
+                    ownerID = 0;
 
-            mycommand.ExecuteNonQuery();
+                    MessageBox.Show("Add New Owner Success");
 
-            fname = "";
-            lname = "";
-            email = "";
-            phone = 0;
-            dob = "";
-            address = "";
-            ownerID = 0;
+                    this.Close();
+                    home.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Sorry! The database connection interrupted");
+                }
+            }
 
         }
     }
