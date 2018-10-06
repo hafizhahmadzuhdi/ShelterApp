@@ -43,7 +43,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.tbOwner = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.TestConnection = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -136,6 +135,7 @@
             this.tbDateFound.Size = new System.Drawing.Size(256, 20);
             this.tbDateFound.TabIndex = 11;
             this.tbDateFound.Text = "ddmmyyyy";
+            this.tbDateFound.TextChanged += new System.EventHandler(this.tbDateFound_TextChanged);
             // 
             // tbLocationFound
             // 
@@ -179,22 +179,11 @@
             this.label9.TabIndex = 38;
             this.label9.Text = "Assign Owner:";
             // 
-            // TestConnection
-            // 
-            this.TestConnection.Location = new System.Drawing.Point(247, 406);
-            this.TestConnection.Name = "TestConnection";
-            this.TestConnection.Size = new System.Drawing.Size(75, 23);
-            this.TestConnection.TabIndex = 39;
-            this.TestConnection.Text = "testConnection";
-            this.TestConnection.UseVisualStyleBackColor = true;
-            this.TestConnection.Click += new System.EventHandler(this.TestConnection_Click);
-            // 
             // AddNewAnimal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 441);
-            this.Controls.Add(this.TestConnection);
             this.Controls.Add(this.tbOwner);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tbExtra);
@@ -235,6 +224,5 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbOwner;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button TestConnection;
     }
 }

@@ -54,6 +54,9 @@ namespace ShelterApplication
              home.Show();
              */
 
+            
+
+
             if (tbFName.Text == string.Empty || tbLName.Text == string.Empty || tbEmail.Text == string.Empty || tbPhone.Text == string.Empty || dtpDobOwner.Text == string.Empty || tbAddress.Text == string.Empty || tbOwnerID.Text == string.Empty)
             {
                 MessageBox.Show("Please Enter a valid value");
@@ -76,7 +79,7 @@ namespace ShelterApplication
                     string database = "dbi409310";
                     string connStr = "server=" + host + ";user=" + user + ";database=" + database + ";password=" + password + ";" + "SslMode=none";
 
-                    MySqlConnection conn = new MySqlConnection(connStr);
+                    MySqlConnection conn = new MySqlConnection();
                     conn.Open();
 
                     MySqlCommand mycommand;
@@ -107,7 +110,7 @@ namespace ShelterApplication
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Sorry! The database connection interrupted");
+                    MessageBox.Show(ex.ToString());
                 }
             }
 

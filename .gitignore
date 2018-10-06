@@ -12,6 +12,14 @@
 *.user
 *.userosscache
 *.sln.docstates
+.vs/
+.vs/ShelterApplication/v15/.suo
+.vs/ShelterApplication/v15/Server/sqlite3/storage.ide-shm
+.vs/ShelterApplication/v15/Server/sqlite3/storage.ide-wal
+*.vs/
+*.vs/ShelterApplication/v15/.suo
+*.vs/ShelterApplication/v15/Server/sqlite3/storage.ide-shm
+*.vs/ShelterApplication/v15/Server/sqlite3/storage.ide-wal
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

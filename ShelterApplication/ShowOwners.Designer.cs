@@ -34,6 +34,8 @@
             this.bHome = new System.Windows.Forms.Button();
             this.bEdit = new System.Windows.Forms.Button();
             this.bViewOwnersAnimals = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -95,11 +97,20 @@
             this.bViewOwnersAnimals.UseVisualStyleBackColor = true;
             this.bViewOwnersAnimals.Click += new System.EventHandler(this.bViewOwnersAnimals_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 101);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(440, 224);
+            this.dataGridView1.TabIndex = 11;
+            // 
             // ShowOwners
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 441);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bViewOwnersAnimals);
             this.Controls.Add(this.bEdit);
             this.Controls.Add(this.bHome);
@@ -109,6 +120,7 @@
             this.Name = "ShowOwners";
             this.Text = "All Owners";
             this.Load += new System.EventHandler(this.ShowOwners_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,5 +133,6 @@
         private System.Windows.Forms.Button bHome;
         private System.Windows.Forms.Button bEdit;
         private System.Windows.Forms.Button bViewOwnersAnimals;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

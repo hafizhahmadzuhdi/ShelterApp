@@ -46,24 +46,29 @@ namespace ShelterApplication
 
         private void TestConnection_Click(object sender, EventArgs e)
         {
-            string host = "studmysql01.fhict.local";
-            string user = "dbi409310";
-            string password = "halobekasi";
-            string database = "dbi409310";
-            string connStr = "server=" + host + ";user=" + user + ";database=" + database + ";password=" + password + ";" +"SslMode=none";
+            //string host = "studmysql01.fhict.local";
+            //string user = "dbi409310";
+            //string password = "halobekasi";
+            //string database = "dbi409310";
+            //string connStr = "server=" + host + ";user=" + user + ";database=" + database + ";password=" + password + ";" +"SslMode=none";
 
 
-            MySqlConnection conn = new MySqlConnection(connStr);
+            //MySqlConnection conn = new MySqlConnection(connStr);
 
-            try
-            {
-                conn.Open();
-                MessageBox.Show("Koneksi berhasil");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //try
+            //{
+            //    conn.Open();
+            //    MessageBox.Show("Koneksi berhasil");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+        }
+
+        private void tbDateFound_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
