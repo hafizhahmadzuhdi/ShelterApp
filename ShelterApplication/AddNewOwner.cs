@@ -61,8 +61,12 @@ namespace ShelterApplication
             {
                 MessageBox.Show("Please Enter a valid value");
             }
+
             else
             {
+                
+                Owner newOwner = new Owner();
+                //not finished yet
                 fname = tbFName.Text;
                 lname = tbLName.Text;
                 email = tbEmail.Text;
@@ -104,6 +108,7 @@ namespace ShelterApplication
                     ownerID = 0;
 
                     MessageBox.Show("Add New Owner Success");
+                    
 
                     this.Close();
                     home.Show();

@@ -9,10 +9,20 @@ namespace ShelterApplication
 
     class Owner
     {
-        int ownerID, phoneOwner;
-        string lastName, firstName, dob, address, email;
+        private int ownerID { get; set; }
+        private int phoneOwner { get; set; }
+        private string lastName { get; set; }
+        private string firstName { get; set; }
+        private string dob { get; set; }//dob in class diagram should be changed to string
+        private string address { get; set; }
+        private string email { get; set; }
 
-        public Owner(int ownerID, int phoneOwner, string lastName, string firstName, string dob, string address, string email)
+        public Owner()
+        {
+
+        }
+
+        public Owner(int ownerID, string lastName, string firstName, string dob, string address, int phoneOwner, string email)
         {
             this.ownerID = ownerID;
             this.phoneOwner = phoneOwner;
@@ -22,6 +32,8 @@ namespace ShelterApplication
             this.address = address;
             this.email = email;
         }
+
+        
     }
 }
     
