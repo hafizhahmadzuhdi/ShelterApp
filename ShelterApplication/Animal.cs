@@ -8,7 +8,7 @@ namespace ShelterApplication
 {
     class Animal
     {
-        private string rfid { get; set; }
+        public string rfid { get; set; }
         private string description { get; set; }
         private string dateBrought { get; set; }
         private string locationFound { get; set; }
@@ -17,9 +17,23 @@ namespace ShelterApplication
         private double baseFee { get; set; }
         private double dailyFee { get; set; }
         private double adoptFee { get; set; }
+        private enum status
+        {
+            adoptable,
+            notYetAdoptable,
+            adopted,
+            claimed,
+            dead,
+            lost
+        }
 
         private bool info { get; set; }
         private bool paid { get; set; }
+
+        public Animal()
+        {
+
+        }
 
         public Animal(string rfid, string description, string dateBrought, string locationFound, Owner po, double baseFee, double dailyFee, double adoptFee, bool info, bool paid)
         {
@@ -33,6 +47,26 @@ namespace ShelterApplication
             this.adoptFee = adoptFee;
             this.info = info;
             this.paid = paid;
+        }
+
+        public class Dog : Animal
+        {
+            private string lastWalked;
+
+            public Dog()
+            {
+
+            }
+        }
+
+        public class Cat : Animal
+        {
+            private string extra;
+
+            public Cat()
+            {
+
+            }
         }
     }
 }

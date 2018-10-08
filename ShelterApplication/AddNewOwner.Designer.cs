@@ -45,6 +45,7 @@
             this.tbPhone = new System.Windows.Forms.TextBox();
             this.tbAddress = new System.Windows.Forms.TextBox();
             this.dtpDobOwner = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbOwnerID
@@ -66,7 +67,7 @@
             // 
             // bCancelAdd
             // 
-            this.bCancelAdd.Location = new System.Drawing.Point(116, 391);
+            this.bCancelAdd.Location = new System.Drawing.Point(57, 391);
             this.bCancelAdd.Name = "bCancelAdd";
             this.bCancelAdd.Size = new System.Drawing.Size(70, 24);
             this.bCancelAdd.TabIndex = 39;
@@ -190,11 +191,22 @@
             this.dtpDobOwner.Size = new System.Drawing.Size(175, 20);
             this.dtpDobOwner.TabIndex = 41;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(227, 391);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 42;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // AddNewOwner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 441);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dtpDobOwner);
             this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.tbPhone);
@@ -238,5 +250,6 @@
         private System.Windows.Forms.TextBox tbPhone;
         private System.Windows.Forms.TextBox tbAddress;
         private System.Windows.Forms.DateTimePicker dtpDobOwner;
+        private System.Windows.Forms.Button button1;
     }
 }

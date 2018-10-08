@@ -59,6 +59,7 @@
             this.tbRFID.Name = "tbRFID";
             this.tbRFID.Size = new System.Drawing.Size(195, 20);
             this.tbRFID.TabIndex = 2;
+            this.tbRFID.TextChanged += new System.EventHandler(this.tbRFID_TextChanged);
             // 
             // bSubmitRFID
             // 

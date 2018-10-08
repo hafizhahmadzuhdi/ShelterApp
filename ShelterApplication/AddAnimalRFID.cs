@@ -19,12 +19,18 @@ namespace ShelterApplication
 
         private void submitRFID_Click(object sender, EventArgs e)
         {
-            AddNewAnimal addNewAnimal = new AddNewAnimal();
+
+            AddNewAnimal addNewAnimal = new AddNewAnimal(tbRFID.Text);
             this.Close();
             addNewAnimal.Show();
         }
 
         private void AddAnimalRFID_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbRFID_TextChanged(object sender, EventArgs e)
         {
 
         }

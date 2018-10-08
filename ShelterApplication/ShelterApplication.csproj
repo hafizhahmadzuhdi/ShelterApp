@@ -74,6 +74,7 @@
     <Compile Include="AdoptAnimal.Designer.cs">
       <DependentUpon>AdoptAnimal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Animal.cs" />
     <Compile Include="AssignOwner.cs">
       <SubType>Form</SubType>
     </Compile>

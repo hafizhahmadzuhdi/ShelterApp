@@ -25,6 +25,29 @@ namespace ShelterApplication
             InitializeComponent();
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            
+                string host = "studmysql01.fhict.local";
+                string user = "dbi409310";
+                string password = "halobekasi";
+                string database = "dbi409310";
+                string connStr = "server=" + host + ";user=" + user + ";database=" + database + ";password=" + password + ";" + "SslMode=none";
+
+                MySqlConnection conn = new MySqlConnection(connStr);
+
+            try
+            {
+               conn.Open();
+               MessageBox.Show("Koneksi berhasil");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -83,7 +106,7 @@ namespace ShelterApplication
                     string database = "dbi409310";
                     string connStr = "server=" + host + ";user=" + user + ";database=" + database + ";password=" + password + ";" + "SslMode=none";
 
-                    MySqlConnection conn = new MySqlConnection();
+                    MySqlConnection conn = new MySqlConnection(connStr);
                     conn.Open();
 
                     MySqlCommand mycommand;

@@ -37,12 +37,15 @@
             this.bCreateAnimal = new System.Windows.Forms.Button();
             this.tbDisplayRFID = new System.Windows.Forms.TextBox();
             this.ddSpecies = new System.Windows.Forms.ComboBox();
-            this.tbDateFound = new System.Windows.Forms.TextBox();
-            this.tbLocationFound = new System.Windows.Forms.TextBox();
             this.tbExtra = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbOwner = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.dtpAddAnimal = new System.Windows.Forms.DateTimePicker();
+            this.tbDescription = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnLookForOwner = new System.Windows.Forms.Button();
+            this.tbLocationFound = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -119,35 +122,23 @@
             this.tbDisplayRFID.Size = new System.Drawing.Size(256, 20);
             this.tbDisplayRFID.TabIndex = 9;
             this.tbDisplayRFID.TabStop = false;
+            this.tbDisplayRFID.TextChanged += new System.EventHandler(this.tbDisplayRFID_TextChanged);
             // 
             // ddSpecies
             // 
             this.ddSpecies.FormattingEnabled = true;
+            this.ddSpecies.Items.AddRange(new object[] {
+            "Species",
+            "Dog",
+            "Cat"});
             this.ddSpecies.Location = new System.Drawing.Point(114, 95);
             this.ddSpecies.Name = "ddSpecies";
             this.ddSpecies.Size = new System.Drawing.Size(256, 21);
             this.ddSpecies.TabIndex = 10;
             // 
-            // tbDateFound
-            // 
-            this.tbDateFound.Location = new System.Drawing.Point(114, 122);
-            this.tbDateFound.Name = "tbDateFound";
-            this.tbDateFound.Size = new System.Drawing.Size(256, 20);
-            this.tbDateFound.TabIndex = 11;
-            this.tbDateFound.Text = "ddmmyyyy";
-            this.tbDateFound.TextChanged += new System.EventHandler(this.tbDateFound_TextChanged);
-            // 
-            // tbLocationFound
-            // 
-            this.tbLocationFound.Location = new System.Drawing.Point(114, 156);
-            this.tbLocationFound.Multiline = true;
-            this.tbLocationFound.Name = "tbLocationFound";
-            this.tbLocationFound.Size = new System.Drawing.Size(256, 104);
-            this.tbLocationFound.TabIndex = 12;
-            // 
             // tbExtra
             // 
-            this.tbExtra.Location = new System.Drawing.Point(164, 329);
+            this.tbExtra.Location = new System.Drawing.Point(164, 284);
             this.tbExtra.Multiline = true;
             this.tbExtra.Name = "tbExtra";
             this.tbExtra.Size = new System.Drawing.Size(206, 50);
@@ -156,7 +147,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(24, 329);
+            this.label7.Location = new System.Drawing.Point(24, 287);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(134, 13);
             this.label7.TabIndex = 34;
@@ -164,7 +155,7 @@
             // 
             // tbOwner
             // 
-            this.tbOwner.Location = new System.Drawing.Point(114, 276);
+            this.tbOwner.Location = new System.Drawing.Point(114, 222);
             this.tbOwner.Name = "tbOwner";
             this.tbOwner.Size = new System.Drawing.Size(256, 20);
             this.tbOwner.TabIndex = 13;
@@ -173,23 +164,66 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(23, 279);
+            this.label9.Location = new System.Drawing.Point(24, 225);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(75, 13);
             this.label9.TabIndex = 38;
             this.label9.Text = "Assign Owner:";
+            // 
+            // dtpAddAnimal
+            // 
+            this.dtpAddAnimal.Location = new System.Drawing.Point(114, 126);
+            this.dtpAddAnimal.Name = "dtpAddAnimal";
+            this.dtpAddAnimal.Size = new System.Drawing.Size(256, 20);
+            this.dtpAddAnimal.TabIndex = 39;
+            // 
+            // tbDescription
+            // 
+            this.tbDescription.Location = new System.Drawing.Point(114, 188);
+            this.tbDescription.Name = "tbDescription";
+            this.tbDescription.Size = new System.Drawing.Size(256, 20);
+            this.tbDescription.TabIndex = 40;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(23, 191);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "Description:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // btnLookForOwner
+            // 
+            this.btnLookForOwner.Location = new System.Drawing.Point(252, 248);
+            this.btnLookForOwner.Name = "btnLookForOwner";
+            this.btnLookForOwner.Size = new System.Drawing.Size(118, 23);
+            this.btnLookForOwner.TabIndex = 42;
+            this.btnLookForOwner.Text = "Search Owner ID";
+            this.btnLookForOwner.UseVisualStyleBackColor = true;
+            // 
+            // tbLocationFound
+            // 
+            this.tbLocationFound.Location = new System.Drawing.Point(115, 159);
+            this.tbLocationFound.Name = "tbLocationFound";
+            this.tbLocationFound.Size = new System.Drawing.Size(255, 20);
+            this.tbLocationFound.TabIndex = 43;
             // 
             // AddNewAnimal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 441);
+            this.Controls.Add(this.tbLocationFound);
+            this.Controls.Add(this.btnLookForOwner);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.tbDescription);
+            this.Controls.Add(this.dtpAddAnimal);
             this.Controls.Add(this.tbOwner);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tbExtra);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.tbLocationFound);
-            this.Controls.Add(this.tbDateFound);
             this.Controls.Add(this.ddSpecies);
             this.Controls.Add(this.tbDisplayRFID);
             this.Controls.Add(this.bCreateAnimal);
@@ -218,11 +252,14 @@
         private System.Windows.Forms.Button bCreateAnimal;
         private System.Windows.Forms.TextBox tbDisplayRFID;
         private System.Windows.Forms.ComboBox ddSpecies;
-        private System.Windows.Forms.TextBox tbDateFound;
-        private System.Windows.Forms.TextBox tbLocationFound;
         private System.Windows.Forms.TextBox tbExtra;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbOwner;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dtpAddAnimal;
+        private System.Windows.Forms.TextBox tbDescription;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnLookForOwner;
+        private System.Windows.Forms.TextBox tbLocationFound;
     }
 }
