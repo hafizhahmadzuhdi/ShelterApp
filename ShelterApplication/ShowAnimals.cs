@@ -19,28 +19,15 @@ namespace ShelterApplication
         }
 
         DataSet ds = new DataSet();
+        Database db = new Database();
 
         public void getAnimal()
         {
-            string host = "studmysql01.fhict.local";
-            string user = "dbi409310";
-            string password = "halobekasi";
-            string database = "dbi409310";
-            string connStr = "server=" + host + ";user=" + user + ";database=" + database + ";password=" + password + ";" + "SslMode=none";
-            string query = "";
-            MySqlConnection conn = new MySqlConnection(connStr);
-
             try
             {
-                conn.Open();
-                MessageBox.Show("Connection Successful");
-                query = string.Format("SELECT rfid, species, status FROM animal");
-                MySqlCommand command = new MySqlCommand(query, conn);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                command.ExecuteNonQuery();
-                ds.Clear();
-                adapter.Fill(ds);
-                conn.Close();
+                //conn.Open();
+                //MessageBox.Show("Connection Successful");
+                ds = db.getAllAnimals();
                 dataGridView1.DataSource = ds.Tables[0];
                 dataGridView1.Columns[0].Width = 80;
                 //dataGridView1.Columns[2].Width = 80;

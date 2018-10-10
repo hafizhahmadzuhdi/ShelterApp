@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ShelterApplication
 {
-    class Animal
+    public abstract class Animal
     {
-        public string rfid { get; set; }
+        private string rfid { get; set; }
         private string description { get; set; }
         private string dateBrought { get; set; }
         private string locationFound { get; set; }
@@ -29,62 +29,91 @@ namespace ShelterApplication
             lost
         }
 
+        private status animalstatus;
+
         private bool info { get; set; }
         private bool paid { get; set; }
 
-        public Animal()
-        {
-
-        }
-
-        public Animal(string rfid, string description, string dateBrought, string locationFound, Owner po, double baseFee, double dailyFee, double adoptFee, bool info, bool paid)
+        public Animal(string rfid, string description, string dateBrought, string locationFound, double baseFee, double dailyFee, double adoptFee, Owner po)
         {
             this.rfid = rfid;
             this.description = description;
             this.dateBrought = dateBrought;
             this.locationFound = locationFound;
-            this.myOwner = myOwner;
             this.baseFee = baseFee;
             this.dailyFee = dailyFee;
             this.adoptFee = adoptFee;
-            this.info = info;
-            this.paid = paid;
+            this.myOwner = po;
         }
 
-        public class Dog : Animal
+        public string getRfid(){
+            return this.rfid;
+        }
+
+        public string getDescription()
         {
-            private string lastWalked;
-
-            public Dog()
-            {
-
-            }
+            return this.description;
         }
 
-        public class Cat : Animal
+        public string getDateBrought()
         {
-            private string extra;
-
-            public Cat()
-            {
-
-            }
+            return this.dateBrought;
         }
 
-        public Owner getOwner()
-        {
-            return this.myOwner;
+        public string getLocationFound(){
+            return this.locationFound;
         }
 
-        public double getDays(Owner a)
-        {
-            //return a.getInt();
-            return baseFee;
+        public int getPoId(){
+            if (this.myOwner != null)
+                return this.myOwner.getOwnerId();
+            else
+                return 0;
         }
+ 
+        //public Animal()
+        //{
 
-        public double calculateClaimFee()
-        {
-            return baseFee;
-        }
+        //}
+
+        //public Animal(string rfid, string description, string dateBrought, string locationFound, Owner po, double baseFee, double dailyFee, double adoptFee, bool info, bool paid)
+        //{
+        //    this.rfid = rfid;
+        //    this.description = description;
+        //    this.dateBrought = dateBrought;
+        //    this.locationFound = locationFound;
+        //    this.myOwner = po;
+        //    this.baseFee = baseFee;
+        //    this.dailyFee = dailyFee;
+        //    this.adoptFee = adoptFee;
+        //    this.info = info;
+        //    this.paid = paid;
+        //}
+
+        //public class Cat : Animal
+        //{
+        //    private string extra;
+
+        //    public Cat()
+        //    {
+
+        //    }
+        //}
+
+        //public Owner getOwner()
+        //{
+        //    return this.myOwner;
+        //}
+
+        //public double getDays(Owner a)
+        //{
+        //    //return a.getInt();
+        //    return baseFee;
+        //}
+
+        //public double calculateClaimFee()
+        //{
+        //    return baseFee;
+        //}
     }
 }
