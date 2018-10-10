@@ -18,7 +18,7 @@ namespace ShelterApplication
         string rfid, description, dateBrought, locationFound, species, status, extraInfo, lastWalked;
         Owner po;
         string nullable;
-        Database db = new Database();
+        ShelterApp db = new ShelterApp();
         public AddNewAnimal(string x)
         {
             InitializeComponent();

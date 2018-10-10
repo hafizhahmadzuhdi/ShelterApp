@@ -4,7 +4,7 @@ using MySql.Data.MySqlClient;
 
 namespace ShelterApplication
 {
-    public class Database
+    public class ShelterApp
     {
         private static string host = "studmysql01.fhict.local";
         private static string user = "dbi409310";
@@ -86,6 +86,16 @@ namespace ShelterApplication
             adapter.Fill(ds);
             conn.Close();
             return ds;
+        }
+
+        public void updateStatus(){
+            DataSet ds = this.getAllAnimals();
+            foreach (DataTable tables in ds.Tables){
+                foreach (DataRow row in tables.Rows){
+                    Console.WriteLine(row[2]);
+                }
+            }
+
         }
     }
 }

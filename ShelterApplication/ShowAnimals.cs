@@ -19,7 +19,7 @@ namespace ShelterApplication
         }
 
         DataSet ds = new DataSet();
-        Database db = new Database();
+        ShelterApp db = new ShelterApp();
 
         public void getAnimal()
         {
@@ -27,6 +27,7 @@ namespace ShelterApplication
             {
                 //conn.Open();
                 //MessageBox.Show("Connection Successful");
+                db.updateStatus();
                 ds = db.getAllAnimals();
                 dataGridView1.DataSource = ds.Tables[0];
                 dataGridView1.Columns[0].Width = 80;

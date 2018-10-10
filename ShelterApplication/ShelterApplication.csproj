@@ -198,7 +198,7 @@
     </Compile>
     <None Include="shelter.config" />
     <None Include="packages.config" />
-    <Compile Include="Database.cs" />
+    <Compile Include="ShelterApp.cs" />
     <Compile Include="Dog.cs" />
     <Compile Include="Cat.cs" />
   </ItemGroup>

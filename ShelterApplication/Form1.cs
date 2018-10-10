@@ -26,8 +26,8 @@ namespace ShelterApplication
 
         private void addOwner_Click(object sender, EventArgs e)
         {
-            
             AddOwnPanel.Show();
+            AddOwnPanel.BringToFront();
         }
 
         private void addAnimal_Click(object sender, EventArgs e)
