@@ -60,6 +60,25 @@ namespace ShelterApplication
             conn.Close();
         }
 
+        public void addOwner(Owner owner)
+        {
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO owner (ownerID, lastName, firstName, dob, address, phone, email)  VALUES" +
+                                                "(@ownId, @lName, @fName, @dob, @add, @phone, @email)", conn);
+
+            cmd.Parameters.AddWithValue("@ownId", owner.getOwnerId());
+            cmd.Parameters.AddWithValue("@lName", owner.getLastName());
+            cmd.Parameters.AddWithValue("@fName", owner.getFirstName());
+            cmd.Parameters.AddWithValue("@dob", owner.getDob());
+            cmd.Parameters.AddWithValue("@add", owner.getAddress());
+            cmd.Parameters.AddWithValue("@phone", owner.getPhoneOwner());
+            cmd.Parameters.AddWithValue("@email", owner.getEmail());
+            
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
         public Owner getOwnerById(int id){
             conn.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT * from owner o WHERE o.ownerId = @id", conn);
