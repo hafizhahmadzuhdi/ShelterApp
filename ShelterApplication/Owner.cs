@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ShelterApplication
 {
 
-    class Owner
+    public class Owner
     {
         private int ownerID { get; set; }
         private int phoneOwner { get; set; }
@@ -20,6 +20,10 @@ namespace ShelterApplication
         public Owner()
         {
 
+        }
+
+        public int getOwnerId(){
+            return this.ownerID;
         }
 
         public Owner(int ownerID, string lastName, string firstName, string dob, string address, int phoneOwner, string email)
