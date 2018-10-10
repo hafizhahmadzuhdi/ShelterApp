@@ -1449,13 +1449,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 441);
+            this.Controls.Add(this.AnimalsPanel);
             this.Controls.Add(this.OwnersPanel);
             this.Controls.Add(this.AnmDetailsPanel);
             this.Controls.Add(this.AddOwnPanel);
             this.Controls.Add(this.RfidPanel);
             this.Controls.Add(this.AddAnmPanel);
             this.Controls.Add(this.AdoptPanel);
-            this.Controls.Add(this.AnimalsPanel);
             this.Controls.Add(this.ClaimPanel);
             this.Controls.Add(this.OwnDetailsPanel);
             this.Controls.Add(this.HomePanel);

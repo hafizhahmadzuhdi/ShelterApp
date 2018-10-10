@@ -94,6 +94,20 @@ namespace ShelterApplication
 
         }
 
+        public DataSet getAllOwners()
+        {
+            DataSet ds = new DataSet();
+            conn.Open();
+            string query = string.Format("SELECT ownerID, firstName, lastName from owner");
+            MySqlCommand command = new MySqlCommand(query, conn);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            command.ExecuteNonQuery();
+            ds.Clear();
+            adapter.Fill(ds);
+            conn.Close();
+            return ds;
+        }
+
         public DataSet getAllAnimals(){
             DataSet ds = new DataSet();
             conn.Open();
