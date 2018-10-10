@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ADODB;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
@@ -16,7 +17,8 @@ namespace ShelterApplication
     {
 
         string rfid, description, dateBrought, locationFound, species, status, extraInfo, lastWalked;
-        int po;
+        int ? po;
+        string nullable;
 
         public AddNewAnimal(string x)
         {
@@ -38,6 +40,13 @@ namespace ShelterApplication
             home.Show();
         }
 
+        public static object ToDbNull(object value)
+        {
+            if (null != value)
+                return value;
+            return DBNull.Value;
+        }
+
         private void bCreateAnimal_Click(object sender, EventArgs e)
         {
             //HomeForm home = new HomeForm();
@@ -55,10 +64,17 @@ namespace ShelterApplication
                 description = tbDescription.Text;
                 dateBrought = Convert.ToString(dtpAddAnimal);
                 locationFound = tbLocationFound.Text;
-                po = Convert.ToInt32(tbOwner.Text);
+                if (tbOwner.Text != string.Empty)
+                {
+                    po = Convert.ToInt32(tbOwner.Text);
+                } else
+                {
+                    po = null;
+                }
                 species = ddSpecies.Text;
                 status = "notYetAdoptable";
                 extraInfo = tbExtra.Text;
+                Console.WriteLine(po);
 
                 try
                 {
@@ -70,7 +86,7 @@ namespace ShelterApplication
 
                     MySqlConnection conn = new MySqlConnection(connStr);
                     conn.Open();
-
+                    MessageBox.Show(Convert.ToString(po));
 
                     MySqlCommand mycommand;
                     mycommand = conn.CreateCommand();
@@ -83,7 +99,6 @@ namespace ShelterApplication
                                             species + "', '" +
                                             status + "', '" +
                                             extraInfo + "');";
-
                     mycommand.ExecuteNonQuery();
                     MessageBox.Show("Animal Successfully Addedd");
                         
@@ -91,7 +106,8 @@ namespace ShelterApplication
                     description = "";
                     dateBrought = "";
                     locationFound = "";
-                    po = 0;
+                    po = null;
+                    nullable = "";
                     species = "";
                     status = "";
                     extraInfo = "";

@@ -12,11 +12,13 @@ namespace ShelterApplication
         private string description { get; set; }
         private string dateBrought { get; set; }
         private string locationFound { get; set; }
-        private Owner po;
+        private Owner myOwner;
 
         private double baseFee { get; set; }
         private double dailyFee { get; set; }
         private double adoptFee { get; set; }
+        
+
         private enum status
         {
             adoptable,
@@ -41,7 +43,7 @@ namespace ShelterApplication
             this.description = description;
             this.dateBrought = dateBrought;
             this.locationFound = locationFound;
-            this.po = po;
+            this.myOwner = myOwner;
             this.baseFee = baseFee;
             this.dailyFee = dailyFee;
             this.adoptFee = adoptFee;
@@ -67,6 +69,22 @@ namespace ShelterApplication
             {
 
             }
+        }
+
+        public Owner getOwner()
+        {
+            return this.myOwner;
+        }
+
+        public double getDays(Owner a)
+        {
+            //return a.getInt();
+            return baseFee;
+        }
+
+        public double calculateClaimFee()
+        {
+            return baseFee;
         }
     }
 }

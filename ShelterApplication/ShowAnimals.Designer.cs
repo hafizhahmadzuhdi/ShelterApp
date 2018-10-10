@@ -37,6 +37,8 @@
             this.bEdit = new System.Windows.Forms.Button();
             this.bAdopt = new System.Windows.Forms.Button();
             this.bClaim = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbSearchAnimals
@@ -126,11 +128,20 @@
             this.bClaim.UseVisualStyleBackColor = true;
             this.bClaim.Click += new System.EventHandler(this.bClaim_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 98);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(452, 283);
+            this.dataGridView1.TabIndex = 9;
+            // 
             // ShowAnimals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 441);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bClaim);
             this.Controls.Add(this.bAdopt);
             this.Controls.Add(this.bEdit);
@@ -143,6 +154,7 @@
             this.Name = "ShowAnimals";
             this.Text = "ShowAnimals";
             this.Load += new System.EventHandler(this.ShowAnimals_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,5 +171,6 @@
         private System.Windows.Forms.Button bEdit;
         private System.Windows.Forms.Button bAdopt;
         private System.Windows.Forms.Button bClaim;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
