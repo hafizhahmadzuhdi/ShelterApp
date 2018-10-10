@@ -63,9 +63,6 @@ namespace ShelterApplication
                 {   
                     int po_id = Convert.ToInt32(tbOwner.Text);
                     po = db.getOwnerById(po_id);
-                    MessageBox.Show("" + po.getOwnerId());
-
-
                 } else
                 {
                     po = null;

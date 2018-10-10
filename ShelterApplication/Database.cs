@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace ShelterApplication
@@ -72,6 +73,19 @@ namespace ShelterApplication
 
             return owner;
 
+        }
+
+        public DataSet getAllAnimals(){
+            DataSet ds = new DataSet();
+            conn.Open();
+            string query = string.Format("SELECT rfid, 'dog' AS species, status FROM dog UNION SELECT rfid, 'cat' AS species, status FROM cat");
+            MySqlCommand command = new MySqlCommand(query, conn);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            command.ExecuteNonQuery();
+            ds.Clear();
+            adapter.Fill(ds);
+            conn.Close();
+            return ds;
         }
     }
 }
