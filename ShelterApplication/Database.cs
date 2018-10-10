@@ -14,51 +14,59 @@ namespace ShelterApplication
         );
 
         public void addDog(Dog dog){
-                conn.Open();
-                MySqlCommand mycommand;
-                mycommand = conn.CreateCommand();
-                mycommand.CommandText = "INSERT INTO dog (rfid, description, dateBrought, locationFound, po, status, lastWalked) VALUES (" + "'" +
-                        dog.getRfid() + "', '" +
-                        dog.getDescription() + "', '" +
-                        dog.getDateBrought() + "', '" +
-                        dog.getLocationFound() + "', " +
-                        dog.getPoId() + ", '" +
-                        "notYetAdoptable'" + ", NULL" +
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO dog (rfid, description, dateBrought, locationFound, po, status, lastWalked) VALUES" +
+                                                "(@rfid, @desc, @db, @lf, @po, @status, @lw)", conn);
+                 
+            cmd.Parameters.AddWithValue("@rfid", dog.getRfid());
+            cmd.Parameters.AddWithValue("@desc", dog.getDescription());
+            cmd.Parameters.AddWithValue("@db", dog.getDateBrought());
+            cmd.Parameters.AddWithValue("@lf", dog.getLocationFound());
 
-                ");";
-                mycommand.ExecuteNonQuery();
-                conn.Close();
+            if (dog.getPoId() != 0)
+                cmd.Parameters.AddWithValue("@po", dog.getPoId());
+            else
+                cmd.Parameters.AddWithValue("@po", null);
+
+            cmd.Parameters.AddWithValue("@status", "notYetAdoptable");
+            cmd.Parameters.AddWithValue("@lw", null);
+
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
 
         public void addCat(Cat cat)
         {
             conn.Open();
-            MySqlCommand mycommand;
-            mycommand = conn.CreateCommand();
-            mycommand.CommandText = "INSERT INTO cat (rfid, description, dateBrought, locationFound, po, status, extra) VALUES (" + "'" +
-                    cat.getRfid() + "', '" +
-                    cat.getDescription() + "', '" +
-                    cat.getDateBrought() + "', '" +
-                    cat.getLocationFound() + "', " +
-                    cat.getPoId() + ", '" +
-                "notYetAdoptable'" + ", '" + cat.getExtra() + "'" +
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO cat(rfid, description, dateBrought, locationFound, po, status, extra) VALUES" +
+                                                "(@rfid, @desc, @db, @lf, @po, @status, @extra)", conn);
+            cmd.Parameters.AddWithValue("@rfid", cat.getRfid());
+            cmd.Parameters.AddWithValue("@desc", cat.getDescription());
+            cmd.Parameters.AddWithValue("@db", cat.getDateBrought());
+            cmd.Parameters.AddWithValue("@lf", cat.getLocationFound());
 
-            ");";
-            mycommand.ExecuteNonQuery();
+            if (cat.getPoId() != 0)
+                cmd.Parameters.AddWithValue("@po", cat.getPoId());
+            else
+                cmd.Parameters.AddWithValue("@po", null);
+
+            cmd.Parameters.AddWithValue("@status", "notYetAdoptable");
+            cmd.Parameters.AddWithValue("@extra", cat.getExtra());
+
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
             conn.Close();
         }
 
         public Owner getOwnerById(int id){
             conn.Open();
-            MySqlCommand mycommand = conn.CreateCommand();
-            mycommand.CommandText = "SELECT * from owner o WHERE o.ownerId =" + id;
-            Object result = mycommand.ExecuteScalar();
-
-            MySqlDataReader rdr = mycommand.ExecuteReader();
-
+            MySqlCommand cmd = new MySqlCommand("SELECT * from owner o WHERE o.ownerId = @id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Prepare();
+            MySqlDataReader rdr = cmd.ExecuteReader();
             rdr.Read();
             Owner owner = new Owner(Convert.ToInt32(rdr[0]), Convert.ToString(rdr[1]), Convert.ToString(rdr[2]), Convert.ToString(rdr[3]), Convert.ToString(rdr[4]), Convert.ToInt32(rdr[5]), Convert.ToString(rdr[6]));
-
             rdr.Close();
             conn.Close();
 
