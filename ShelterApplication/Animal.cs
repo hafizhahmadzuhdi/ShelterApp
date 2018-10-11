@@ -10,10 +10,10 @@ namespace ShelterApplication
     {
         private string rfid { get; set; }
         private string description { get; set; }
-        private string dateBrought { get; set; }
+        private string dateBrought { get; set; }//This string then will be converted into Date Type
         private string locationFound { get; set; }
+        status animalStatus;
         private Owner myOwner;
-
         private double baseFee { get; set; }
         private double dailyFee { get; set; }
         private double adoptFee { get; set; }
@@ -69,6 +69,43 @@ namespace ShelterApplication
                 return this.myOwner.getOwnerId();
             else
                 return 0;
+        }
+
+        public void setOwner(Owner o)
+        {
+            this.myOwner = o;
+        }
+
+        public void setStatus(string x)
+        {
+            if (x == "adoptable") {
+                animalStatus = status.adoptable;
+            } else if (x == "notYetAdoptable")
+            {
+                animalStatus = status.notYetAdoptable;
+            } else if (x == "dead")
+            {
+                animalStatus = status.dead;
+            } else if (x == "lost")
+            {
+                animalStatus = status.lost;
+            } else if (x == "adopted")
+            {
+                animalStatus = status.adopted;
+            } else if (x == "claimed")
+            {
+                animalStatus = status.claimed;
+            }
+        }
+
+        public int calculateDays()
+        {
+            string theDateBrought = getDateBrought();
+            DateTime dateFound = Convert.ToDateTime(theDateBrought);
+            DateTime dateNow = DateTime.Now;
+            double daysTotal =  (dateNow - dateFound).TotalDays;
+            int days = Convert.ToInt32(daysTotal);
+            return days;
         }
  
         //public Animal()

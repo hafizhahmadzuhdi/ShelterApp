@@ -81,19 +81,22 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.AdoptPanel = new System.Windows.Forms.Panel();
+            this.cbPaidAdopt = new System.Windows.Forms.CheckBox();
             this.bAdopt = new System.Windows.Forms.Button();
             this.bCancel = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbFeeAdopt = new System.Windows.Forms.TextBox();
+            this.tbOwnerIDAdopt = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.HomePanel = new System.Windows.Forms.Panel();
             this.AnimalsPanel = new System.Windows.Forms.Panel();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.btnShowAll = new System.Windows.Forms.Button();
+            this.btnSearchAnimals = new System.Windows.Forms.Button();
+            this.rbAllAnimals = new System.Windows.Forms.RadioButton();
+            this.rbNotYetAdoptable = new System.Windows.Forms.RadioButton();
+            this.rbAdoptable = new System.Windows.Forms.RadioButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bHome = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
@@ -121,11 +124,13 @@
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.OwnersPanel = new System.Windows.Forms.Panel();
+            this.bDisplayAll = new System.Windows.Forms.Button();
+            this.bSearchOwner = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.tbSearchOwners = new System.Windows.Forms.TextBox();
             this.ClaimPanel = new System.Windows.Forms.Panel();
             this.tbTotalDays = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
@@ -156,6 +161,18 @@
             this.label49 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.tbRfidAdopt = new System.Windows.Forms.TextBox();
+            this.tbDateBroughtAdopt = new System.Windows.Forms.TextBox();
+            this.tbLocationFoundAdopt = new System.Windows.Forms.TextBox();
+            this.tbSpeciesAdopt = new System.Windows.Forms.TextBox();
+            this.tbDescriptionAdopt = new System.Windows.Forms.TextBox();
+            this.tbExtraAdopt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.AddOwnPanel.SuspendLayout();
@@ -682,10 +699,23 @@
             // 
             // AdoptPanel
             // 
+            this.AdoptPanel.Controls.Add(this.tbExtraAdopt);
+            this.AdoptPanel.Controls.Add(this.tbDescriptionAdopt);
+            this.AdoptPanel.Controls.Add(this.tbSpeciesAdopt);
+            this.AdoptPanel.Controls.Add(this.tbLocationFoundAdopt);
+            this.AdoptPanel.Controls.Add(this.tbDateBroughtAdopt);
+            this.AdoptPanel.Controls.Add(this.tbRfidAdopt);
+            this.AdoptPanel.Controls.Add(this.label57);
+            this.AdoptPanel.Controls.Add(this.label56);
+            this.AdoptPanel.Controls.Add(this.label55);
+            this.AdoptPanel.Controls.Add(this.label54);
+            this.AdoptPanel.Controls.Add(this.label53);
+            this.AdoptPanel.Controls.Add(this.label52);
+            this.AdoptPanel.Controls.Add(this.cbPaidAdopt);
             this.AdoptPanel.Controls.Add(this.bAdopt);
             this.AdoptPanel.Controls.Add(this.bCancel);
-            this.AdoptPanel.Controls.Add(this.textBox1);
-            this.AdoptPanel.Controls.Add(this.textBox2);
+            this.AdoptPanel.Controls.Add(this.tbFeeAdopt);
+            this.AdoptPanel.Controls.Add(this.tbOwnerIDAdopt);
             this.AdoptPanel.Controls.Add(this.label22);
             this.AdoptPanel.Controls.Add(this.label23);
             this.AdoptPanel.Controls.Add(this.label24);
@@ -696,6 +726,16 @@
             this.AdoptPanel.Size = new System.Drawing.Size(464, 441);
             this.AdoptPanel.TabIndex = 62;
             this.AdoptPanel.Visible = false;
+            // 
+            // cbPaidAdopt
+            // 
+            this.cbPaidAdopt.AutoSize = true;
+            this.cbPaidAdopt.Location = new System.Drawing.Point(214, 363);
+            this.cbPaidAdopt.Name = "cbPaidAdopt";
+            this.cbPaidAdopt.Size = new System.Drawing.Size(47, 17);
+            this.cbPaidAdopt.TabIndex = 38;
+            this.cbPaidAdopt.Text = "Paid";
+            this.cbPaidAdopt.UseVisualStyleBackColor = true;
             // 
             // bAdopt
             // 
@@ -717,26 +757,26 @@
             this.bCancel.UseVisualStyleBackColor = true;
             this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
             // 
-            // textBox1
+            // tbFeeAdopt
             // 
-            this.textBox1.Location = new System.Drawing.Point(218, 284);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(125, 20);
-            this.textBox1.TabIndex = 33;
-            this.textBox1.TabStop = false;
+            this.tbFeeAdopt.Location = new System.Drawing.Point(214, 320);
+            this.tbFeeAdopt.Name = "tbFeeAdopt";
+            this.tbFeeAdopt.ReadOnly = true;
+            this.tbFeeAdopt.Size = new System.Drawing.Size(125, 20);
+            this.tbFeeAdopt.TabIndex = 33;
+            this.tbFeeAdopt.TabStop = false;
             // 
-            // textBox2
+            // tbOwnerIDAdopt
             // 
-            this.textBox2.Location = new System.Drawing.Point(217, 249);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 20);
-            this.textBox2.TabIndex = 32;
+            this.tbOwnerIDAdopt.Location = new System.Drawing.Point(213, 285);
+            this.tbOwnerIDAdopt.Name = "tbOwnerIDAdopt";
+            this.tbOwnerIDAdopt.Size = new System.Drawing.Size(125, 20);
+            this.tbOwnerIDAdopt.TabIndex = 32;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(121, 287);
+            this.label22.Location = new System.Drawing.Point(117, 323);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(91, 13);
             this.label22.TabIndex = 31;
@@ -745,7 +785,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(104, 252);
+            this.label23.Location = new System.Drawing.Point(100, 288);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(107, 13);
             this.label23.TabIndex = 30;
@@ -754,7 +794,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(23, 81);
+            this.label24.Location = new System.Drawing.Point(24, 72);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(76, 13);
             this.label24.TabIndex = 29;
@@ -790,9 +830,11 @@
             // 
             // AnimalsPanel
             // 
-            this.AnimalsPanel.Controls.Add(this.radioButton3);
-            this.AnimalsPanel.Controls.Add(this.radioButton2);
-            this.AnimalsPanel.Controls.Add(this.radioButton1);
+            this.AnimalsPanel.Controls.Add(this.btnShowAll);
+            this.AnimalsPanel.Controls.Add(this.btnSearchAnimals);
+            this.AnimalsPanel.Controls.Add(this.rbAllAnimals);
+            this.AnimalsPanel.Controls.Add(this.rbNotYetAdoptable);
+            this.AnimalsPanel.Controls.Add(this.rbAdoptable);
             this.AnimalsPanel.Controls.Add(this.dataGridView1);
             this.AnimalsPanel.Controls.Add(this.bHome);
             this.AnimalsPanel.Controls.Add(this.label26);
@@ -805,39 +847,61 @@
             this.AnimalsPanel.TabIndex = 10;
             this.AnimalsPanel.Visible = false;
             // 
-            // radioButton3
+            // btnShowAll
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Checked = true;
-            this.radioButton3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.radioButton3.Location = new System.Drawing.Point(347, 76);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(74, 17);
-            this.radioButton3.TabIndex = 19;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "All animals";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.btnShowAll.Location = new System.Drawing.Point(377, 48);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(75, 23);
+            this.btnShowAll.TabIndex = 21;
+            this.btnShowAll.Text = "Show All";
+            this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
             // 
-            // radioButton2
+            // btnSearchAnimals
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(105, 76);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(109, 17);
-            this.radioButton2.TabIndex = 18;
-            this.radioButton2.Text = "Not yet adoptable";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.btnSearchAnimals.Location = new System.Drawing.Point(298, 48);
+            this.btnSearchAnimals.Name = "btnSearchAnimals";
+            this.btnSearchAnimals.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchAnimals.TabIndex = 20;
+            this.btnSearchAnimals.Text = "Search";
+            this.btnSearchAnimals.UseVisualStyleBackColor = true;
+            this.btnSearchAnimals.Click += new System.EventHandler(this.btnSearchAnimals_Click);
             // 
-            // radioButton1
+            // rbAllAnimals
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(13, 76);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(73, 17);
-            this.radioButton1.TabIndex = 17;
-            this.radioButton1.Text = "Adoptable";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.rbAllAnimals.AutoSize = true;
+            this.rbAllAnimals.Checked = true;
+            this.rbAllAnimals.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rbAllAnimals.Location = new System.Drawing.Point(347, 76);
+            this.rbAllAnimals.Name = "rbAllAnimals";
+            this.rbAllAnimals.Size = new System.Drawing.Size(74, 17);
+            this.rbAllAnimals.TabIndex = 19;
+            this.rbAllAnimals.TabStop = true;
+            this.rbAllAnimals.Text = "All animals";
+            this.rbAllAnimals.UseVisualStyleBackColor = true;
+            this.rbAllAnimals.CheckedChanged += new System.EventHandler(this.rbAllAnimals_CheckedChanged);
+            // 
+            // rbNotYetAdoptable
+            // 
+            this.rbNotYetAdoptable.AutoSize = true;
+            this.rbNotYetAdoptable.Location = new System.Drawing.Point(105, 76);
+            this.rbNotYetAdoptable.Name = "rbNotYetAdoptable";
+            this.rbNotYetAdoptable.Size = new System.Drawing.Size(109, 17);
+            this.rbNotYetAdoptable.TabIndex = 18;
+            this.rbNotYetAdoptable.Text = "Not yet adoptable";
+            this.rbNotYetAdoptable.UseVisualStyleBackColor = true;
+            this.rbNotYetAdoptable.CheckedChanged += new System.EventHandler(this.rbNotYetAdoptable_CheckedChanged);
+            // 
+            // rbAdoptable
+            // 
+            this.rbAdoptable.AutoSize = true;
+            this.rbAdoptable.Location = new System.Drawing.Point(13, 76);
+            this.rbAdoptable.Name = "rbAdoptable";
+            this.rbAdoptable.Size = new System.Drawing.Size(73, 17);
+            this.rbAdoptable.TabIndex = 17;
+            this.rbAdoptable.Text = "Adoptable";
+            this.rbAdoptable.UseVisualStyleBackColor = true;
+            this.rbAdoptable.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // dataGridView1
             // 
@@ -846,6 +910,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(452, 283);
             this.dataGridView1.TabIndex = 16;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // bHome
@@ -871,7 +936,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(42, 53);
+            this.label27.Location = new System.Drawing.Point(11, 53);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(125, 13);
             this.label27.TabIndex = 11;
@@ -879,7 +944,7 @@
             // 
             // tbSearchAnimals
             // 
-            this.tbSearchAnimals.Location = new System.Drawing.Point(173, 50);
+            this.tbSearchAnimals.Location = new System.Drawing.Point(142, 50);
             this.tbSearchAnimals.Name = "tbSearchAnimals";
             this.tbSearchAnimals.Size = new System.Drawing.Size(150, 20);
             this.tbSearchAnimals.TabIndex = 10;
@@ -1093,17 +1158,39 @@
             // 
             // OwnersPanel
             // 
+            this.OwnersPanel.Controls.Add(this.bDisplayAll);
+            this.OwnersPanel.Controls.Add(this.bSearchOwner);
             this.OwnersPanel.Controls.Add(this.dataGridView2);
             this.OwnersPanel.Controls.Add(this.button3);
             this.OwnersPanel.Controls.Add(this.label37);
             this.OwnersPanel.Controls.Add(this.label38);
-            this.OwnersPanel.Controls.Add(this.textBox8);
+            this.OwnersPanel.Controls.Add(this.tbSearchOwners);
             this.OwnersPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OwnersPanel.Location = new System.Drawing.Point(0, 0);
             this.OwnersPanel.Name = "OwnersPanel";
             this.OwnersPanel.Size = new System.Drawing.Size(464, 441);
             this.OwnersPanel.TabIndex = 57;
             this.OwnersPanel.Visible = false;
+            // 
+            // bDisplayAll
+            // 
+            this.bDisplayAll.Location = new System.Drawing.Point(386, 61);
+            this.bDisplayAll.Name = "bDisplayAll";
+            this.bDisplayAll.Size = new System.Drawing.Size(75, 22);
+            this.bDisplayAll.TabIndex = 20;
+            this.bDisplayAll.Text = "Show All";
+            this.bDisplayAll.UseVisualStyleBackColor = true;
+            this.bDisplayAll.Click += new System.EventHandler(this.bDisplayAll_Click);
+            // 
+            // bSearchOwner
+            // 
+            this.bSearchOwner.Location = new System.Drawing.Point(322, 61);
+            this.bSearchOwner.Name = "bSearchOwner";
+            this.bSearchOwner.Size = new System.Drawing.Size(60, 21);
+            this.bSearchOwner.TabIndex = 19;
+            this.bSearchOwner.Text = "Search";
+            this.bSearchOwner.UseVisualStyleBackColor = true;
+            this.bSearchOwner.Click += new System.EventHandler(this.bSearchOwner_Click);
             // 
             // dataGridView2
             // 
@@ -1137,18 +1224,18 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(40, 62);
+            this.label38.Location = new System.Drawing.Point(13, 62);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(146, 13);
             this.label38.TabIndex = 13;
             this.label38.Text = "Search Owner by Last Name:";
             // 
-            // textBox8
+            // tbSearchOwners
             // 
-            this.textBox8.Location = new System.Drawing.Point(192, 62);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(150, 20);
-            this.textBox8.TabIndex = 12;
+            this.tbSearchOwners.Location = new System.Drawing.Point(165, 61);
+            this.tbSearchOwners.Name = "tbSearchOwners";
+            this.tbSearchOwners.Size = new System.Drawing.Size(150, 20);
+            this.tbSearchOwners.TabIndex = 12;
             // 
             // ClaimPanel
             // 
@@ -1247,7 +1334,7 @@
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(76, 59);
+            this.label42.Location = new System.Drawing.Point(68, 59);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(76, 13);
             this.label42.TabIndex = 41;
@@ -1444,19 +1531,121 @@
             this.label51.TabIndex = 58;
             this.label51.Text = "View/Edit Owner";
             // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(27, 204);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(63, 13);
+            this.label52.TabIndex = 39;
+            this.label52.Text = "Description:";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(24, 89);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(35, 13);
+            this.label53.TabIndex = 40;
+            this.label53.Text = "RFID:";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(24, 120);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(73, 13);
+            this.label54.TabIndex = 41;
+            this.label54.Text = "Date Brought:";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(27, 151);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(84, 13);
+            this.label55.TabIndex = 42;
+            this.label55.Text = "Location Found:";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(27, 176);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(51, 13);
+            this.label56.TabIndex = 43;
+            this.label56.Text = "Species :";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(27, 229);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(37, 13);
+            this.label57.TabIndex = 44;
+            this.label57.Text = "Extra :";
+            // 
+            // tbRfidAdopt
+            // 
+            this.tbRfidAdopt.Location = new System.Drawing.Point(130, 89);
+            this.tbRfidAdopt.Name = "tbRfidAdopt";
+            this.tbRfidAdopt.ReadOnly = true;
+            this.tbRfidAdopt.Size = new System.Drawing.Size(100, 20);
+            this.tbRfidAdopt.TabIndex = 45;
+            // 
+            // tbDateBroughtAdopt
+            // 
+            this.tbDateBroughtAdopt.Location = new System.Drawing.Point(130, 116);
+            this.tbDateBroughtAdopt.Name = "tbDateBroughtAdopt";
+            this.tbDateBroughtAdopt.ReadOnly = true;
+            this.tbDateBroughtAdopt.Size = new System.Drawing.Size(152, 20);
+            this.tbDateBroughtAdopt.TabIndex = 46;
+            // 
+            // tbLocationFoundAdopt
+            // 
+            this.tbLocationFoundAdopt.Location = new System.Drawing.Point(130, 143);
+            this.tbLocationFoundAdopt.Name = "tbLocationFoundAdopt";
+            this.tbLocationFoundAdopt.ReadOnly = true;
+            this.tbLocationFoundAdopt.Size = new System.Drawing.Size(152, 20);
+            this.tbLocationFoundAdopt.TabIndex = 47;
+            // 
+            // tbSpeciesAdopt
+            // 
+            this.tbSpeciesAdopt.Location = new System.Drawing.Point(130, 176);
+            this.tbSpeciesAdopt.Name = "tbSpeciesAdopt";
+            this.tbSpeciesAdopt.ReadOnly = true;
+            this.tbSpeciesAdopt.Size = new System.Drawing.Size(152, 20);
+            this.tbSpeciesAdopt.TabIndex = 48;
+            // 
+            // tbDescriptionAdopt
+            // 
+            this.tbDescriptionAdopt.Location = new System.Drawing.Point(130, 204);
+            this.tbDescriptionAdopt.Name = "tbDescriptionAdopt";
+            this.tbDescriptionAdopt.ReadOnly = true;
+            this.tbDescriptionAdopt.Size = new System.Drawing.Size(291, 20);
+            this.tbDescriptionAdopt.TabIndex = 49;
+            // 
+            // tbExtraAdopt
+            // 
+            this.tbExtraAdopt.Location = new System.Drawing.Point(130, 227);
+            this.tbExtraAdopt.Name = "tbExtraAdopt";
+            this.tbExtraAdopt.ReadOnly = true;
+            this.tbExtraAdopt.Size = new System.Drawing.Size(291, 20);
+            this.tbExtraAdopt.TabIndex = 50;
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 441);
             this.Controls.Add(this.AnimalsPanel);
+            this.Controls.Add(this.AdoptPanel);
+            this.Controls.Add(this.ClaimPanel);
             this.Controls.Add(this.OwnersPanel);
             this.Controls.Add(this.AnmDetailsPanel);
             this.Controls.Add(this.AddOwnPanel);
             this.Controls.Add(this.RfidPanel);
             this.Controls.Add(this.AddAnmPanel);
-            this.Controls.Add(this.AdoptPanel);
-            this.Controls.Add(this.ClaimPanel);
             this.Controls.Add(this.OwnDetailsPanel);
             this.Controls.Add(this.HomePanel);
             this.Name = "HomeForm";
@@ -1547,8 +1736,8 @@
         private System.Windows.Forms.Panel AdoptPanel;
         private System.Windows.Forms.Button bAdopt;
         private System.Windows.Forms.Button bCancel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbFeeAdopt;
+        private System.Windows.Forms.TextBox tbOwnerIDAdopt;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
@@ -1560,9 +1749,9 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox tbSearchAnimals;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbAllAnimals;
+        private System.Windows.Forms.RadioButton rbNotYetAdoptable;
+        private System.Windows.Forms.RadioButton rbAdoptable;
         private System.Windows.Forms.Panel AnmDetailsPanel;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label28;
@@ -1589,7 +1778,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox tbSearchOwners;
         private System.Windows.Forms.Panel ClaimPanel;
         private System.Windows.Forms.TextBox tbTotalDays;
         private System.Windows.Forms.Label label39;
@@ -1620,6 +1809,23 @@
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Button bDisplayAll;
+        private System.Windows.Forms.Button bSearchOwner;
+        private System.Windows.Forms.Button btnShowAll;
+        private System.Windows.Forms.Button btnSearchAnimals;
+        private System.Windows.Forms.CheckBox cbPaidAdopt;
+        private System.Windows.Forms.TextBox tbExtraAdopt;
+        private System.Windows.Forms.TextBox tbDescriptionAdopt;
+        private System.Windows.Forms.TextBox tbSpeciesAdopt;
+        private System.Windows.Forms.TextBox tbLocationFoundAdopt;
+        private System.Windows.Forms.TextBox tbDateBroughtAdopt;
+        private System.Windows.Forms.TextBox tbRfidAdopt;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label52;
     }
 }
 
