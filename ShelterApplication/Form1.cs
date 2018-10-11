@@ -189,11 +189,7 @@ namespace ShelterApplication
             lname = tbLName.Text;
             email = tbEmail.Text;
             phone = Convert.ToInt32(tbPhone.Text);
-<<<<<<< HEAD
-            dob = Convert.ToString(dtpDobOwner.Value.ToString());
-=======
             dob = dtpDobOwner.Value;
->>>>>>> d7b5656630cfa0d91f378241d5c10d50ae2a7480
             address = tbAddress.Text;
             ownerID = Convert.ToInt32(tbOwnerID.Text);
             Owner newOwner = new Owner(ownerID, lname, fname, dob, address, phone, email);

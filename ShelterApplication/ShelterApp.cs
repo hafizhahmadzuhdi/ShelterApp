@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using MySql.Data.MySqlClient;
 
@@ -202,17 +203,119 @@ namespace ShelterApplication
             return ds;
         }
 
-        public void updateStatus(){
-            DataSet ds = this.getNotYetAdoptableAnimalsDateBrought();
-            foreach (DataTable tables in ds.Tables){
-                foreach (DataRow row in tables.Rows){
-                    Console.WriteLine(row[0]);
-                    Console.WriteLine(row[1]);
-                    Console.WriteLine("2");
+        public List<Animal> getAnimalsList(){
+            conn.Open();
+            List<Animal> resp = new List<Animal>();
 
+            // dogs
+            MySqlCommand cmd = new MySqlCommand("SELECT rfid, description, dateBrought, locationFound, po from dog", conn);
+            cmd.Prepare();
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read()){
+                Owner po;
+                if (rdr[4].GetType() != typeof(DBNull))
+                    po = this.getOwnerById(Convert.ToInt32(rdr[4]));
+                else
+                    po = null;
+
+                Dog dog = new Dog(
+                    Convert.ToString(rdr[0]), //rfid
+                    Convert.ToString(rdr[1]), //desc
+                    Convert.ToDateTime(rdr[2]), //datebrought
+                    Convert.ToString(rdr[3]), // loc found
+                    po// po
+                );
+                resp.Add(dog);
+            }
+            rdr.Close();
+
+            // cats
+            MySqlCommand cmd_cat = new MySqlCommand("SELECT rfid, description, dateBrought, locationFound, extra, po from cat", conn);
+            cmd_cat.Prepare();
+            MySqlDataReader rdr_cat = cmd_cat.ExecuteReader();
+            while (rdr_cat.Read())
+            {
+                Owner po;
+                if (rdr_cat[5].GetType() != typeof(DBNull))
+                    po = this.getOwnerById(Convert.ToInt32(rdr[4]));
+                else
+                    po = null;
+                Cat cat = new Cat(
+                    Convert.ToString(rdr_cat[0]), //rfid
+                    Convert.ToString(rdr_cat[1]), //desc
+                    Convert.ToDateTime(rdr_cat[2]), //datebrought
+                    Convert.ToString(rdr_cat[3]), // loc found
+                    Convert.ToString(rdr_cat[4]), // extra
+                    po // po
+                );
+                resp.Add(cat);
+            }
+            rdr_cat.Close();
+
+            conn.Close();
+
+            return resp;
+        }
+
+        public void updateStatus(){
+            List<Animal> animals = this.getAnimalsList();
+            foreach (Animal animal in animals){
+                if (animal.calculateDays() >= 20){ // if more than 20 days
+                    animal.setStatus("adoptable");
+                    this.updateAnimal(animal);
                 }
             }
+        }
 
+        public void updateAnimal(Animal animal){
+            if (animal.GetType() == typeof(Dog)){
+                this.updateDog((Dog)animal);
+            }
+            else if (animal.GetType() == typeof(Cat)){
+                this.updateCat((Cat)animal);
+            }
+        }
+
+        public void updateDog(Dog dog){
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand("UPDATE dog SET description=@desc, dateBrought=@db, locationFound=@lf, po=@po, status=@status WHERE rfid=@rfid", conn);
+            cmd.Parameters.AddWithValue("@rfid", dog.getRfid());
+            cmd.Parameters.AddWithValue("@desc", dog.getDescription());
+            cmd.Parameters.AddWithValue("@db", dog.getDateBrought());
+            cmd.Parameters.AddWithValue("@lf", dog.getLocationFound());
+
+            if (dog.getPoId() != 0)
+                cmd.Parameters.AddWithValue("@po", dog.getPoId());
+            else
+                cmd.Parameters.AddWithValue("@po", null);
+
+            cmd.Parameters.AddWithValue("@status", dog.getStatusAsString());
+
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public void updateCat(Cat cat)
+        {
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand("UPDATE cat SET description=@desc, dateBrought=@db, locationFound=@lf, po=@po, status=@status, extra=@extra WHERE rfid=@rfid", conn);
+            cmd.Parameters.AddWithValue("@rfid", cat.getRfid());
+            cmd.Parameters.AddWithValue("@desc", cat.getDescription());
+            cmd.Parameters.AddWithValue("@db", cat.getDateBrought());
+            cmd.Parameters.AddWithValue("@lf", cat.getLocationFound());
+
+            if (cat.getPoId() != 0)
+                cmd.Parameters.AddWithValue("@po", cat.getPoId());
+            else
+                cmd.Parameters.AddWithValue("@po", null);
+
+            cmd.Parameters.AddWithValue("@status", cat.getStatusAsString());
+            cmd.Parameters.AddWithValue("@extra", cat.getExtra());
+
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+            conn.Close();
         }
 
         public DataSet getAnimals(string animalstatus){

@@ -76,6 +76,32 @@ namespace ShelterApplication
             this.myOwner = o;
         }
 
+        public string getStatusAsString(){
+            string resp = "";
+            switch (animalStatus)
+            {
+                case status.notYetAdoptable:
+                    resp = "notYetAdoptable";
+                    break;
+                case status.adoptable:
+                    resp = "adoptable";
+                    break;
+                case status.adopted:
+                    resp = "adopted";
+                    break;
+                case status.dead:
+                    resp = "dead";
+                    break;
+                case status.claimed:
+                    resp = "claimed";
+                    break;
+                case status.lost:
+                    resp = "lost";
+                    break;
+            }
+            return resp;
+        }
+
         public void setStatus(string x)
         {
             if (x == "adoptable") {
@@ -100,8 +126,6 @@ namespace ShelterApplication
 
         public int calculateDays()
         {
-            //string theDateBrought = getDateBrought();
-            //DateTime dateFound = Convert.ToDateTime(theDateBrought);
             DateTime dateFound = getDateBrought();
             DateTime dateNow = DateTime.Now;
             double daysTotal =  (dateNow - dateFound).TotalDays;

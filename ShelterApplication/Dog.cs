@@ -9,5 +9,7 @@ namespace ShelterApplication
             : base(rfid, description, dateBrought, locationFound, 10, 2, 20, po)
         {
         }
+
+
     }
 }
