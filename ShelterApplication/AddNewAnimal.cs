@@ -15,8 +15,9 @@ namespace ShelterApplication
     public partial class AddNewAnimal : Form
     {
 
-        string rfid, description, dateBrought, locationFound, species, status, extraInfo, lastWalked;
+        string rfid, description, locationFound, species, status, extraInfo, lastWalked;
         Owner po;
+        DateTime dateBrought;
         string nullable;
         ShelterApp db = new ShelterApp();
         public AddNewAnimal(string x)
@@ -57,7 +58,7 @@ namespace ShelterApplication
             {
                 rfid = tbDisplayRFID.Text;
                 description = tbDescription.Text;
-                dateBrought = Convert.ToString(dtpAddAnimal);
+                dateBrought = dtpAddAnimal.Value;
                 locationFound = tbLocationFound.Text;
                 if (tbOwner.Text != string.Empty)
                 {   

@@ -5,7 +5,7 @@ namespace ShelterApplication
     {
         private string extra;
 
-        public Cat(string rfid, string description, string dateBrought, string locationFound, string extra, Owner po)
+        public Cat(string rfid, string description, DateTime dateBrought, string locationFound, string extra, Owner po)
             : base(rfid, description, dateBrought, locationFound, 15, 0, 25, po)
         {
             this.extra = extra;

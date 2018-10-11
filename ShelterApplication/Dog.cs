@@ -5,7 +5,7 @@ namespace ShelterApplication
     {
         private string lastWalked;
 
-        public Dog(string rfid, string description, string dateBrought, string locationFound, Owner po)
+        public Dog(string rfid, string description, DateTime dateBrought, string locationFound, Owner po)
             : base(rfid, description, dateBrought, locationFound, 10, 2, 20, po)
         {
         }

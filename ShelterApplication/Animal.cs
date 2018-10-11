@@ -10,7 +10,7 @@ namespace ShelterApplication
     {
         private string rfid { get; set; }
         private string description { get; set; }
-        private string dateBrought { get; set; }//This string then will be converted into Date Type
+        private DateTime dateBrought { get; set; }//This string then will be converted into Date Type
         private string locationFound { get; set; }
         status animalStatus;
         private Owner myOwner;
@@ -34,7 +34,7 @@ namespace ShelterApplication
         private bool info { get; set; }
         private bool paid { get; set; }
 
-        public Animal(string rfid, string description, string dateBrought, string locationFound, double baseFee, double dailyFee, double adoptFee, Owner po)
+        public Animal(string rfid, string description, DateTime dateBrought, string locationFound, double baseFee, double dailyFee, double adoptFee, Owner po)
         {
             this.rfid = rfid;
             this.description = description;
@@ -55,7 +55,7 @@ namespace ShelterApplication
             return this.description;
         }
 
-        public string getDateBrought()
+        public DateTime getDateBrought()
         {
             return this.dateBrought;
         }
@@ -100,8 +100,9 @@ namespace ShelterApplication
 
         public int calculateDays()
         {
-            string theDateBrought = getDateBrought();
-            DateTime dateFound = Convert.ToDateTime(theDateBrought);
+            //string theDateBrought = getDateBrought();
+            //DateTime dateFound = Convert.ToDateTime(theDateBrought);
+            DateTime dateFound = getDateBrought();
             DateTime dateNow = DateTime.Now;
             double daysTotal =  (dateNow - dateFound).TotalDays;
             int days = Convert.ToInt32(daysTotal);

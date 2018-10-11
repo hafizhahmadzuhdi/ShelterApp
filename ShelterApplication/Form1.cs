@@ -15,8 +15,9 @@ namespace ShelterApplication
     public partial class HomeForm : Form
     {
         //Attributes for adding
-        string rfid, description, dateBrought, locationFound, species, status, extraInfo, lastWalked;
+        string rfid, description, locationFound, species, status, extraInfo, lastWalked;
         Owner po;
+        DateTime dateBrought;
         String fname, lname, address, dob, email;
         int ownerID, phone;
 
@@ -244,7 +245,8 @@ namespace ShelterApplication
 
             rfid = tbDisplayRFID.Text;
             description = tbDescription.Text;
-            dateBrought = Convert.ToString(dtpAddAnimal);
+            //dateBrought = Convert.ToString(dtpAddAnimal);
+            dateBrought = dtpAddAnimal.Value;
             locationFound = tbLocationFound.Text;
             if (tbOwner.Text != string.Empty)
             {

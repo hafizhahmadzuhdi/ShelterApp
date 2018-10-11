@@ -88,7 +88,7 @@ namespace ShelterApplication
             MySqlDataReader rdr = cmd.ExecuteReader();
             rdr.Read();
 
-            Cat cat = new Cat(Convert.ToString(rdr[0]), Convert.ToString(rdr[1]), Convert.ToString(rdr[2]), Convert.ToString(rdr[3]), Convert.ToString(rdr[4]), null);
+            Cat cat = new Cat(Convert.ToString(rdr[0]), Convert.ToString(rdr[1]), Convert.ToDateTime(rdr[2]), Convert.ToString(rdr[3]), Convert.ToString(rdr[4]), null);
             rdr.Close();
             conn.Close();
 
@@ -105,7 +105,7 @@ namespace ShelterApplication
             MySqlDataReader rdr = cmd.ExecuteReader();
             rdr.Read();
 
-            Dog dog = new Dog(Convert.ToString(rdr[0]), Convert.ToString(rdr[1]), Convert.ToString(rdr[2]), Convert.ToString(rdr[3]), null);
+            Dog dog = new Dog(Convert.ToString(rdr[0]), Convert.ToString(rdr[1]), Convert.ToDateTime(rdr[2]), Convert.ToString(rdr[3]), null);
             rdr.Close();
             conn.Close();
 
