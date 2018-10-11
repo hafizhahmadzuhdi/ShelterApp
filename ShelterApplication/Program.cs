@@ -106,7 +106,8 @@ namespace ShelterApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new HomeForm());
-
+           // ShelterApp db = new ShelterApp();
+           // db.updateStatus();
 
         }
 

@@ -79,6 +79,70 @@ namespace ShelterApplication
             conn.Close();
         }
 
+        public Cat getCatByRFID(string id)
+        {
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT * from cat b WHERE b.rfid = @id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Prepare();
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            rdr.Read();
+
+            Cat cat = new Cat(Convert.ToString(rdr[0]), Convert.ToString(rdr[1]), Convert.ToString(rdr[2]), Convert.ToString(rdr[3]), Convert.ToString(rdr[4]), null);
+            rdr.Close();
+            conn.Close();
+
+            return cat;
+        }
+
+        public Dog getDogByRFID(string id)
+        {
+
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT * from dog a WHERE a.rfid = @id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Prepare();
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            rdr.Read();
+
+            Dog dog = new Dog(Convert.ToString(rdr[0]), Convert.ToString(rdr[1]), Convert.ToString(rdr[2]), Convert.ToString(rdr[3]), null);
+            rdr.Close();
+            conn.Close();
+
+            return dog;
+
+        }
+
+        //public Animal getAnimalByRFID(string id, string species)
+        //{
+        //    //it supposed to be work by the type of ANIMAL
+        //    conn.Open();
+        //    MySqlCommand cmd = new MySqlCommand("SELECT * from dog a WHERE a.rfid = @id UNION SELECT * FROM cat b WHERE b.rfid = @id", conn);
+        //    cmd.Parameters.AddWithValue("@id", id);
+        //    cmd.Prepare();
+        //    MySqlDataReader rdr = cmd.ExecuteReader();
+        //    rdr.Read();
+        //    Dog dog;
+        //    Cat cat;
+
+        //    if (species == "Cat")
+        //    {
+        //        cat = new Cat(Convert.ToString(rdr[0]), Convert.ToString(rdr[1]), Convert.ToString(rdr[2]), Convert.ToString(rdr[3]), Convert.ToString(rdr[4]), null);
+        //        rdr.Close();
+        //        conn.Close();
+
+        //        return cat;
+        //    } else if (species == "Dog")
+        //    {
+        //        dog = new Dog(Convert.ToString(rdr[0]), Convert.ToString(rdr[1]), Convert.ToString(rdr[2]), Convert.ToString(rdr[3]), null);
+        //        rdr.Close();
+        //        conn.Close();
+
+        //        return dog;
+        //    }
+        //    return cat;
+        //}
+
         public Owner getOwnerById(int id){
             conn.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT * from owner o WHERE o.ownerId = @id", conn);
@@ -94,6 +158,8 @@ namespace ShelterApplication
 
         }
 
+       
+
         public DataSet getAllOwners()
         {
             DataSet ds = new DataSet();
@@ -108,7 +174,8 @@ namespace ShelterApplication
             return ds;
         }
 
-        public DataSet getAllAnimals(){
+        public DataSet getAllAnimals()
+        {
             DataSet ds = new DataSet();
             conn.Open();
             string query = string.Format("SELECT rfid, 'dog' AS species, status FROM dog UNION SELECT rfid, 'cat' AS species, status FROM cat");
@@ -121,14 +188,102 @@ namespace ShelterApplication
             return ds;
         }
 
+
+        public DataSet getNotYetAdoptableAnimalsDateBrought(){
+            DataSet ds = new DataSet();
+            conn.Open();
+            string query = string.Format("SELECT rfid, dateBrought FROM dog UNION SELECT rfid, dateBrought FROM cat");
+            MySqlCommand command = new MySqlCommand(query, conn);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            command.ExecuteNonQuery();
+            ds.Clear();
+            adapter.Fill(ds);
+            conn.Close();
+            return ds;
+        }
+
         public void updateStatus(){
-            DataSet ds = this.getAllAnimals();
+            DataSet ds = this.getNotYetAdoptableAnimalsDateBrought();
             foreach (DataTable tables in ds.Tables){
                 foreach (DataRow row in tables.Rows){
-                    Console.WriteLine(row[2]);
+                    Console.WriteLine(row[0]);
+                    Console.WriteLine(row[1]);
+                    Console.WriteLine("2");
+
                 }
             }
 
         }
+
+        public DataSet getAnimals(string animalstatus){
+            DataSet ds = new DataSet();
+            conn.Open();
+            string query = string.Format("SELECT rfid, 'dog' AS species, status FROM dog WHERE status ='")+ animalstatus + string.Format("'UNION SELECT rfid, 'cat' AS species, status FROM cat WHERE status = '") + animalstatus + string.Format("'");
+            MySqlCommand command = new MySqlCommand(query, conn);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            command.ExecuteNonQuery();
+            ds.Clear();
+            adapter.Fill(ds);
+            conn.Close();
+            return ds;
+        }
+
+        public void Claim(Animal a, Owner o)
+        {
+            //we need to assign
+        }
+
+        public void Adopt(Animal a, Owner o)
+        {
+            
+            if(a.calculateDays() >= 20)
+            {
+                if(a.getPoId() == null)
+                {
+                    int id = o.getOwnerId();
+                    a.setStatus("adopted");
+
+                    if (a.GetType() == typeof(Dog)) 
+                    {
+                        conn.Open();
+                        string query = string.Format("UPDATE dog SET status='adopted' WHERE rfid ='" + a.getRfid() + "'");
+                        MySqlCommand command = new MySqlCommand(query, conn);
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        command.ExecuteNonQuery();
+                    } else if(a.GetType() == typeof(Cat)){
+                        conn.Open();
+                        string query = string.Format("UPDATE dog SET status='adopted' WHERE rfid ='" + a.getRfid() + "'");
+                        MySqlCommand command = new MySqlCommand(query, conn);
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        command.ExecuteNonQuery();
+
+                    }
+
+
+                    //a.setSetatus("adopted");
+
+                }
+
+            } else
+            {
+                //when somebody clicking the Adopt button while the days are still less than 20
+                
+                //a.setSetatus("notYetAdoptable");
+            }
+          
+        }
+
+
+
+        
+
+        
+
+        public MySqlConnection getConn()
+        {
+            return this.conn;
+        }
+
+
     }
 }
