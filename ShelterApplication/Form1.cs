@@ -12,6 +12,16 @@ namespace ShelterApplication
 {
     public partial class HomeForm : Form
     {
+        //Attributes for adding
+        string rfid, description, dateBrought, locationFound, species, status, extraInfo, lastWalked;
+        Owner po;
+        String fname, lname, address, dob, email;
+        int ownerID, phone;
+        Owner myOwner;
+        Database db = new Database();
+
+        //Attributes for displaying
+        DataSet ds = new DataSet();
 
         public HomeForm()
         {
@@ -38,12 +48,64 @@ namespace ShelterApplication
         private void bViewOwners_Click(object sender, EventArgs e)
         {
             OwnersPanel.Show();
+
+            //This is for showing the owners
+            ds = db.getAllOwners();
+            dataGridView2.DataSource = ds.Tables[0];
+            dataGridView2.Columns[1].Width = 80;
+            dataGridView2.Columns[1].HeaderText = "First Name";
+            dataGridView2.Columns[2].Width = 80;
+            dataGridView2.Columns[2].HeaderText = "Last Name";
+
+
+            DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
+            editButton.HeaderText = "Edit";
+            editButton.Text = "Edit";
+            editButton.UseColumnTextForButtonValue = true;
+            editButton.Width = 50;
+            dataGridView2.Columns.Add(editButton);
+
+            
+            DataGridViewButtonColumn deleteButton = new DataGridViewButtonColumn();
+            deleteButton.HeaderText = "Delete";
+            deleteButton.Text = "Delete";
+            deleteButton.UseColumnTextForButtonValue = true;
+            deleteButton.Width = 50;
+            dataGridView2.Columns.Add(deleteButton);
+
+
+
+
         }
 
         private void tbViewAnimals_Click(object sender, EventArgs e)
         {
             //todo make sure the animals are loaded
             AnimalsPanel.Show();
+
+            //this is the method for showing the animals
+            ds = db.getAllAnimals();
+            dataGridView1.DataSource = ds.Tables[0];
+            dataGridView1.Columns[1].Width = 80;
+            dataGridView1.Columns[1].HeaderText = "Species";
+            dataGridView1.Columns[2].Width = 80;
+            dataGridView1.Columns[2].HeaderText = "Status";
+
+
+            DataGridViewButtonColumn claimButton = new DataGridViewButtonColumn();
+            claimButton.HeaderText = "Claim";
+            claimButton.Text = "Claim";
+            claimButton.UseColumnTextForButtonValue = true;
+            claimButton.Width = 50;
+            dataGridView2.Columns.Add(claimButton);
+
+
+            DataGridViewButtonColumn adoptButton = new DataGridViewButtonColumn();
+            adoptButton.HeaderText = "Adopt";
+            adoptButton.Text = "Adopt";
+            adoptButton.UseColumnTextForButtonValue = true;
+            adoptButton.Width = 50;
+            dataGridView2.Columns.Add(adoptButton);
         }
 
         private void bExitApp_Click(object sender, EventArgs e)
@@ -64,6 +126,24 @@ namespace ShelterApplication
         {
             //todo make all the hiding of panels a generic event
             AddOwnPanel.Hide();
+
+            fname = tbFName.Text;
+            lname = tbLName.Text;
+            email = tbEmail.Text;
+            phone = Convert.ToInt32(tbPhone.Text);
+            dob = Convert.ToString(dtpDobOwner.Text);
+            address = tbAddress.Text;
+            ownerID = Convert.ToInt32(tbOwnerID.Text);
+            Owner newOwner = new Owner(ownerID, lname, fname, dob, address, phone, email);
+            try
+            {
+                db.addOwner(newOwner);
+                MessageBox.Show("Owner Successfully Added");
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.ToString());
+            }
             //todo implement creation of Owner
         }
 
@@ -84,7 +164,10 @@ namespace ShelterApplication
         private void bSubmitRFID_Click_1(object sender, EventArgs e)
         {
             RfidPanel.Hide();
-            //todo  add new rfid / blank animal
+            AddAnmPanel.Show();
+            tbDisplayRFID.Text = tbRFID.Text;
+
+;            //todo  add new rfid / blank animal
         }
 
         private void btnLookForOwner_Click(object sender, EventArgs e)
@@ -102,6 +185,45 @@ namespace ShelterApplication
         {
 
             //todo call create animal function
+
+            rfid = tbDisplayRFID.Text;
+            description = tbDescription.Text;
+            dateBrought = Convert.ToString(dtpAddAnimal);
+            locationFound = tbLocationFound.Text;
+            if (tbOwner.Text != string.Empty)
+            {
+                int po_id = Convert.ToInt32(tbOwner.Text);
+                po = db.getOwnerById(po_id);
+            }
+            else
+            {
+                po = null;
+            }
+            species = ddSpecies.Text;
+
+            status = "notYetAdoptable";
+            extraInfo = tbExtra.Text;
+            Console.WriteLine(po);
+
+            if (species == "Dog")
+            {
+                Dog dog = new Dog(rfid, description, dateBrought, locationFound, po);
+                try
+                {
+                    db.addDog(dog);
+                    MessageBox.Show("Animal Successfully Added");
+                }
+                catch (Exception er)
+                {
+                    MessageBox.Show(er.ToString());
+                }
+            }
+            else if (species == "Cat")
+            {
+                Cat cat = new Cat(rfid, description, dateBrought, locationFound, extraInfo, po);
+                db.addCat(cat);
+                MessageBox.Show("Animal Successfully Addedd");
+            }
 
             AddAnmPanel.Hide();
             

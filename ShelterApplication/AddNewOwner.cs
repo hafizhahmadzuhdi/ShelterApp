@@ -98,7 +98,7 @@ namespace ShelterApplication
                 dob = Convert.ToString(dtpDobOwner.Text);
                 address = tbAddress.Text;
                 ownerID = Convert.ToInt32(tbOwnerID.Text);
-                Owner newOwner = new Owner();
+                //Owner newOwner = new Owner();
 
                 try
                 {
