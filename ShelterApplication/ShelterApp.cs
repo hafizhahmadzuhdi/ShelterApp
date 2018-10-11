@@ -260,7 +260,7 @@ namespace ShelterApplication
         public void updateStatus(){
             List<Animal> animals = this.getAnimalsList();
             foreach (Animal animal in animals){
-                if (animal.calculateDays() >= 20){ // if more than 20 days
+                if (animal.getStatusAsString() == "notYetAdoptable" && animal.calculateDays() >= 20){ // if more than 20 days
                     animal.setStatus("adoptable");
                     this.updateAnimal(animal);
                 }

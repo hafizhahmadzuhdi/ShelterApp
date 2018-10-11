@@ -131,8 +131,8 @@ namespace ShelterApplication
             //todo make sure the animals are loaded
             AnimalsPanel.Show();
 
-            
-
+                // everytime we show the list we update the status
+                db.updateStatus();
                 //this is the method for showing All the animals
                 ds = db.getAllAnimals();
                 dataGridView1.DataSource = ds.Tables[0];
