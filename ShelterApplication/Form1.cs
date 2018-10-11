@@ -18,7 +18,8 @@ namespace ShelterApplication
         string rfid, description, locationFound, species, status, extraInfo, lastWalked;
         Owner po;
         DateTime dateBrought;
-        String fname, lname, address, dob, email;
+        DateTime dob;
+        String fname, lname, address, email;
         int ownerID, phone;
 
         Owner myOwner;
@@ -188,7 +189,7 @@ namespace ShelterApplication
             lname = tbLName.Text;
             email = tbEmail.Text;
             phone = Convert.ToInt32(tbPhone.Text);
-            dob = Convert.ToString(dtpDobOwner.Text);
+            dob = dtpDobOwner.Value;
             address = tbAddress.Text;
             ownerID = Convert.ToInt32(tbOwnerID.Text);
             Owner newOwner = new Owner(ownerID, lname, fname, dob, address, phone, email);

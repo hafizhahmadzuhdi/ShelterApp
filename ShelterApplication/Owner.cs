@@ -13,11 +13,11 @@ namespace ShelterApplication
         private int phoneOwner { get; set; }
         private string lastName { get; set; }
         private string firstName { get; set; }
-        private string dob { get; set; }//dob in class diagram should be changed to string
+        private DateTime dob { get; set; }
         private string address { get; set; }
         private string email { get; set; }
 
-        public Owner(int ownerID, string lastName, string firstName, string dob, string address, int phoneOwner, string email)
+        public Owner(int ownerID, string lastName, string firstName, DateTime dob, string address, int phoneOwner, string email)
         {
             this.ownerID = ownerID;
             this.phoneOwner = phoneOwner;
@@ -49,7 +49,7 @@ namespace ShelterApplication
             return this.firstName;
         }
 
-        public string getDob()
+        public DateTime getDob()
         {
             return this.dob;
         }
