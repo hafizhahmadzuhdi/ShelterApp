@@ -188,7 +188,7 @@ namespace ShelterApplication
             lname = tbLName.Text;
             email = tbEmail.Text;
             phone = Convert.ToInt32(tbPhone.Text);
-            dob = Convert.ToString(dtpDobOwner.Text);
+            dob = Convert.ToString(dtpDobOwner.Value.ToString());
             address = tbAddress.Text;
             ownerID = Convert.ToInt32(tbOwnerID.Text);
             Owner newOwner = new Owner(ownerID, lname, fname, dob, address, phone, email);
@@ -247,6 +247,7 @@ namespace ShelterApplication
             description = tbDescription.Text;
             //dateBrought = Convert.ToString(dtpAddAnimal);
             dateBrought = dtpAddAnimal.Value;
+
             locationFound = tbLocationFound.Text;
             if (tbOwner.Text != string.Empty)
             {
@@ -292,6 +293,12 @@ namespace ShelterApplication
         {
             AdoptPanel.Hide();
             //todo clear values
+            tbLocationFoundAdopt.Text = "";
+            tbDateBroughtAdopt.Text = "";
+            tbDescriptionAdopt.Text = "";
+            tbRfidAdopt.Text = "";
+            tbSpeciesAdopt.Text = "";
+            tbExtraAdopt.Text = "";
         }
 
         private void bAdopt_Click(object sender, EventArgs e)
@@ -429,6 +436,9 @@ namespace ShelterApplication
                                 tbLocationFoundAdopt.Text = dog.getLocationFound();
                                
                             }
+                            
+
+
                             AnimalsPanel.Hide();
                             AdoptPanel.Show();
 

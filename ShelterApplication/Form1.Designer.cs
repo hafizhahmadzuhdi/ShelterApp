@@ -81,6 +81,18 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.AdoptPanel = new System.Windows.Forms.Panel();
+            this.tbExtraAdopt = new System.Windows.Forms.TextBox();
+            this.tbDescriptionAdopt = new System.Windows.Forms.TextBox();
+            this.tbSpeciesAdopt = new System.Windows.Forms.TextBox();
+            this.tbLocationFoundAdopt = new System.Windows.Forms.TextBox();
+            this.tbDateBroughtAdopt = new System.Windows.Forms.TextBox();
+            this.tbRfidAdopt = new System.Windows.Forms.TextBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
             this.cbPaidAdopt = new System.Windows.Forms.CheckBox();
             this.bAdopt = new System.Windows.Forms.Button();
             this.bCancel = new System.Windows.Forms.Button();
@@ -161,18 +173,6 @@
             this.label49 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.tbRfidAdopt = new System.Windows.Forms.TextBox();
-            this.tbDateBroughtAdopt = new System.Windows.Forms.TextBox();
-            this.tbLocationFoundAdopt = new System.Windows.Forms.TextBox();
-            this.tbSpeciesAdopt = new System.Windows.Forms.TextBox();
-            this.tbDescriptionAdopt = new System.Windows.Forms.TextBox();
-            this.tbExtraAdopt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.AddOwnPanel.SuspendLayout();
@@ -726,6 +726,108 @@
             this.AdoptPanel.Size = new System.Drawing.Size(464, 441);
             this.AdoptPanel.TabIndex = 62;
             this.AdoptPanel.Visible = false;
+            // 
+            // tbExtraAdopt
+            // 
+            this.tbExtraAdopt.Location = new System.Drawing.Point(130, 227);
+            this.tbExtraAdopt.Name = "tbExtraAdopt";
+            this.tbExtraAdopt.ReadOnly = true;
+            this.tbExtraAdopt.Size = new System.Drawing.Size(291, 20);
+            this.tbExtraAdopt.TabIndex = 50;
+            // 
+            // tbDescriptionAdopt
+            // 
+            this.tbDescriptionAdopt.Location = new System.Drawing.Point(130, 204);
+            this.tbDescriptionAdopt.Name = "tbDescriptionAdopt";
+            this.tbDescriptionAdopt.ReadOnly = true;
+            this.tbDescriptionAdopt.Size = new System.Drawing.Size(291, 20);
+            this.tbDescriptionAdopt.TabIndex = 49;
+            // 
+            // tbSpeciesAdopt
+            // 
+            this.tbSpeciesAdopt.Location = new System.Drawing.Point(130, 176);
+            this.tbSpeciesAdopt.Name = "tbSpeciesAdopt";
+            this.tbSpeciesAdopt.ReadOnly = true;
+            this.tbSpeciesAdopt.Size = new System.Drawing.Size(152, 20);
+            this.tbSpeciesAdopt.TabIndex = 48;
+            // 
+            // tbLocationFoundAdopt
+            // 
+            this.tbLocationFoundAdopt.Location = new System.Drawing.Point(130, 143);
+            this.tbLocationFoundAdopt.Name = "tbLocationFoundAdopt";
+            this.tbLocationFoundAdopt.ReadOnly = true;
+            this.tbLocationFoundAdopt.Size = new System.Drawing.Size(152, 20);
+            this.tbLocationFoundAdopt.TabIndex = 47;
+            // 
+            // tbDateBroughtAdopt
+            // 
+            this.tbDateBroughtAdopt.Location = new System.Drawing.Point(130, 116);
+            this.tbDateBroughtAdopt.Name = "tbDateBroughtAdopt";
+            this.tbDateBroughtAdopt.ReadOnly = true;
+            this.tbDateBroughtAdopt.Size = new System.Drawing.Size(152, 20);
+            this.tbDateBroughtAdopt.TabIndex = 46;
+            // 
+            // tbRfidAdopt
+            // 
+            this.tbRfidAdopt.Location = new System.Drawing.Point(130, 89);
+            this.tbRfidAdopt.Name = "tbRfidAdopt";
+            this.tbRfidAdopt.ReadOnly = true;
+            this.tbRfidAdopt.Size = new System.Drawing.Size(100, 20);
+            this.tbRfidAdopt.TabIndex = 45;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(27, 229);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(37, 13);
+            this.label57.TabIndex = 44;
+            this.label57.Text = "Extra :";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(27, 176);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(51, 13);
+            this.label56.TabIndex = 43;
+            this.label56.Text = "Species :";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(27, 151);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(84, 13);
+            this.label55.TabIndex = 42;
+            this.label55.Text = "Location Found:";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(24, 120);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(73, 13);
+            this.label54.TabIndex = 41;
+            this.label54.Text = "Date Brought:";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(24, 89);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(35, 13);
+            this.label53.TabIndex = 40;
+            this.label53.Text = "RFID:";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(27, 204);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(63, 13);
+            this.label52.TabIndex = 39;
+            this.label52.Text = "Description:";
             // 
             // cbPaidAdopt
             // 
@@ -1531,115 +1633,13 @@
             this.label51.TabIndex = 58;
             this.label51.Text = "View/Edit Owner";
             // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(27, 204);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(63, 13);
-            this.label52.TabIndex = 39;
-            this.label52.Text = "Description:";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(24, 89);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(35, 13);
-            this.label53.TabIndex = 40;
-            this.label53.Text = "RFID:";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(24, 120);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(73, 13);
-            this.label54.TabIndex = 41;
-            this.label54.Text = "Date Brought:";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(27, 151);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(84, 13);
-            this.label55.TabIndex = 42;
-            this.label55.Text = "Location Found:";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(27, 176);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(51, 13);
-            this.label56.TabIndex = 43;
-            this.label56.Text = "Species :";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(27, 229);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(37, 13);
-            this.label57.TabIndex = 44;
-            this.label57.Text = "Extra :";
-            // 
-            // tbRfidAdopt
-            // 
-            this.tbRfidAdopt.Location = new System.Drawing.Point(130, 89);
-            this.tbRfidAdopt.Name = "tbRfidAdopt";
-            this.tbRfidAdopt.ReadOnly = true;
-            this.tbRfidAdopt.Size = new System.Drawing.Size(100, 20);
-            this.tbRfidAdopt.TabIndex = 45;
-            // 
-            // tbDateBroughtAdopt
-            // 
-            this.tbDateBroughtAdopt.Location = new System.Drawing.Point(130, 116);
-            this.tbDateBroughtAdopt.Name = "tbDateBroughtAdopt";
-            this.tbDateBroughtAdopt.ReadOnly = true;
-            this.tbDateBroughtAdopt.Size = new System.Drawing.Size(152, 20);
-            this.tbDateBroughtAdopt.TabIndex = 46;
-            // 
-            // tbLocationFoundAdopt
-            // 
-            this.tbLocationFoundAdopt.Location = new System.Drawing.Point(130, 143);
-            this.tbLocationFoundAdopt.Name = "tbLocationFoundAdopt";
-            this.tbLocationFoundAdopt.ReadOnly = true;
-            this.tbLocationFoundAdopt.Size = new System.Drawing.Size(152, 20);
-            this.tbLocationFoundAdopt.TabIndex = 47;
-            // 
-            // tbSpeciesAdopt
-            // 
-            this.tbSpeciesAdopt.Location = new System.Drawing.Point(130, 176);
-            this.tbSpeciesAdopt.Name = "tbSpeciesAdopt";
-            this.tbSpeciesAdopt.ReadOnly = true;
-            this.tbSpeciesAdopt.Size = new System.Drawing.Size(152, 20);
-            this.tbSpeciesAdopt.TabIndex = 48;
-            // 
-            // tbDescriptionAdopt
-            // 
-            this.tbDescriptionAdopt.Location = new System.Drawing.Point(130, 204);
-            this.tbDescriptionAdopt.Name = "tbDescriptionAdopt";
-            this.tbDescriptionAdopt.ReadOnly = true;
-            this.tbDescriptionAdopt.Size = new System.Drawing.Size(291, 20);
-            this.tbDescriptionAdopt.TabIndex = 49;
-            // 
-            // tbExtraAdopt
-            // 
-            this.tbExtraAdopt.Location = new System.Drawing.Point(130, 227);
-            this.tbExtraAdopt.Name = "tbExtraAdopt";
-            this.tbExtraAdopt.ReadOnly = true;
-            this.tbExtraAdopt.Size = new System.Drawing.Size(291, 20);
-            this.tbExtraAdopt.TabIndex = 50;
-            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 441);
-            this.Controls.Add(this.AnimalsPanel);
             this.Controls.Add(this.AdoptPanel);
+            this.Controls.Add(this.AnimalsPanel);
             this.Controls.Add(this.ClaimPanel);
             this.Controls.Add(this.OwnersPanel);
             this.Controls.Add(this.AnmDetailsPanel);
