@@ -12,7 +12,7 @@ namespace ShelterApplication
         private static string password = "halobekasi";
         private static string database = "dbi409310";
         private MySqlConnection conn = new MySqlConnection(
-            "server=" + host + ";user=" + user + ";database=" + database + ";password=" + password + ";" + "SslMode=none"  + ";MultipleActiveResultSets=true"
+            "server=" + host + ";user=" + user + ";database=" + database + ";password=" + password + ";" + "SslMode=none"
         );
 
         public void addDog(Dog dog){
@@ -151,12 +151,12 @@ namespace ShelterApplication
         //}
 
         public Owner getOwnerById(int id){
-            bool isConnection = false;
-            if (conn != null && conn.State == ConnectionState.Closed)
-            {
-                isConnection = true;
+          //  bool isConnection = false;
+            //if (conn != null && conn.State == ConnectionState.Closed)
+            //{
+            //    isConnection = true;
                 conn.Open();
-            }
+            //}
 
 
 
@@ -168,10 +168,10 @@ namespace ShelterApplication
             rdr.Read();
             Owner owner = new Owner(Convert.ToInt32(rdr[0]), Convert.ToString(rdr[1]), Convert.ToString(rdr[2]), Convert.ToDateTime(rdr[3]), Convert.ToString(rdr[4]), Convert.ToInt32(rdr[5]), Convert.ToString(rdr[6]));
             rdr.Close();
-            if (isConnection)
-            {
+           // if (isConnection)
+          //  {
                 conn.Close();
-            }
+           // }
 
              
 
@@ -231,21 +231,21 @@ namespace ShelterApplication
             MySqlCommand cmd = new MySqlCommand("SELECT rfid, description, dateBrought, locationFound, po from dog", conn);
             cmd.Prepare();
             MySqlDataReader rdr = cmd.ExecuteReader();
-            
-            while (rdr.Read()){
-                Owner po;
-                if (rdr[4].GetType() != typeof(DBNull))
-                    po = this.getOwnerById(Convert.ToInt32(rdr[4]));
-                else
-                    po = null;
 
+            List<int> po_ids = new List<int>();
+            while (rdr.Read()){
                 Dog dog = new Dog(
                     Convert.ToString(rdr[0]), //rfid
                     Convert.ToString(rdr[1]), //desc
                     Convert.ToDateTime(rdr[2]), //datebrought
                     Convert.ToString(rdr[3]), // loc found
-                    po// po
+                    null// po
                 );
+                if (rdr[4].GetType() != typeof(DBNull))
+                    po_ids.Add(Convert.ToInt32(rdr[4]));
+                else
+                    po_ids.Add(0);
+
                 resp.Add(dog);
             }
             rdr.Close();
@@ -256,24 +256,29 @@ namespace ShelterApplication
             MySqlDataReader rdr_cat = cmd_cat.ExecuteReader();
             while (rdr_cat.Read())
             {
-                Owner po;
-                if (rdr_cat[5].GetType() != typeof(DBNull))
-                    po = this.getOwnerById(Convert.ToInt32(rdr[4]));
-                else
-                    po = null;
                 Cat cat = new Cat(
                     Convert.ToString(rdr_cat[0]), //rfid
                     Convert.ToString(rdr_cat[1]), //desc
                     Convert.ToDateTime(rdr_cat[2]), //datebrought
                     Convert.ToString(rdr_cat[3]), // loc found
                     Convert.ToString(rdr_cat[4]), // extra
-                    po // po
+                    null // po
                 );
+                if (rdr_cat[5].GetType() != typeof(DBNull))
+                    po_ids.Add(Convert.ToInt32(rdr[5]));
+                else
+                    po_ids.Add(0);
+
                 resp.Add(cat);
             }
             rdr_cat.Close();
-
             conn.Close();
+
+            for (int i = 0; i < resp.Count - 1; i++)
+            {
+                if (po_ids[i] != 0)
+                    resp[i].setOwner(this.getOwnerById(po_ids[i]));
+            }
 
             return resp;
         }
