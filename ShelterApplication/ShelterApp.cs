@@ -12,7 +12,7 @@ namespace ShelterApplication
         private static string password = "halobekasi";
         private static string database = "dbi409310";
         private MySqlConnection conn = new MySqlConnection(
-            "server=" + host + ";user=" + user + ";database=" + database + ";password=" + password + ";" + "SslMode=none"
+            "server=" + host + ";user=" + user + ";database=" + database + ";password=" + password + ";" + "SslMode=none"  + ";MultipleActiveResultSets=true"
         );
 
         public void addDog(Dog dog){
@@ -89,7 +89,13 @@ namespace ShelterApplication
             MySqlDataReader rdr = cmd.ExecuteReader();
             rdr.Read();
 
-            Cat cat = new Cat(Convert.ToString(rdr[0]), Convert.ToString(rdr[1]), Convert.ToDateTime(rdr[2]), Convert.ToString(rdr[3]), Convert.ToString(rdr[4]), null);
+            Owner po;
+            if (rdr[4].GetType() != typeof(DBNull))
+                po = this.getOwnerById(Convert.ToInt32(rdr[4]));
+            else
+                po = null;
+
+            Cat cat = new Cat(Convert.ToString(rdr[0]), Convert.ToString(rdr[1]), Convert.ToDateTime(rdr[2]), Convert.ToString(rdr[3]), Convert.ToString(rdr[5]), po);
             rdr.Close();
             conn.Close();
 
@@ -145,7 +151,16 @@ namespace ShelterApplication
         //}
 
         public Owner getOwnerById(int id){
-            conn.Open();
+            bool isConnection = false;
+            if (conn != null && conn.State == ConnectionState.Closed)
+            {
+                isConnection = true;
+                conn.Open();
+            }
+
+
+
+                
             MySqlCommand cmd = new MySqlCommand("SELECT * from owner o WHERE o.ownerId = @id", conn);
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Prepare();
@@ -153,7 +168,12 @@ namespace ShelterApplication
             rdr.Read();
             Owner owner = new Owner(Convert.ToInt32(rdr[0]), Convert.ToString(rdr[1]), Convert.ToString(rdr[2]), Convert.ToDateTime(rdr[3]), Convert.ToString(rdr[4]), Convert.ToInt32(rdr[5]), Convert.ToString(rdr[6]));
             rdr.Close();
-            conn.Close();
+            if (isConnection)
+            {
+                conn.Close();
+            }
+
+             
 
             return owner;
 
@@ -211,6 +231,7 @@ namespace ShelterApplication
             MySqlCommand cmd = new MySqlCommand("SELECT rfid, description, dateBrought, locationFound, po from dog", conn);
             cmd.Prepare();
             MySqlDataReader rdr = cmd.ExecuteReader();
+            
             while (rdr.Read()){
                 Owner po;
                 if (rdr[4].GetType() != typeof(DBNull))
@@ -338,27 +359,34 @@ namespace ShelterApplication
 
         public void Adopt(Animal a, Owner o)
         {
-            
+            Console.WriteLine(a.getRfid());
             if(a.calculateDays() >= 20)
             {
-                if(a.getPoId() == null)
+                if(a.getPoId() == 0)
                 {
                     int id = o.getOwnerId();
                     a.setStatus("adopted");
 
                     if (a.GetType() == typeof(Dog)) 
                     {
-                        conn.Open();
-                        string query = string.Format("UPDATE dog SET status='adopted' WHERE rfid ='" + a.getRfid() + "'");
-                        MySqlCommand command = new MySqlCommand(query, conn);
-                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                        command.ExecuteNonQuery();
+
+                        a.setStatus("adopted");
+                        a.setOwner(o);
+                        this.updateAnimal(a);
+                        //conn.Open();
+                        //string query = string.Format("UPDATE dog SET status='adopted' WHERE rfid ='" + a.getRfid() + "'");
+                        //MySqlCommand command = new MySqlCommand(query, conn);
+                        //MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        //command.ExecuteNonQuery();
                     } else if(a.GetType() == typeof(Cat)){
-                        conn.Open();
-                        string query = string.Format("UPDATE dog SET status='adopted' WHERE rfid ='" + a.getRfid() + "'");
-                        MySqlCommand command = new MySqlCommand(query, conn);
-                        MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                        command.ExecuteNonQuery();
+                        a.setOwner(o);
+                        a.setStatus("adopted");
+                        this.updateAnimal(a);
+                        //conn.Open();
+                        //string query = string.Format("UPDATE dog SET status='adopted' WHERE rfid ='" + a.getRfid() + "'");
+                        //MySqlCommand command = new MySqlCommand(query, conn);
+                        //MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                        //command.ExecuteNonQuery();
 
                     }
 

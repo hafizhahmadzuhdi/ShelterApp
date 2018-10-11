@@ -71,23 +71,24 @@ namespace ShelterApplication
             dataGridView2.Columns[2].Width = 80;
             dataGridView2.Columns[2].HeaderText = "Last Name";
 
-
-            DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
-            editButton.HeaderText = "Edit";
-            editButton.Text = "Edit";
-            editButton.UseColumnTextForButtonValue = true;
-            editButton.Width = 50;
-            dataGridView2.Columns.Add(editButton);
-
-            
-            DataGridViewButtonColumn deleteButton = new DataGridViewButtonColumn();
-            deleteButton.HeaderText = "Delete";
-            deleteButton.Text = "Delete";
-            deleteButton.UseColumnTextForButtonValue = true;
-            deleteButton.Width = 50;
-            dataGridView2.Columns.Add(deleteButton);
+            if (dataGridView2.ColumnCount < 4)
+            {
+                DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
+                editButton.HeaderText = "Edit";
+                editButton.Text = "Edit";
+                editButton.UseColumnTextForButtonValue = true;
+                editButton.Width = 50;
+                dataGridView2.Columns.Add(editButton);
 
 
+                DataGridViewButtonColumn deleteButton = new DataGridViewButtonColumn();
+                deleteButton.HeaderText = "Delete";
+                deleteButton.Text = "Delete";
+                deleteButton.UseColumnTextForButtonValue = true;
+                deleteButton.Width = 50;
+                dataGridView2.Columns.Add(deleteButton);
+
+            }
 
 
         }
@@ -131,9 +132,10 @@ namespace ShelterApplication
             //todo make sure the animals are loaded
             AnimalsPanel.Show();
 
-            
 
-                //this is the method for showing All the animals
+
+            //this is the method for showing All the animals
+            db.updateStatus();
                 ds = db.getAllAnimals();
                 dataGridView1.DataSource = ds.Tables[0];
                 dataGridView1.Columns[1].Width = 80;
@@ -307,7 +309,9 @@ namespace ShelterApplication
             //todo adopt the animal
             ownerID = Convert.ToInt32(tbOwnerIDAdopt.Text);
             Owner newOwner = db.getOwnerById(ownerID);
+            Console.WriteLine(dog.getRfid());
             db.Adopt(dog, newOwner);
+           
 
             //displaying in DataGrid
             
