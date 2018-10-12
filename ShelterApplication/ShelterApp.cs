@@ -152,29 +152,23 @@ namespace ShelterApplication
         //}
 
         public Owner getOwnerById(int id){
-          //  bool isConnection = false;
-            //if (conn != null && conn.State == ConnectionState.Closed)
-            //{
-            //    isConnection = true;
-                conn.Open();
-            //}
 
-
-
+            conn.Open();
+            Owner owner = null;
                 
             MySqlCommand cmd = new MySqlCommand("SELECT * from owner o WHERE o.ownerId = @id", conn);
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Prepare();
             MySqlDataReader rdr = cmd.ExecuteReader();
-            rdr.Read();
-            Owner owner = new Owner(Convert.ToInt32(rdr[0]), Convert.ToString(rdr[1]), Convert.ToString(rdr[2]), Convert.ToDateTime(rdr[3]), Convert.ToString(rdr[4]), Convert.ToInt32(rdr[5]), Convert.ToString(rdr[6]));
-            rdr.Close();
-           // if (isConnection)
-          //  {
-                conn.Close();
-           // }
+            Console.WriteLine("testeeee");
 
-             
+            if (rdr.Read())
+                owner = new Owner(Convert.ToInt32(rdr[0]), Convert.ToString(rdr[1]), Convert.ToString(rdr[2]), Convert.ToDateTime(rdr[3]), Convert.ToString(rdr[4]), Convert.ToInt32(rdr[5]), Convert.ToString(rdr[6]));
+            else
+                throw new Exception("cannot find owner");
+
+            rdr.Close();
+            conn.Close();
 
             return owner;
 
@@ -280,7 +274,7 @@ namespace ShelterApplication
                     null // po
                 );
                 if (rdr_cat[5].GetType() != typeof(DBNull))
-                    po_ids.Add(Convert.ToInt32(rdr[5]));
+                    po_ids.Add(Convert.ToInt32(rdr_cat[5]));
                 else
                     po_ids.Add(0);
 
