@@ -144,16 +144,12 @@ namespace ShelterApplication
 
         private void bEdit_Click(object sender, EventArgs e)
         {
-            EditOwner editOwner = new EditOwner();
-            editOwner.Show();
-            this.Close();
+            
         }
 
         private void bViewOwnersAnimals_Click(object sender, EventArgs e)
         {
-            ViewOwnersAnimals viewOwnersAnimals = new ViewOwnersAnimals();
-            viewOwnersAnimals.Show();
-            this.Hide();
+            
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)

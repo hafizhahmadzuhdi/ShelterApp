@@ -31,9 +31,6 @@ namespace ShelterApplication
 
         private status animalstatus;
 
-        private bool info { get; set; }
-        private bool paid { get; set; }
-
         public Animal(string rfid, string description, DateTime dateBrought, string locationFound, double baseFee, double dailyFee, double adoptFee, Owner po)
         {
             this.rfid = rfid;
@@ -131,6 +128,11 @@ namespace ShelterApplication
             double daysTotal =  (dateNow - dateFound).TotalDays;
             int days = Convert.ToInt32(daysTotal);
             return days;
+        }
+
+        public virtual string getExtra()
+        {
+            return "";
         }
  
         //public Animal()

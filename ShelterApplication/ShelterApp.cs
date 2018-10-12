@@ -82,6 +82,7 @@ namespace ShelterApplication
 
         public Cat getCatByRFID(string id)
         {
+            // TODO do we really need two methods here? I'm pretty sure we can make do with one.
             conn.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT * from cat b WHERE b.rfid = @id", conn);
             cmd.Parameters.AddWithValue("@id", id);
@@ -209,6 +210,20 @@ namespace ShelterApplication
             return ds;
         }
 
+        public DataSet getAnimals(string status)
+        {
+            DataSet ds = new DataSet();
+            conn.Open();
+            string query = string.Format("SELECT rfid, 'dog' AS species, status FROM dog UNION SELECT rfid, 'cat' AS species, status FROM cat WHERE status ="+status);
+            MySqlCommand command = new MySqlCommand(query, conn);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            command.ExecuteNonQuery();
+            ds.Clear();
+            adapter.Fill(ds);
+            conn.Close();
+            return ds;
+        }
+
 
         public DataSet getNotYetAdoptableAnimalsDateBrought(){
             DataSet ds = new DataSet();
@@ -286,7 +301,7 @@ namespace ShelterApplication
         public void updateStatus(){
             List<Animal> animals = this.getAnimalsList();
             foreach (Animal animal in animals){
-                if (animal.calculateDays() >= 20){ // if more than 20 days
+                if (animal.getStatusAsString() == "notYetAdoptable" && animal.calculateDays() >= 20){ // if more than 20 days
                     animal.setStatus("adoptable");
                     this.updateAnimal(animal);
                 }
@@ -294,68 +309,41 @@ namespace ShelterApplication
         }
 
         public void updateAnimal(Animal animal){
-            if (animal.GetType() == typeof(Dog)){
-                this.updateDog((Dog)animal);
+            string extra = "";
+            string species = "";
+            if (animal.GetType() == typeof(Cat))
+            {
+                species = "cat";
+                extra = ", extra=@extra";
             }
-            else if (animal.GetType() == typeof(Cat)){
-                this.updateCat((Cat)animal);
+            else if (animal.GetType() == typeof(Dog))
+            {
+                species = "dog";
             }
-        }
-
-        public void updateDog(Dog dog){
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand("UPDATE dog SET description=@desc, dateBrought=@db, locationFound=@lf, po=@po, status=@status WHERE rfid=@rfid", conn);
-            cmd.Parameters.AddWithValue("@rfid", dog.getRfid());
-            cmd.Parameters.AddWithValue("@desc", dog.getDescription());
-            cmd.Parameters.AddWithValue("@db", dog.getDateBrought());
-            cmd.Parameters.AddWithValue("@lf", dog.getLocationFound());
+            MySqlCommand cmd = new MySqlCommand("UPDATE "+species+" SET description=@desc, dateBrought=@db, locationFound=@lf, po=@po, status=@status"+extra+" WHERE rfid=@rfid", conn);
+            cmd.Parameters.AddWithValue("@rfid", animal.getRfid());
+            cmd.Parameters.AddWithValue("@desc", animal.getDescription());
+            cmd.Parameters.AddWithValue("@db", animal.getDateBrought());
+            cmd.Parameters.AddWithValue("@lf", animal.getLocationFound());
+            if (species =="cat")
+            {
+                Cat cat = (Cat)animal;
+                cmd.Parameters.AddWithValue("@extra", cat.getExtra());
+            }
 
-            if (dog.getPoId() != 0)
-                cmd.Parameters.AddWithValue("@po", dog.getPoId());
+            if (animal.getPoId() != 0)
+                cmd.Parameters.AddWithValue("@po", animal.getPoId());
             else
                 cmd.Parameters.AddWithValue("@po", null);
 
-            cmd.Parameters.AddWithValue("@status", dog.getStatusAsString());
+            cmd.Parameters.AddWithValue("@status", animal.getStatusAsString());
 
             cmd.Prepare();
             cmd.ExecuteNonQuery();
             conn.Close();
         }
 
-        public void updateCat(Cat cat)
-        {
-            conn.Open();
-            MySqlCommand cmd = new MySqlCommand("UPDATE cat SET description=@desc, dateBrought=@db, locationFound=@lf, po=@po, status=@status, extra=@extra WHERE rfid=@rfid", conn);
-            cmd.Parameters.AddWithValue("@rfid", cat.getRfid());
-            cmd.Parameters.AddWithValue("@desc", cat.getDescription());
-            cmd.Parameters.AddWithValue("@db", cat.getDateBrought());
-            cmd.Parameters.AddWithValue("@lf", cat.getLocationFound());
-
-            if (cat.getPoId() != 0)
-                cmd.Parameters.AddWithValue("@po", cat.getPoId());
-            else
-                cmd.Parameters.AddWithValue("@po", null);
-
-            cmd.Parameters.AddWithValue("@status", cat.getStatusAsString());
-            cmd.Parameters.AddWithValue("@extra", cat.getExtra());
-
-            cmd.Prepare();
-            cmd.ExecuteNonQuery();
-            conn.Close();
-        }
-
-        public DataSet getAnimals(string animalstatus){
-            DataSet ds = new DataSet();
-            conn.Open();
-            string query = string.Format("SELECT rfid, 'dog' AS species, status FROM dog WHERE status ='")+ animalstatus + string.Format("'UNION SELECT rfid, 'cat' AS species, status FROM cat WHERE status = '") + animalstatus + string.Format("'");
-            MySqlCommand command = new MySqlCommand(query, conn);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-            command.ExecuteNonQuery();
-            ds.Clear();
-            adapter.Fill(ds);
-            conn.Close();
-            return ds;
-        }
 
         public void Claim(Animal a, Owner o)
         {
@@ -410,7 +398,16 @@ namespace ShelterApplication
         }
 
 
-
+        public void DeleteAnimal(Animal a)
+        {
+            string s ="cat"; if (a.GetType() == typeof(Dog)) { s = "dog"; }
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM"+s+"WHERE rfid=@rfid", conn);
+            cmd.Parameters.AddWithValue("@rfid", a.getRfid());
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
         
 
         

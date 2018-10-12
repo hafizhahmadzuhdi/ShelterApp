@@ -11,7 +11,7 @@ namespace ShelterApplication
             this.extra = extra;
         }
 
-        public string getExtra(){
+        public override string getExtra(){
             return this.extra;
         }
     }
