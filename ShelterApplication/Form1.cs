@@ -31,6 +31,7 @@ namespace ShelterApplication
 
         //Attributes for Adopt and Claim
         Animal animal;
+        Owner owner_claiming;
 
         //Attributes for get
 
@@ -366,25 +367,35 @@ namespace ShelterApplication
                         string species = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                         //Now time for creating the Adopt and Claim function in Database
 
+                        MessageBox.Show(rfidselected + " , " + species);
+                        if (species == "cat")
+                        {
+                            animal = db.getCatByRFID(rfidselected);
+                        }
+                        else if (species == "dog")
+                        {
+                            animal = db.getDogByRFID(rfidselected);
+                        }
+
                         if (condition == "Claim")
                         {
-                            MessageBox.Show(rfidselected+" , "+ species);
-                            AnimalsPanel.Hide();
-                            ClaimPanel.Show();
+                            // if the animal is in the shelter since less than 20 days and have a PO
+                            if (animal.calculateDays() < 20 && animal.getPoId() != 0) {
+                                // TODO put the informations of animal in the good variables (textbox)
+                                // TODO the same with owner (use animal.getPo() to retrieve the owner)
+                                AnimalsPanel.Hide();
+                                ClaimPanel.Show();
+                            }
+                            else {
+                                MessageBox.Show("can't claim this animal");
+                            }
                             
                         }
                         else if (condition == "Adopt")
                         {
-                            MessageBox.Show(rfidselected+" , "+species);
                             if (species == "cat")
-                            {
-                                animal = db.getCatByRFID(rfidselected);
                                 tbExtraAdopt.Text = animal.getExtra();
-                            }
-                            else if(species == "dog")
-                            {
-                                animal = db.getDogByRFID(rfidselected);
-                            }
+
                             tbDateBroughtAdopt.Text = Convert.ToString(animal.getDateBrought());
                             tbRfidAdopt.Text = animal.getRfid();
                             tbSpeciesAdopt.Text = species;
@@ -396,7 +407,7 @@ namespace ShelterApplication
                             AdoptPanel.Show();
 
                             
-                            
+                          
                             //This method will continue to Adopt and showing the overview of animal
                             
                         }
@@ -452,6 +463,9 @@ namespace ShelterApplication
         private void bClaim_Click(object sender, EventArgs e)
         {
             //todo claim the animal
+            if (true){ // TODO replace condition with condition to verify the checkboxes are checked (infos and money)
+                db.Claim(animal);
+            }
             Cancel_Click(sender, e);
         }
 
