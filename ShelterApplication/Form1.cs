@@ -15,14 +15,14 @@ namespace ShelterApplication
     public partial class HomeForm : Form
     {
         //Attributes for adding
-        string rfid, description, locationFound, species, status, extraInfo, lastWalked;
+        //string rfid, description, locationFound, species, status, extraInfo, lastWalked;
         Owner po;
         DateTime dateBrought;
         DateTime dob;
         String fname, lname, address, email;
         int ownerID, phone;
 
-        Owner myOwner;
+        
         ShelterApp db = new ShelterApp();
 
 
@@ -30,8 +30,7 @@ namespace ShelterApplication
         DataSet ds = new DataSet();
 
         //Attributes for Adopt and Claim
-        Dog dog;
-        Cat cat;
+        Animal animal;
 
         //Attributes for get
 
@@ -50,13 +49,11 @@ namespace ShelterApplication
         private void addOwner_Click(object sender, EventArgs e)
         {
             AddOwnPanel.Show();
-            AddOwnPanel.BringToFront();
         }
 
         private void addAnimal_Click(object sender, EventArgs e)
         {
             RfidPanel.Show();
-            HomePanel.Hide();
         }
 
         private void bViewOwners_Click(object sender, EventArgs e)
@@ -182,9 +179,6 @@ namespace ShelterApplication
 
         private void bCreateOwner_Click(object sender, EventArgs e)
         {
-            //todo make all the hiding of panels a generic event
-            AddOwnPanel.Hide();
-
             fname = tbFName.Text;
             lname = tbLName.Text;
             email = tbEmail.Text;
@@ -202,30 +196,30 @@ namespace ShelterApplication
             {
                 MessageBox.Show(er.ToString());
             }
-            //todo implement creation of Owner
+            Cancel_Click(sender, e);
         }
 
-        private void bCancelAdd_Click(object sender, EventArgs e)
+        private void Cancel_Click(object sender, EventArgs e)
         {
-            tbAddress.Text = "";
-            tbEmail.Text = "";
-            tbFName.Text = "";
-            tbLName.Text = "";
-            tbOwnerID.Text = "";
-            tbPhone.Text = "";
-            AddOwnPanel.Hide();
+            Panel a=(Panel)((Button)sender).Parent;
+            foreach (Control t in a.Controls)
+            {
+                 t.ResetText(); 
+            }
+            a.Hide();
+            
         }
 
-       
-        
+
+
 
         private void bSubmitRFID_Click_1(object sender, EventArgs e)
         {
-            RfidPanel.Hide();
+            
             AddAnmPanel.Show();
             tbDisplayRFID.Text = tbRFID.Text;
-
-;            //todo  add new rfid / blank animal
+            Cancel_Click(sender, e);
+           //todo  add new rfid / blank animal
         }
 
         private void btnLookForOwner_Click(object sender, EventArgs e)
@@ -233,41 +227,24 @@ namespace ShelterApplication
             //todo check if owner exists --> yes make box green --> no make box red
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            AddAnmPanel.Hide();
-            //todo clear values from panel
-        }
 
         private void bCreateAnimal_Click(object sender, EventArgs e)
         {
-
-            //todo call create animal function
-
-            rfid = tbDisplayRFID.Text;
-            description = tbDescription.Text;
-            //dateBrought = Convert.ToString(dtpAddAnimal);
-            dateBrought = dtpAddAnimal.Value;
-
-            locationFound = tbLocationFound.Text;
             if (tbOwner.Text != string.Empty)
             {
                 int po_id = Convert.ToInt32(tbOwner.Text);
-                po = db.getOwnerById(po_id);
+                try{po = db.getOwnerById(po_id); }
+                catch (Exception err) { MessageBox.Show("Can't find previous owner: "+err.ToString()); }
+                
             }
             else
             {
                 po = null;
             }
-            species = ddSpecies.Text;
-
-            status = "notYetAdoptable";
-            extraInfo = tbExtra.Text;
-            Console.WriteLine(po);
-
-            if (species == "Dog")
+            //Console.WriteLine(po); //debug text
+            if (ddSpecies.Text == "Dog")
             {
-                Dog dog = new Dog(rfid, description, dateBrought, locationFound, po);
+                Dog dog = new Dog(tbDisplayRFID.Text, tbDescription.Text, dtpAddAnimal.Value, tbLocationFound.Text, po);
                 try
                 {
                     db.addDog(dog);
@@ -277,50 +254,34 @@ namespace ShelterApplication
                 {
                     MessageBox.Show(er.ToString());
                 }
+                Cancel_Click(sender, e);
+
             }
-            else if (species == "Cat")
+            else if (ddSpecies.Text == "Cat")
             {
-                Cat cat = new Cat(rfid, description, dateBrought, locationFound, extraInfo, po);
+                Cat cat = new Cat(tbDisplayRFID.Text, tbDescription.Text, dtpAddAnimal.Value, tbLocationFound.Text, tbExtra.Text, po);
                 db.addCat(cat);
                 MessageBox.Show("Animal Successfully Addedd");
+                Cancel_Click(sender, e);
+
             }
-
-            AddAnmPanel.Hide();
-            
-            //todo clear values from panel
-        }
-
-        private void bCancel_Click(object sender, EventArgs e)
-        {
-            AdoptPanel.Hide();
-            //todo clear values
-            tbLocationFoundAdopt.Text = "";
-            tbDateBroughtAdopt.Text = "";
-            tbDescriptionAdopt.Text = "";
-            tbRfidAdopt.Text = "";
-            tbSpeciesAdopt.Text = "";
-            tbExtraAdopt.Text = "";
+            else
+            {
+                MessageBox.Show("Please select an animal family");
+            }
         }
 
         private void bAdopt_Click(object sender, EventArgs e)
         {
             //todo adopt the animal
             ownerID = Convert.ToInt32(tbOwnerIDAdopt.Text);
-            Owner newOwner = db.getOwnerById(ownerID);
-            db.Adopt(dog, newOwner);
-
-            //displaying in DataGrid
+            try {  db.Adopt(animal, db.getOwnerById(ownerID)); } catch (Exception er) { MessageBox.Show("Could not adopt: "+er.ToString()); }
             
 
-            AdoptPanel.Hide();
-            //todo clear values
+            //displaying in DataGrid
+            Cancel_Click(sender, e);
         }
 
-        private void bHome_Click(object sender, EventArgs e)
-        {
-            AnimalsPanel.Hide();
-            //todo clear values
-        }
 
         private void bSearchOwner_Click(object sender, EventArgs e)
         {
@@ -405,39 +366,28 @@ namespace ShelterApplication
 
                         if (condition == "Claim")
                         {
-                            MessageBox.Show(rfidselected);
-                            MessageBox.Show(species);
+                            MessageBox.Show(rfidselected+" , "+ species);
                             AnimalsPanel.Hide();
                             ClaimPanel.Show();
                             
                         }
                         else if (condition == "Adopt")
                         {
-                            MessageBox.Show(rfidselected);
-                            MessageBox.Show(species);
-
-
+                            MessageBox.Show(rfidselected+" , "+species);
                             if (species == "cat")
                             {
-                                cat = db.getCatByRFID(rfidselected);
-                                tbDateBroughtAdopt.Text = Convert.ToString(cat.getDateBrought());
-                                tbRfidAdopt.Text = cat.getRfid();
-                                tbSpeciesAdopt.Text = species;
-                                tbDescriptionAdopt.Text = cat.getDescription();
-                                tbLocationFoundAdopt.Text = cat.getLocationFound();
-                                tbExtraAdopt.Text = cat.getExtra();
+                                animal = db.getCatByRFID(rfidselected);
+                                tbExtraAdopt.Text = animal.getExtra();
                             }
                             else if(species == "dog")
                             {
-                                dog = db.getDogByRFID(rfidselected);
-                                tbDateBroughtAdopt.Text = Convert.ToString(dog.getDateBrought());
-                                tbRfidAdopt.Text = dog.getRfid();
-                                tbSpeciesAdopt.Text = species;
-                                tbDescriptionAdopt.Text = dog.getDescription();
-                                tbLocationFoundAdopt.Text = dog.getLocationFound();
-                               
+                                animal = db.getDogByRFID(rfidselected);
                             }
-                            
+                            tbDateBroughtAdopt.Text = Convert.ToString(animal.getDateBrought());
+                            tbRfidAdopt.Text = animal.getRfid();
+                            tbSpeciesAdopt.Text = species;
+                            tbDescriptionAdopt.Text = animal.getDescription();
+                            tbLocationFoundAdopt.Text = animal.getLocationFound();
 
 
                             AnimalsPanel.Hide();
@@ -476,26 +426,18 @@ namespace ShelterApplication
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            AnmDetailsPanel.Hide();
-        }
 
         private void bDelete_Click(object sender, EventArgs e)
         {
             //todo delete the animal
-            AnmDetailsPanel.Hide();
+            Cancel_Click(sender, e);
         }
 
         private void bSave_Click(object sender, EventArgs e)
         {
             //todo save changes
-            AnmDetailsPanel.Hide();
-        }
+            Cancel_Click(sender, e);
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            OwnersPanel.Hide();
         }
 
 
@@ -504,33 +446,25 @@ namespace ShelterApplication
             //todo add buttons for owner functions
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            ClaimPanel.Hide();
-        }
 
         private void bClaim_Click(object sender, EventArgs e)
         {
             //todo claim the animal
-            ClaimPanel.Hide();
+            Cancel_Click(sender, e);
         }
 
         private void bEditOwner_Click(object sender, EventArgs e)
         {
             //todo save details
-            OwnDetailsPanel.Hide();
-            
+            Cancel_Click(sender, e);
+
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             //todo delete owner
-            OwnDetailsPanel.Hide();
+            Cancel_Click(sender, e);
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            OwnDetailsPanel.Hide();
-        }
     }
 }

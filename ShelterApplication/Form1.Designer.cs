@@ -421,7 +421,7 @@
             this.bCancelAdd.TabIndex = 57;
             this.bCancelAdd.Text = "Cancel";
             this.bCancelAdd.UseVisualStyleBackColor = true;
-            this.bCancelAdd.Click += new System.EventHandler(this.bCancelAdd_Click);
+            this.bCancelAdd.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // label6
             // 
@@ -614,7 +614,7 @@
             // 
             this.ddSpecies.FormattingEnabled = true;
             this.ddSpecies.Items.AddRange(new object[] {
-            "Species",
+            "Family",
             "Dog",
             "Cat"});
             this.ddSpecies.Location = new System.Drawing.Point(124, 96);
@@ -649,7 +649,7 @@
             this.button1.TabIndex = 53;
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // label17
             // 
@@ -857,7 +857,7 @@
             this.bCancel.TabIndex = 35;
             this.bCancel.Text = "Cancel";
             this.bCancel.UseVisualStyleBackColor = true;
-            this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
+            this.bCancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // tbFeeAdopt
             // 
@@ -1023,7 +1023,7 @@
             this.bHome.TabIndex = 15;
             this.bHome.Text = "Home";
             this.bHome.UseVisualStyleBackColor = true;
-            this.bHome.Click += new System.EventHandler(this.bHome_Click);
+            this.bHome.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // label26
             // 
@@ -1210,7 +1210,7 @@
             this.button2.TabIndex = 49;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // label32
             // 
@@ -1311,7 +1311,7 @@
             this.button3.TabIndex = 15;
             this.button3.Text = "Home";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // label37
             // 
@@ -1413,7 +1413,7 @@
             this.button4.TabIndex = 46;
             this.button4.Text = "Cancel";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // tbFee
             // 
@@ -1594,7 +1594,7 @@
             this.button6.TabIndex = 73;
             this.button6.Text = "Cancel";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // label48
             // 
@@ -1638,15 +1638,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 441);
+            this.Controls.Add(this.AddAnmPanel);
+            this.Controls.Add(this.AnmDetailsPanel);
+            this.Controls.Add(this.OwnDetailsPanel);
+            this.Controls.Add(this.OwnersPanel);
+            this.Controls.Add(this.ClaimPanel);
+            this.Controls.Add(this.AddOwnPanel);
             this.Controls.Add(this.AdoptPanel);
             this.Controls.Add(this.AnimalsPanel);
-            this.Controls.Add(this.ClaimPanel);
-            this.Controls.Add(this.OwnersPanel);
-            this.Controls.Add(this.AnmDetailsPanel);
-            this.Controls.Add(this.AddOwnPanel);
             this.Controls.Add(this.RfidPanel);
-            this.Controls.Add(this.AddAnmPanel);
-            this.Controls.Add(this.OwnDetailsPanel);
             this.Controls.Add(this.HomePanel);
             this.Name = "HomeForm";
             this.Text = "Home";
