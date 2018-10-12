@@ -68,6 +68,10 @@ namespace ShelterApplication
                 return 0;
         }
 
+        public Owner getPo(){
+            return this.myOwner;
+        }
+
         public void setOwner(Owner o)
         {
             this.myOwner = o;
