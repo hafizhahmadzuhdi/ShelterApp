@@ -349,43 +349,20 @@ namespace ShelterApplication
         public void Adopt(Animal a, Owner o)
         {
             Console.WriteLine(a.getRfid());
-            if(a.calculateDays() >= 20)
+            int d = a.calculateDays();
+            if ( d >= 20)
             {
                 if(a.getPoId() == 0)
                 {
                     int id = o.getOwnerId();
                     a.setStatus("adopted");
-
-                    if (a.GetType() == typeof(Dog)) 
-                    {
-
-                        a.setStatus("adopted");
-                        a.setOwner(o);
-                        this.updateAnimal(a);
-                        //conn.Open();
-                        //string query = string.Format("UPDATE dog SET status='adopted' WHERE rfid ='" + a.getRfid() + "'");
-                        //MySqlCommand command = new MySqlCommand(query, conn);
-                        //MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                        //command.ExecuteNonQuery();
-                    } else if(a.GetType() == typeof(Cat)){
-                        a.setOwner(o);
-                        a.setStatus("adopted");
-                        this.updateAnimal(a);
-                        //conn.Open();
-                        //string query = string.Format("UPDATE dog SET status='adopted' WHERE rfid ='" + a.getRfid() + "'");
-                        //MySqlCommand command = new MySqlCommand(query, conn);
-                        //MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                        //command.ExecuteNonQuery();
-
-                    }
-
-
-                    //a.setSetatus("adopted");
-
+                    a.setOwner(o);
+                    this.updateAnimal(a);
                 }
 
             } else
             {
+                throw new Exception("Animal cannot be adopted yet, "+(20 - d)+" days remain.");
                 //when somebody clicking the Adopt button while the days are still less than 20
                 
                 //a.setSetatus("notYetAdoptable");
