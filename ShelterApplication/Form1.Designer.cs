@@ -125,7 +125,6 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.tbDateFound = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.bSave = new System.Windows.Forms.Button();
@@ -173,6 +172,9 @@
             this.label49 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label58 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.AddOwnPanel.SuspendLayout();
@@ -1053,6 +1055,9 @@
             // 
             // AnmDetailsPanel
             // 
+            this.AnmDetailsPanel.Controls.Add(this.textBox1);
+            this.AnmDetailsPanel.Controls.Add(this.label58);
+            this.AnmDetailsPanel.Controls.Add(this.dateTimePicker1);
             this.AnmDetailsPanel.Controls.Add(this.textBox3);
             this.AnmDetailsPanel.Controls.Add(this.label28);
             this.AnmDetailsPanel.Controls.Add(this.textBox4);
@@ -1063,7 +1068,6 @@
             this.AnmDetailsPanel.Controls.Add(this.label30);
             this.AnmDetailsPanel.Controls.Add(this.label31);
             this.AnmDetailsPanel.Controls.Add(this.textBox6);
-            this.AnmDetailsPanel.Controls.Add(this.tbDateFound);
             this.AnmDetailsPanel.Controls.Add(this.comboBox1);
             this.AnmDetailsPanel.Controls.Add(this.textBox7);
             this.AnmDetailsPanel.Controls.Add(this.bSave);
@@ -1161,23 +1165,19 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(112, 240);
+            this.textBox6.Location = new System.Drawing.Point(112, 231);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(175, 104);
+            this.textBox6.Size = new System.Drawing.Size(175, 23);
             this.textBox6.TabIndex = 45;
-            // 
-            // tbDateFound
-            // 
-            this.tbDateFound.Location = new System.Drawing.Point(112, 158);
-            this.tbDateFound.Name = "tbDateFound";
-            this.tbDateFound.Size = new System.Drawing.Size(175, 20);
-            this.tbDateFound.TabIndex = 44;
-            this.tbDateFound.Text = "ddmmyyyy";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Species",
+            "Cat",
+            "Dog"});
             this.comboBox1.Location = new System.Drawing.Point(112, 120);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(175, 21);
@@ -1224,7 +1224,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(21, 240);
+            this.label33.Location = new System.Drawing.Point(22, 235);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(84, 13);
             this.label33.TabIndex = 40;
@@ -1633,27 +1633,37 @@
             this.label51.TabIndex = 58;
             this.label51.Text = "View/Edit Owner";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(112, 160);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(180, 20);
+            this.dateTimePicker1.TabIndex = 57;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(21, 269);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(60, 13);
+            this.label58.TabIndex = 58;
+            this.label58.Text = "Description";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(112, 265);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(175, 80);
+            this.textBox1.TabIndex = 59;
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 441);
-
-            // conflicts, commented in case we need to keep this one and not the other
-            //this.Controls.Add(this.AddOwnPanel);
-            //this.Controls.Add(this.HomePanel);
-            //this.Controls.Add(this.AnimalsPanel);
-            //this.Controls.Add(this.AdoptPanel);
-            //this.Controls.Add(this.ClaimPanel);
-            //this.Controls.Add(this.OwnersPanel);
-            //this.Controls.Add(this.AnmDetailsPanel);
-            //this.Controls.Add(this.RfidPanel);
-            //this.Controls.Add(this.AddAnmPanel);
-            //this.Controls.Add(this.OwnDetailsPanel);
-
-
-            this.Controls.Add(this.AddAnmPanel);
             this.Controls.Add(this.AnmDetailsPanel);
+            this.Controls.Add(this.AddAnmPanel);
             this.Controls.Add(this.OwnDetailsPanel);
             this.Controls.Add(this.OwnersPanel);
             this.Controls.Add(this.ClaimPanel);
@@ -1662,7 +1672,6 @@
             this.Controls.Add(this.AnimalsPanel);
             this.Controls.Add(this.RfidPanel);
             this.Controls.Add(this.HomePanel);
-
             this.Name = "HomeForm";
             this.Text = "Home";
             this.Load += new System.EventHandler(this.HomeForm_Load);
@@ -1778,7 +1787,6 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox tbDateFound;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Button bSave;
@@ -1841,6 +1849,9 @@
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label58;
     }
 }
 

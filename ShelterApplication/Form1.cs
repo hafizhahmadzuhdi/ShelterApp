@@ -204,7 +204,10 @@ namespace ShelterApplication
             Panel a=(Panel)((Button)sender).Parent;
             foreach (Control t in a.Controls)
             {
-                 t.ResetText(); 
+                if (t.GetType()==typeof(TextBox))
+                {
+                    t.ResetText();
+                }
             }
             a.Hide();
             
@@ -224,7 +227,15 @@ namespace ShelterApplication
 
         private void btnLookForOwner_Click(object sender, EventArgs e)
         {
-            //todo check if owner exists --> yes make box green --> no make box red
+            try
+            {
+                db.getOwnerById(Convert.ToInt32(tbOwner.Text));
+                tbOwner.BackColor = Color.ForestGreen;
+            }
+            catch
+            {
+                tbOwner.BackColor = Color.DarkRed;
+            }
         }
 
 
@@ -273,7 +284,6 @@ namespace ShelterApplication
 
         private void bAdopt_Click(object sender, EventArgs e)
         {
-            //todo adopt the animal
             ownerID = Convert.ToInt32(tbOwnerIDAdopt.Text);
 
  try {  db.Adopt(animal, db.getOwnerById(ownerID)); } catch (Exception er) { MessageBox.Show("Could not adopt: "+er.ToString()); }
@@ -431,17 +441,41 @@ namespace ShelterApplication
 
         private void bDelete_Click(object sender, EventArgs e)
         {
-            //todo delete the animal
+            try
+            {
+                //todo maybe make this one method cause this is so awkward
+                animal = db.getCatByRFID(textBox7.Text.ToString());
+            }
+            catch
+            {
+                animal = db.getDogByRFID(textBox7.Text.ToString());
+            }
+
+            db.DeleteAnimal(animal);
             Cancel_Click(sender, e);
         }
 
         private void bSave_Click(object sender, EventArgs e)
         {
-            //todo save changes
+            if (comboBox1.Text == "Cat")
+            {
+                animal = new Cat(textBox7.Text, textBox1.Text, dateTimePicker1.Value, textBox6.Text, textBox5.Text, db.getOwnerById(Convert.ToInt32(textBox3.Text)));
+                db.addCat((Cat)animal);
+            }
+            else if (comboBox1.Text == "Dog")
+            {
+                new Dog(textBox7.Text, textBox1.Text, dateTimePicker1.Value, textBox6.Text, db.getOwnerById(Convert.ToInt32(textBox3.Text)));
+                db.addDog((Dog)animal);
+            }
+            else
+            {
+                MessageBox.Show("Please select a species");
+            }
+            bDelete_Click(sender, e);
+
             Cancel_Click(sender, e);
 
         }
-
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -458,6 +492,7 @@ namespace ShelterApplication
         private void bEditOwner_Click(object sender, EventArgs e)
         {
             //todo save details
+            //db.updateAnimal
             Cancel_Click(sender, e);
 
         }

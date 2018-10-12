@@ -218,20 +218,6 @@ namespace ShelterApplication
             return ds;
         }
 
-
-        public DataSet getNotYetAdoptableAnimalsDateBrought(){
-            DataSet ds = new DataSet();
-            conn.Open();
-            string query = string.Format("SELECT rfid, dateBrought FROM dog UNION SELECT rfid, dateBrought FROM cat");
-            MySqlCommand command = new MySqlCommand(query, conn);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-            command.ExecuteNonQuery();
-            ds.Clear();
-            adapter.Fill(ds);
-            conn.Close();
-            return ds;
-        }
-
         public List<Animal> getAnimalsList(){
             conn.Open();
             List<Animal> resp = new List<Animal>();
