@@ -237,7 +237,7 @@ namespace ShelterApplication
             List<Animal> resp = new List<Animal>();
 
             // dogs
-            MySqlCommand cmd = new MySqlCommand("SELECT rfid, description, dateBrought, locationFound, po from dog", conn);
+            MySqlCommand cmd = new MySqlCommand("SELECT rfid, description, dateBrought, locationFound, po, status from dog", conn);
             cmd.Prepare();
             MySqlDataReader rdr = cmd.ExecuteReader();
 
@@ -254,13 +254,13 @@ namespace ShelterApplication
                     po_ids.Add(Convert.ToInt32(rdr[4]));
                 else
                     po_ids.Add(0);
-
+                dog.setStatus(rdr[5].ToString());
                 resp.Add(dog);
             }
             rdr.Close();
 
             // cats
-            MySqlCommand cmd_cat = new MySqlCommand("SELECT rfid, description, dateBrought, locationFound, extra, po from cat", conn);
+            MySqlCommand cmd_cat = new MySqlCommand("SELECT rfid, description, dateBrought, locationFound, extra, po, status from cat", conn);
             cmd_cat.Prepare();
             MySqlDataReader rdr_cat = cmd_cat.ExecuteReader();
             while (rdr_cat.Read())
@@ -278,6 +278,7 @@ namespace ShelterApplication
                 else
                     po_ids.Add(0);
 
+                cat.setStatus(rdr_cat[6].ToString());
                 resp.Add(cat);
             }
             rdr_cat.Close();
@@ -295,7 +296,8 @@ namespace ShelterApplication
         public void updateStatus(){
             List<Animal> animals = this.getAnimalsList();
             foreach (Animal animal in animals){
-                if (animal.getStatusAsString() == "notYetAdoptable" && animal.calculateDays() >= 20){ // if more than 20 days
+                if (animal.getStatusAsString() == "notYetAdoptable" && animal.calculateDays() >= 20)
+                { // if more than 20 days
                     animal.setStatus("adoptable");
                     this.updateAnimal(animal);
                 }
