@@ -466,6 +466,9 @@ namespace ShelterApplication
             if (true){ // TODO replace condition with condition to verify the checkboxes are checked (infos and money)
                 db.Claim(animal);
             }
+            else {
+                MessageBox.Show("you have to check the informations before claiming");
+            }
             Cancel_Click(sender, e);
         }
 
