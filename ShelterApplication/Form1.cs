@@ -210,7 +210,23 @@ namespace ShelterApplication
                     t.ResetText();
                 }
             }
+
+            tbRfidClaim.Text = "";
+            tbSpeciesClaim.Text = "";
+            dtpClaim.Text = null;
+            tbLocationClaim.Text = "";
+            tbPoClaim.Text = "";
+            tbExtraClaim.Text = "";
+
+            tbOwnerIdClaim.Text = "";
+            tbLNameClaim.Text = "";
+            tbFNameClaim.Text = "";
+            tbAddressClaim.Text = "";
+            tbPhoneClaim.Text = "";
+            dtpDobClaim.Text = null;
+
             a.Hide();
+            
             
         }
 
@@ -395,9 +411,36 @@ namespace ShelterApplication
                                 // TODO the same with owner (use animal.getPo() to retrieve the owner)
                                 AnimalsPanel.Hide();
                                 ClaimPanel.Show();
+                                //Animal
+                                tbRfidClaim.Text = animal.getRfid();
+                                tbSpeciesClaim.Text = species;
+                                dtpClaim.Value = animal.getDateBrought();
+                                tbLocationClaim.Text = animal.getLocationFound();
+                                tbPoClaim.Text = Convert.ToString(animal.getPoId());
+
+
+                                po = db.getOwnerById(animal.getPoId());
+                                //Owner
+                                tbOwnerIdClaim.Text = Convert.ToString(po.getOwnerId());
+                                tbLNameClaim.Text = po.getLastName();
+                                tbFNameClaim.Text = po.getFirstName();
+                                tbAddressClaim.Text = po.getAddress();
+                                tbPhoneClaim.Text = Convert.ToString(po.getPhoneOwner());
+                                dtpDobClaim.Value = Convert.ToDateTime(po.getDob());
+                                if(species == "cat")
+                                {
+                                    Cat cat = db.getCatByRFID(rfidselected);
+                                    tbExtraClaim.Text = cat.getExtra();
+
+                                }
+                                else if(species == "dog")
+                                {
+                                    Dog dog = db.getDogByRFID(rfidselected);
+                                    tbExtraClaim.Text = dog.getLastWalked();
+                                }
                             }
                             else {
-                                MessageBox.Show("can't claim this animal");
+                                MessageBox.Show("Can't claim this animal");
                             }
                             
                         }
@@ -421,12 +464,16 @@ namespace ShelterApplication
                             //This method will continue to Adopt and showing the overview of animal
                             
                         }
+                        condition = "";
+                        rfidselected = "";
+                        species = "";
 
                     }
 
                    
                 }
             }
+            selectedCellCount = 0;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -566,13 +613,14 @@ namespace ShelterApplication
         {
             //todo add buttons for owner functions
         }
-
+        
 
         private void bClaim_Click(object sender, EventArgs e)
         {
             //todo claim the animal
-            if (true){ // TODO replace condition with condition to verify the checkboxes are checked (infos and money)
+            if (cbConfirmInfo.Checked == true){ // TODO replace condition with condition to verify the checkboxes are checked (infos and money)
                 db.Claim(animal);
+                MessageBox.Show("Animal Claimed");
             }
             else {
                 MessageBox.Show("you have to check the informations before claiming");

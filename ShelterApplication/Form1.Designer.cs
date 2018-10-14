@@ -115,6 +115,9 @@
             this.label27 = new System.Windows.Forms.Label();
             this.tbSearchAnimals = new System.Windows.Forms.TextBox();
             this.AnmDetailsPanel = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -170,11 +173,30 @@
             this.label49 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-
-            this.label58 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.tbRfidClaim = new System.Windows.Forms.TextBox();
+            this.tbSpeciesClaim = new System.Windows.Forms.TextBox();
+            this.tbLocationClaim = new System.Windows.Forms.TextBox();
+            this.dtpClaim = new System.Windows.Forms.DateTimePicker();
+            this.tbPoClaim = new System.Windows.Forms.TextBox();
+            this.tbExtraClaim = new System.Windows.Forms.TextBox();
+            this.tbOwnerIdClaim = new System.Windows.Forms.TextBox();
+            this.tbFNameClaim = new System.Windows.Forms.TextBox();
+            this.tbLNameClaim = new System.Windows.Forms.TextBox();
+            this.tbAddressClaim = new System.Windows.Forms.TextBox();
+            this.tbPhoneClaim = new System.Windows.Forms.TextBox();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.dtpDobClaim = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.AddOwnPanel.SuspendLayout();
@@ -1057,7 +1079,6 @@
             // 
             this.AnmDetailsPanel.Controls.Add(this.textBox1);
             this.AnmDetailsPanel.Controls.Add(this.label58);
-            this.AnmDetailsPanel.Controls.Add(this.dateTimePicker1);
             this.AnmDetailsPanel.Controls.Add(this.textBox3);
             this.AnmDetailsPanel.Controls.Add(this.label28);
             this.AnmDetailsPanel.Controls.Add(this.textBox4);
@@ -1083,6 +1104,30 @@
             this.AnmDetailsPanel.Size = new System.Drawing.Size(464, 441);
             this.AnmDetailsPanel.TabIndex = 60;
             this.AnmDetailsPanel.Visible = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(112, 265);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(175, 80);
+            this.textBox1.TabIndex = 59;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(21, 269);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(60, 13);
+            this.label58.TabIndex = 58;
+            this.label58.Text = "Description";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(112, 160);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(180, 20);
+            this.dateTimePicker1.TabIndex = 57;
             // 
             // textBox3
             // 
@@ -1342,6 +1387,30 @@
             // 
             // ClaimPanel
             // 
+            this.ClaimPanel.Controls.Add(this.dtpDobClaim);
+            this.ClaimPanel.Controls.Add(this.label70);
+            this.ClaimPanel.Controls.Add(this.label69);
+            this.ClaimPanel.Controls.Add(this.label68);
+            this.ClaimPanel.Controls.Add(this.label67);
+            this.ClaimPanel.Controls.Add(this.label66);
+            this.ClaimPanel.Controls.Add(this.label65);
+            this.ClaimPanel.Controls.Add(this.tbPhoneClaim);
+            this.ClaimPanel.Controls.Add(this.tbAddressClaim);
+            this.ClaimPanel.Controls.Add(this.tbLNameClaim);
+            this.ClaimPanel.Controls.Add(this.tbFNameClaim);
+            this.ClaimPanel.Controls.Add(this.tbOwnerIdClaim);
+            this.ClaimPanel.Controls.Add(this.tbExtraClaim);
+            this.ClaimPanel.Controls.Add(this.tbPoClaim);
+            this.ClaimPanel.Controls.Add(this.dtpClaim);
+            this.ClaimPanel.Controls.Add(this.tbLocationClaim);
+            this.ClaimPanel.Controls.Add(this.tbSpeciesClaim);
+            this.ClaimPanel.Controls.Add(this.tbRfidClaim);
+            this.ClaimPanel.Controls.Add(this.label64);
+            this.ClaimPanel.Controls.Add(this.label63);
+            this.ClaimPanel.Controls.Add(this.label62);
+            this.ClaimPanel.Controls.Add(this.label61);
+            this.ClaimPanel.Controls.Add(this.label60);
+            this.ClaimPanel.Controls.Add(this.label59);
             this.ClaimPanel.Controls.Add(this.tbTotalDays);
             this.ClaimPanel.Controls.Add(this.label39);
             this.ClaimPanel.Controls.Add(this.cbConfirmInfo);
@@ -1380,7 +1449,7 @@
             // cbConfirmInfo
             // 
             this.cbConfirmInfo.AutoSize = true;
-            this.cbConfirmInfo.Location = new System.Drawing.Point(173, 244);
+            this.cbConfirmInfo.Location = new System.Drawing.Point(160, 272);
             this.cbConfirmInfo.Name = "cbConfirmInfo";
             this.cbConfirmInfo.Size = new System.Drawing.Size(157, 17);
             this.cbConfirmInfo.TabIndex = 43;
@@ -1390,7 +1459,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(76, 141);
+            this.label40.Location = new System.Drawing.Point(21, 169);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(76, 13);
             this.label40.TabIndex = 48;
@@ -1437,7 +1506,7 @@
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(68, 59);
+            this.label42.Location = new System.Drawing.Point(22, 57);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(76, 13);
             this.label42.TabIndex = 41;
@@ -1616,43 +1685,218 @@
             this.label51.TabIndex = 58;
             this.label51.Text = "View/Edit Owner";
             // 
-            // dateTimePicker1
+            // label59
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(112, 160);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(180, 20);
-            this.dateTimePicker1.TabIndex = 57;
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(27, 81);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(38, 13);
+            this.label59.TabIndex = 51;
+            this.label59.Text = "RFID :";
             // 
-            // label58
+            // label60
             // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(21, 269);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(60, 13);
-            this.label58.TabIndex = 58;
-            this.label58.Text = "Description";
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(28, 110);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(51, 13);
+            this.label60.TabIndex = 52;
+            this.label60.Text = "Species :";
             // 
-            // textBox1
+            // label61
             // 
-            this.textBox1.Location = new System.Drawing.Point(112, 265);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(175, 80);
-            this.textBox1.TabIndex = 59;
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(28, 138);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(87, 13);
+            this.label61.TabIndex = 53;
+            this.label61.Text = "Location Found :";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(228, 83);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(73, 13);
+            this.label62.TabIndex = 54;
+            this.label62.Text = "DateBrought :";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(228, 107);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(69, 13);
+            this.label63.TabIndex = 55;
+            this.label63.Text = "Prev Owner :";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(228, 135);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(37, 13);
+            this.label64.TabIndex = 56;
+            this.label64.Text = "Extra :";
+            // 
+            // tbRfidClaim
+            // 
+            this.tbRfidClaim.Location = new System.Drawing.Point(114, 80);
+            this.tbRfidClaim.Name = "tbRfidClaim";
+            this.tbRfidClaim.ReadOnly = true;
+            this.tbRfidClaim.Size = new System.Drawing.Size(100, 20);
+            this.tbRfidClaim.TabIndex = 57;
+            // 
+            // tbSpeciesClaim
+            // 
+            this.tbSpeciesClaim.Location = new System.Drawing.Point(114, 106);
+            this.tbSpeciesClaim.Name = "tbSpeciesClaim";
+            this.tbSpeciesClaim.ReadOnly = true;
+            this.tbSpeciesClaim.Size = new System.Drawing.Size(100, 20);
+            this.tbSpeciesClaim.TabIndex = 58;
+            // 
+            // tbLocationClaim
+            // 
+            this.tbLocationClaim.Location = new System.Drawing.Point(114, 134);
+            this.tbLocationClaim.Name = "tbLocationClaim";
+            this.tbLocationClaim.ReadOnly = true;
+            this.tbLocationClaim.Size = new System.Drawing.Size(100, 20);
+            this.tbLocationClaim.TabIndex = 59;
+            // 
+            // dtpClaim
+            // 
+            this.dtpClaim.Location = new System.Drawing.Point(303, 80);
+            this.dtpClaim.Name = "dtpClaim";
+            this.dtpClaim.Size = new System.Drawing.Size(138, 20);
+            this.dtpClaim.TabIndex = 60;
+            // 
+            // tbPoClaim
+            // 
+            this.tbPoClaim.Location = new System.Drawing.Point(303, 107);
+            this.tbPoClaim.Name = "tbPoClaim";
+            this.tbPoClaim.ReadOnly = true;
+            this.tbPoClaim.Size = new System.Drawing.Size(110, 20);
+            this.tbPoClaim.TabIndex = 61;
+            // 
+            // tbExtraClaim
+            // 
+            this.tbExtraClaim.Location = new System.Drawing.Point(304, 133);
+            this.tbExtraClaim.Name = "tbExtraClaim";
+            this.tbExtraClaim.ReadOnly = true;
+            this.tbExtraClaim.Size = new System.Drawing.Size(110, 20);
+            this.tbExtraClaim.TabIndex = 62;
+            // 
+            // tbOwnerIdClaim
+            // 
+            this.tbOwnerIdClaim.Location = new System.Drawing.Point(116, 187);
+            this.tbOwnerIdClaim.Name = "tbOwnerIdClaim";
+            this.tbOwnerIdClaim.ReadOnly = true;
+            this.tbOwnerIdClaim.Size = new System.Drawing.Size(100, 20);
+            this.tbOwnerIdClaim.TabIndex = 63;
+            // 
+            // tbFNameClaim
+            // 
+            this.tbFNameClaim.Location = new System.Drawing.Point(116, 213);
+            this.tbFNameClaim.Name = "tbFNameClaim";
+            this.tbFNameClaim.ReadOnly = true;
+            this.tbFNameClaim.Size = new System.Drawing.Size(100, 20);
+            this.tbFNameClaim.TabIndex = 64;
+            // 
+            // tbLNameClaim
+            // 
+            this.tbLNameClaim.Location = new System.Drawing.Point(116, 239);
+            this.tbLNameClaim.Name = "tbLNameClaim";
+            this.tbLNameClaim.ReadOnly = true;
+            this.tbLNameClaim.Size = new System.Drawing.Size(100, 20);
+            this.tbLNameClaim.TabIndex = 65;
+            // 
+            // tbAddressClaim
+            // 
+            this.tbAddressClaim.Location = new System.Drawing.Point(309, 186);
+            this.tbAddressClaim.Name = "tbAddressClaim";
+            this.tbAddressClaim.ReadOnly = true;
+            this.tbAddressClaim.Size = new System.Drawing.Size(100, 20);
+            this.tbAddressClaim.TabIndex = 66;
+            // 
+            // tbPhoneClaim
+            // 
+            this.tbPhoneClaim.Location = new System.Drawing.Point(309, 213);
+            this.tbPhoneClaim.Name = "tbPhoneClaim";
+            this.tbPhoneClaim.ReadOnly = true;
+            this.tbPhoneClaim.Size = new System.Drawing.Size(100, 20);
+            this.tbPhoneClaim.TabIndex = 67;
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(28, 196);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(52, 13);
+            this.label65.TabIndex = 69;
+            this.label65.Text = "Owner ID";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(26, 218);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(57, 13);
+            this.label66.TabIndex = 70;
+            this.label66.Text = "First Name";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(28, 243);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(58, 13);
+            this.label67.TabIndex = 71;
+            this.label67.Text = "Last Name";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(231, 189);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(45, 13);
+            this.label68.TabIndex = 72;
+            this.label68.Text = "Address";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(231, 216);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(38, 13);
+            this.label69.TabIndex = 73;
+            this.label69.Text = "Phone";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(231, 241);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(28, 13);
+            this.label70.TabIndex = 74;
+            this.label70.Text = "DoB";
+            // 
+            // dtpDobClaim
+            // 
+            this.dtpDobClaim.Location = new System.Drawing.Point(309, 240);
+            this.dtpDobClaim.Name = "dtpDobClaim";
+            this.dtpDobClaim.Size = new System.Drawing.Size(132, 20);
+            this.dtpDobClaim.TabIndex = 75;
             // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 441);
-
             this.Controls.Add(this.AnmDetailsPanel);
-            this.Controls.Add(this.AddAnmPanel);
+            this.Controls.Add(this.ClaimPanel);
             this.Controls.Add(this.OwnDetailsPanel);
             this.Controls.Add(this.OwnersPanel);
             this.Controls.Add(this.AddAnmPanel);
-            this.Controls.Add(this.AnmDetailsPanel);
-            this.Controls.Add(this.ClaimPanel);
             this.Controls.Add(this.AddOwnPanel);
             this.Controls.Add(this.AdoptPanel);
             this.Controls.Add(this.AnimalsPanel);
@@ -1836,6 +2080,30 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.DateTimePicker dtpDobClaim;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.TextBox tbPhoneClaim;
+        private System.Windows.Forms.TextBox tbAddressClaim;
+        private System.Windows.Forms.TextBox tbLNameClaim;
+        private System.Windows.Forms.TextBox tbFNameClaim;
+        private System.Windows.Forms.TextBox tbOwnerIdClaim;
+        private System.Windows.Forms.TextBox tbExtraClaim;
+        private System.Windows.Forms.TextBox tbPoClaim;
+        private System.Windows.Forms.DateTimePicker dtpClaim;
+        private System.Windows.Forms.TextBox tbLocationClaim;
+        private System.Windows.Forms.TextBox tbSpeciesClaim;
+        private System.Windows.Forms.TextBox tbRfidClaim;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label label59;
     }
 }
 
