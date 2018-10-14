@@ -374,7 +374,6 @@ namespace ShelterApplication
 
         public void Adopt(Animal a, Owner o)
         {
-            Console.WriteLine(a.getRfid());
             int d = a.calculateDays();
             if ( d >= 20)
             {
@@ -407,6 +406,19 @@ namespace ShelterApplication
             cmd.Prepare();
             cmd.ExecuteNonQuery();
             conn.Close();
+        }
+
+        public int calculateClaimFee(Animal x)
+        {
+            int totalDays = x.calculateDays();
+            int claimCost = x.getBaseFee() + (totalDays * x.getDailyFee());
+            return claimCost;
+    
+        }
+
+        public int calculateAdoptFee(Animal x)
+        {
+            return x.getAdoptFee();
         }
         
 

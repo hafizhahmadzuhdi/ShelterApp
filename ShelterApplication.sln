@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShelterApplication", "ShelterApplication\ShelterApplication.csproj", "{9E1A6248-3D19-42DE-9196-518763B3D9C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShelterApplicationTests", "ShelterApplicationTests\ShelterApplicationTests.csproj", "{F29AA5FB-3224-486B-B187-BFA234A98107}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9E1A6248-3D19-42DE-9196-518763B3D9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E1A6248-3D19-42DE-9196-518763B3D9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E1A6248-3D19-42DE-9196-518763B3D9C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F29AA5FB-3224-486B-B187-BFA234A98107}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F29AA5FB-3224-486B-B187-BFA234A98107}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F29AA5FB-3224-486B-B187-BFA234A98107}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F29AA5FB-3224-486B-B187-BFA234A98107}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

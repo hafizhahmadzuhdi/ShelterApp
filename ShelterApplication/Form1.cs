@@ -426,6 +426,8 @@ namespace ShelterApplication
                                 dtpClaim.Value = animal.getDateBrought();
                                 tbLocationClaim.Text = animal.getLocationFound();
                                 tbPoClaim.Text = Convert.ToString(animal.getPoId());
+                                tbFee.Text = Convert.ToString(db.calculateClaimFee(animal));
+                                tbTotalDays.Text = Convert.ToString(animal.calculateDays());
 
 
                                 po = db.getOwnerById(animal.getPoId());
@@ -466,6 +468,7 @@ namespace ShelterApplication
                             tbSpeciesAdopt.Text = species;
                             tbDescriptionAdopt.Text = animal.getDescription();
                             tbLocationFoundAdopt.Text = animal.getLocationFound();
+                            tbFeeAdopt.Text = Convert.ToString(db.calculateAdoptFee(animal));
 
 
                             AnimalsPanel.Hide();

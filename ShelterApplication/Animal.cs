@@ -14,9 +14,9 @@ namespace ShelterApplication
         private string locationFound { get; set; }
         status animalStatus;
         private Owner myOwner;
-        private double baseFee { get; set; }
-        private double dailyFee { get; set; }
-        private double adoptFee { get; set; }
+        private int baseFee { get; set; }
+        private int dailyFee { get; set; }
+        private int adoptFee { get; set; }
         
 
         private enum status
@@ -31,7 +31,7 @@ namespace ShelterApplication
 
         private status animalstatus;
 
-        public Animal(string rfid, string description, DateTime dateBrought, string locationFound, double baseFee, double dailyFee, double adoptFee, Owner po)
+        public Animal(string rfid, string description, DateTime dateBrought, string locationFound, int baseFee, int dailyFee, int adoptFee, Owner po)
         {
             this.rfid = rfid;
             this.description = description;
@@ -151,6 +151,23 @@ namespace ShelterApplication
             int days = Convert.ToInt32(daysTotal);
             return days;
         }
+
+        public int getAdoptFee()
+        {
+            return this.adoptFee;
+
+        }
+
+        public int getDailyFee()
+        {
+            return this.dailyFee;
+        }
+
+        public int getBaseFee()
+        {
+            return this.baseFee;
+        }
+
 
         public virtual string getExtra()
         {
