@@ -335,9 +335,8 @@ namespace ShelterApplication
 
         private void bSearchOwner_Click(object sender, EventArgs e)
         {
-            DataSet dt = new DataSet();
-            MySqlDataAdapter SDA = new MySqlDataAdapter("SELECT ownerID, firstName, lastName FROM owner where lastName like '%" + tbSearchOwners.Text + "%'", db.getConn());
-            SDA.Fill(dt);
+            DataSet dt = db.getOwnerByLastName(tbSearchOwners.Text);
+            dataGridView2.DataSource = dt.Tables[0];
             dataGridView2.DataSource = dt.Tables[0];
         }
 
@@ -632,6 +631,7 @@ namespace ShelterApplication
                             this.dateTimePicker1.Text = Convert.ToString(po.getDob());
                             this.textBox11.Text = po.getEmail();
                             //this.tbRfidOwner.Text = animal.getRfidByOwner(po);
+
 
 
                             OwnersPanel.Hide();

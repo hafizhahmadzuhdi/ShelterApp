@@ -207,7 +207,15 @@ namespace ShelterApplication
 
         }
 
-       
+        public DataSet getOwnerByLastName(string x)
+        {
+            DataSet dt = new DataSet();
+            MySqlDataAdapter SDA = new MySqlDataAdapter("SELECT ownerID, firstName, lastName FROM owner where lastName like '%" + x + "%'", conn);
+            SDA.Fill(dt);
+            return dt;
+
+        }
+
 
         public DataSet getAllOwners()
         {
