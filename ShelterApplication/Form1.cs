@@ -72,8 +72,8 @@ namespace ShelterApplication
             if (dataGridView2.ColumnCount < 4)
             {
                 DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
-                editButton.HeaderText = "Edit";
-                editButton.Text = "Edit";
+                editButton.HeaderText = "Details";
+                editButton.Text = "Details";
                 editButton.UseColumnTextForButtonValue = true;
                 editButton.Width = 50;
                 dataGridView2.Columns.Add(editButton);
@@ -158,6 +158,14 @@ namespace ShelterApplication
                 adoptButton.UseColumnTextForButtonValue = true;
                 adoptButton.Width = 50;
                 dataGridView1.Columns.Add(adoptButton);
+
+                DataGridViewButtonColumn detailsButton = new DataGridViewButtonColumn();
+                detailsButton.HeaderText = "Details";
+                detailsButton.Text = "Details";
+                detailsButton.UseColumnTextForButtonValue = true;
+                detailsButton.Width = 50;
+                dataGridView1.Columns.Add(detailsButton);
+
             } 
             
 
@@ -224,6 +232,19 @@ namespace ShelterApplication
             tbAddressClaim.Text = "";
             tbPhoneClaim.Text = "";
             dtpDobClaim.Text = null;
+
+
+            dtpDateBroughtDetails.Text = "";
+            tbRfidDetails.Text = "";
+            cbSpeciesDetails.Text = "";
+            tbStatusDetails.Text = "";
+            tbDescriptionDetails.Text = "";
+            tbLocationFoundDetails.Text = "";
+            tbOwnersIdDetails.Text = "";
+            dtpLastWalkedDetails.Text = "";
+            tbExtraDetails.Text = "";
+            
+
 
             a.Hide();
             
@@ -330,25 +351,13 @@ namespace ShelterApplication
         {
             ds = db.getAnimalsByStatus("notYetAdoptable");
             dataGridView1.DataSource = ds.Tables[0];
-            //dataGridView1.Columns[1].Width = 80;
-            //dataGridView1.Columns[1].HeaderText = "Species";
-            //dataGridView1.Columns[2].Width = 80;
-            //dataGridView1.Columns[2].HeaderText = "Status";
-
-
-            
+       
         }
 
         private void rbAllAnimals_CheckedChanged(object sender, EventArgs e)
         {
             ds = db.getAllAnimals();
             dataGridView1.DataSource = ds.Tables[0];
-            //dataGridView1.Columns[1].Width = 80;
-            //dataGridView1.Columns[1].HeaderText = "Species";
-            //dataGridView1.Columns[2].Width = 80;
-            //dataGridView1.Columns[2].HeaderText = "Status";
-
-
             
         }
 
@@ -447,7 +456,10 @@ namespace ShelterApplication
                         else if (condition == "Adopt")
                         {
                             if (species == "cat")
-                                tbExtraAdopt.Text = animal.getExtra();
+                            {
+                                Cat cat = db.getCatByRFID(rfidselected);
+                                tbExtraAdopt.Text = cat.getExtra();
+                            }
 
                             tbDateBroughtAdopt.Text = Convert.ToString(animal.getDateBrought());
                             tbRfidAdopt.Text = animal.getRfid();
@@ -463,6 +475,28 @@ namespace ShelterApplication
                           
                             //This method will continue to Adopt and showing the overview of animal
                             
+                        } else if(condition == "Details")
+                        {
+                            AnimalsPanel.Hide();
+                            AnmDetailsPanel.Show();
+
+                            dtpDateBroughtDetails.Text = Convert.ToString(animal.getDateBrought());
+                            tbRfidDetails.Text = animal.getRfid();
+                            cbSpeciesDetails.Text = species;
+                            tbStatusDetails.Text = animal.getStatusAsString();
+                            tbDescriptionDetails.Text = animal.getDescription();
+                            tbLocationFoundDetails.Text = animal.getLocationFound();
+                            tbOwnersIdDetails.Text = Convert.ToString(animal.getPoId());
+                            if(species == "cat")
+                            {
+                                Cat cat = db.getCatByRFID(rfidselected);
+                                tbExtraDetails.Text = cat.getExtra();
+                            } else if(species == "dog")
+                            {
+                                Dog dog = db.getDogByRFID(rfidselected);
+                                dtpLastWalkedDetails.Text = dog.getLastWalked();
+                            }
+
                         }
                         condition = "";
                         rfidselected = "";
@@ -474,6 +508,8 @@ namespace ShelterApplication
                 }
             }
             selectedCellCount = 0;
+            dataGridView1.ClearSelection();
+            dataGridView1.CurrentCell = dataGridView1[0, 0];
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -502,11 +538,11 @@ namespace ShelterApplication
             try
             {
                 //todo maybe make this one method cause this is so awkward
-                animal = db.getCatByRFID(textBox7.Text.ToString());
+                animal = db.getCatByRFID(tbRfidDetails.Text.ToString());
             }
             catch
             {
-                animal = db.getDogByRFID(textBox7.Text.ToString());
+                animal = db.getDogByRFID(tbRfidDetails.Text.ToString());
             }
 
             db.DeleteAnimal(animal);
@@ -515,14 +551,14 @@ namespace ShelterApplication
 
         private void bSave_Click(object sender, EventArgs e)
         {
-            if (comboBox1.Text == "Cat")
+            if (cbSpeciesDetails.Text == "Cat")
             {
-                animal = new Cat(textBox7.Text, textBox1.Text, dateTimePicker1.Value, textBox6.Text, textBox5.Text, db.getOwnerById(Convert.ToInt32(textBox3.Text)));
+                animal = new Cat(tbRfidDetails.Text, tbDescriptionDetails.Text, dateTimePicker1.Value, tbLocationFoundDetails.Text, tbExtraDetails.Text, db.getOwnerById(Convert.ToInt32(tbOwnersIdDetails.Text)));
                 db.addCat((Cat)animal);
             }
-            else if (comboBox1.Text == "Dog")
+            else if (cbSpeciesDetails.Text == "Dog")
             {
-                new Dog(textBox7.Text, textBox1.Text, dateTimePicker1.Value, textBox6.Text, db.getOwnerById(Convert.ToInt32(textBox3.Text)));
+                new Dog(tbRfidDetails.Text, tbDescriptionDetails.Text, dateTimePicker1.Value, tbLocationFoundDetails.Text, db.getOwnerById(Convert.ToInt32(tbOwnersIdDetails.Text)));
                 db.addDog((Dog)animal);
             }
             else
@@ -579,7 +615,7 @@ namespace ShelterApplication
                             }
 
                         }
-                        else if (condition == "Edit")
+                        else if (condition == "Details")
                         {
 
                             po = db.getOwnerById(idselected);
@@ -599,13 +635,78 @@ namespace ShelterApplication
                             OwnDetailsPanel.Show();
 
                         }
-
+                        condition = "";
                         idselected = 0;
 
                     }
 
 
                 }
+            }
+            selectedCellCount = 0;
+        }
+
+        private void btnUpdateDetails_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                animal.setDateBrought(Convert.ToString(dtpDateBroughtDetails.Value));
+                animal.setDescription(tbDescriptionDetails.Text);
+                animal.setLocationFound(tbLocationFoundDetails.Text);
+
+                if (tbOwnersIdDetails.Text != string.Empty)
+                {
+                    int po_id = Convert.ToInt32(tbOwnersIdDetails.Text);
+                    try {
+                    po = db.getOwnerById(po_id);
+                    }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show("Can't find previous owner: " + err.ToString());
+
+                    }
+                }
+                else
+                {
+                    po = null;
+                }
+                animal.setOwner(po);
+
+                if (animal.GetType() == typeof(Dog))
+                {
+                    Dog dog = (Dog)animal;
+                    dog.setLastWalked(dtpLastWalkedDetails.Value);
+                } else if(animal.GetType() == typeof(Cat))
+                {
+                    Cat cat = (Cat)animal;
+                    cat.setExtra(tbExtraDetails.Text);
+                }
+                db.updateAnimal(animal);
+                MessageBox.Show("Animal successfully updated");
+                AnmDetailsPanel.Hide();
+                HomePanel.Show();
+            } catch (Exception er)
+            {
+                MessageBox.Show(er.ToString());
+            }
+            
+        }
+
+        private void btnDeleteDetails_Click(object sender, EventArgs e)
+        {
+
+            DialogResult dialogResult = MessageBox.Show("Are you sure want to Delete this animal", "Confirmation", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+
+                db.DeleteAnimal(animal);
+                HomePanel.Show();
+                AnmDetailsPanel.Hide();
+                MessageBox.Show("Animal successfully deleted");
+            }
+            else
+            {
+                AnmDetailsPanel.Show();
             }
         }
 

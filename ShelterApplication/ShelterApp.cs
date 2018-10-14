@@ -326,6 +326,7 @@ namespace ShelterApplication
         public void updateAnimal(Animal animal){
             string extra = "";
             string species = "";
+            string lastWalked = "";
             if (animal.GetType() == typeof(Cat))
             {
                 species = "cat";
@@ -334,6 +335,7 @@ namespace ShelterApplication
             else if (animal.GetType() == typeof(Dog))
             {
                 species = "dog";
+                lastWalked = ", lastWalked=@lastWalked";
             }
             conn.Open();
             MySqlCommand cmd = new MySqlCommand("UPDATE "+species+" SET description=@desc, dateBrought=@db, locationFound=@lf, po=@po, status=@status"+extra+" WHERE rfid=@rfid", conn);
@@ -345,6 +347,10 @@ namespace ShelterApplication
             {
                 Cat cat = (Cat)animal;
                 cmd.Parameters.AddWithValue("@extra", cat.getExtra());
+            } else if (species == "dog")
+            {
+                Dog dog = (Dog)animal;
+                cmd.Parameters.AddWithValue("@lastWalked", dog.getLastWalked());
             }
 
             if (animal.getPoId() != 0)
@@ -395,8 +401,9 @@ namespace ShelterApplication
         {
             string s ="cat"; if (a.GetType() == typeof(Dog)) { s = "dog"; }
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand("DELETE FROM"+s+"WHERE rfid=@rfid", conn);
-            cmd.Parameters.AddWithValue("@rfid", a.getRfid());
+            string query = string.Format("DELETE FROM ") + s + string.Format(" WHERE rfid = '") + a.getRfid() + string.Format("';");
+            
+            MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Prepare();
             cmd.ExecuteNonQuery();
             conn.Close();

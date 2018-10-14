@@ -52,13 +52,28 @@ namespace ShelterApplication
             return this.description;
         }
 
+        public void setDescription(string x)
+        {
+            this.description = x;
+        }
+
         public DateTime getDateBrought()
         {
             return this.dateBrought;
         }
 
+        public void setDateBrought(string x)
+        {
+            this.dateBrought = Convert.ToDateTime(x);
+        }
+
         public string getLocationFound(){
             return this.locationFound;
+        }
+
+        public void setLocationFound(string x)
+        {
+            this.locationFound = x;
         }
 
         public int getPoId(){
@@ -68,6 +83,8 @@ namespace ShelterApplication
                 return 0;
         }
 
+        
+
         public Owner getPo(){
             return this.myOwner;
         }
@@ -76,6 +93,7 @@ namespace ShelterApplication
         {
             this.myOwner = o;
         }
+
 
         public string getStatusAsString(){
             string resp = "";

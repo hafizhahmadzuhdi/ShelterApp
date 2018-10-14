@@ -115,22 +115,19 @@
             this.label27 = new System.Windows.Forms.Label();
             this.tbSearchAnimals = new System.Windows.Forms.TextBox();
             this.AnmDetailsPanel = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbDescriptionDetails = new System.Windows.Forms.TextBox();
             this.label58 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbOwnersIdDetails = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbStatusDetails = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.bDelete = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.tbDateWalked = new System.Windows.Forms.TextBox();
+            this.tbExtraDetails = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.bSave = new System.Windows.Forms.Button();
+            this.tbLocationFoundDetails = new System.Windows.Forms.TextBox();
+            this.cbSpeciesDetails = new System.Windows.Forms.ComboBox();
+            this.tbRfidDetails = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -197,6 +194,11 @@
             this.label69 = new System.Windows.Forms.Label();
             this.label70 = new System.Windows.Forms.Label();
             this.dtpDobClaim = new System.Windows.Forms.DateTimePicker();
+            this.dtpDateBroughtDetails = new System.Windows.Forms.DateTimePicker();
+            this.dtpLastWalkedDetails = new System.Windows.Forms.DateTimePicker();
+            this.btnUpdateDetails = new System.Windows.Forms.Button();
+            this.btnDeleteDetails = new System.Windows.Forms.Button();
+            this.label71 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.AddOwnPanel.SuspendLayout();
@@ -1077,21 +1079,23 @@
             // 
             // AnmDetailsPanel
             // 
-            this.AnmDetailsPanel.Controls.Add(this.textBox1);
+            this.AnmDetailsPanel.Controls.Add(this.label71);
+            this.AnmDetailsPanel.Controls.Add(this.btnDeleteDetails);
+            this.AnmDetailsPanel.Controls.Add(this.btnUpdateDetails);
+            this.AnmDetailsPanel.Controls.Add(this.dtpLastWalkedDetails);
+            this.AnmDetailsPanel.Controls.Add(this.dtpDateBroughtDetails);
+            this.AnmDetailsPanel.Controls.Add(this.tbDescriptionDetails);
             this.AnmDetailsPanel.Controls.Add(this.label58);
-            this.AnmDetailsPanel.Controls.Add(this.textBox3);
+            this.AnmDetailsPanel.Controls.Add(this.tbOwnersIdDetails);
             this.AnmDetailsPanel.Controls.Add(this.label28);
-            this.AnmDetailsPanel.Controls.Add(this.textBox4);
+            this.AnmDetailsPanel.Controls.Add(this.tbStatusDetails);
             this.AnmDetailsPanel.Controls.Add(this.label29);
-            this.AnmDetailsPanel.Controls.Add(this.bDelete);
-            this.AnmDetailsPanel.Controls.Add(this.textBox5);
-            this.AnmDetailsPanel.Controls.Add(this.tbDateWalked);
+            this.AnmDetailsPanel.Controls.Add(this.tbExtraDetails);
             this.AnmDetailsPanel.Controls.Add(this.label30);
             this.AnmDetailsPanel.Controls.Add(this.label31);
-            this.AnmDetailsPanel.Controls.Add(this.textBox6);
-            this.AnmDetailsPanel.Controls.Add(this.comboBox1);
-            this.AnmDetailsPanel.Controls.Add(this.textBox7);
-            this.AnmDetailsPanel.Controls.Add(this.bSave);
+            this.AnmDetailsPanel.Controls.Add(this.tbLocationFoundDetails);
+            this.AnmDetailsPanel.Controls.Add(this.cbSpeciesDetails);
+            this.AnmDetailsPanel.Controls.Add(this.tbRfidDetails);
             this.AnmDetailsPanel.Controls.Add(this.button2);
             this.AnmDetailsPanel.Controls.Add(this.label32);
             this.AnmDetailsPanel.Controls.Add(this.label33);
@@ -1105,13 +1109,13 @@
             this.AnmDetailsPanel.TabIndex = 60;
             this.AnmDetailsPanel.Visible = false;
             // 
-            // textBox1
+            // tbDescriptionDetails
             // 
-            this.textBox1.Location = new System.Drawing.Point(112, 265);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(175, 80);
-            this.textBox1.TabIndex = 59;
+            this.tbDescriptionDetails.Location = new System.Drawing.Point(112, 265);
+            this.tbDescriptionDetails.Multiline = true;
+            this.tbDescriptionDetails.Name = "tbDescriptionDetails";
+            this.tbDescriptionDetails.Size = new System.Drawing.Size(175, 80);
+            this.tbDescriptionDetails.TabIndex = 59;
             // 
             // label58
             // 
@@ -1124,18 +1128,18 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(112, 160);
+            this.dateTimePicker1.Location = new System.Drawing.Point(130, 167);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(180, 20);
             this.dateTimePicker1.TabIndex = 57;
             // 
-            // textBox3
+            // tbOwnersIdDetails
             // 
-            this.textBox3.Location = new System.Drawing.Point(112, 357);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(134, 20);
-            this.textBox3.TabIndex = 46;
-            this.textBox3.Text = "Owner ID";
+            this.tbOwnersIdDetails.Location = new System.Drawing.Point(112, 357);
+            this.tbOwnersIdDetails.Name = "tbOwnersIdDetails";
+            this.tbOwnersIdDetails.Size = new System.Drawing.Size(134, 20);
+            this.tbOwnersIdDetails.TabIndex = 46;
+            this.tbOwnersIdDetails.Text = "Owner ID";
             // 
             // label28
             // 
@@ -1146,14 +1150,14 @@
             this.label28.TabIndex = 56;
             this.label28.Text = "Assign Owner:";
             // 
-            // textBox4
+            // tbStatusDetails
             // 
-            this.textBox4.Location = new System.Drawing.Point(112, 194);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(175, 20);
-            this.textBox4.TabIndex = 55;
-            this.textBox4.TabStop = false;
+            this.tbStatusDetails.Location = new System.Drawing.Point(112, 196);
+            this.tbStatusDetails.Name = "tbStatusDetails";
+            this.tbStatusDetails.ReadOnly = true;
+            this.tbStatusDetails.Size = new System.Drawing.Size(175, 20);
+            this.tbStatusDetails.TabIndex = 55;
+            this.tbStatusDetails.TabStop = false;
             // 
             // label29
             // 
@@ -1164,31 +1168,13 @@
             this.label29.TabIndex = 54;
             this.label29.Text = "Adoptable?";
             // 
-            // bDelete
+            // tbExtraDetails
             // 
-            this.bDelete.Location = new System.Drawing.Point(362, 407);
-            this.bDelete.Name = "bDelete";
-            this.bDelete.Size = new System.Drawing.Size(70, 24);
-            this.bDelete.TabIndex = 53;
-            this.bDelete.Text = "Delete";
-            this.bDelete.UseVisualStyleBackColor = true;
-            this.bDelete.Click += new System.EventHandler(this.bDelete_Click);
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(316, 148);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(121, 123);
-            this.textBox5.TabIndex = 48;
-            // 
-            // tbDateWalked
-            // 
-            this.tbDateWalked.Location = new System.Drawing.Point(316, 94);
-            this.tbDateWalked.Name = "tbDateWalked";
-            this.tbDateWalked.Size = new System.Drawing.Size(121, 20);
-            this.tbDateWalked.TabIndex = 47;
-            this.tbDateWalked.Text = "ddmmyy";
+            this.tbExtraDetails.Location = new System.Drawing.Point(316, 148);
+            this.tbExtraDetails.Multiline = true;
+            this.tbExtraDetails.Name = "tbExtraDetails";
+            this.tbExtraDetails.Size = new System.Drawing.Size(121, 123);
+            this.tbExtraDetails.TabIndex = 48;
             // 
             // label30
             // 
@@ -1208,44 +1194,34 @@
             this.label31.TabIndex = 50;
             this.label31.Text = "Date Last Walked:";
             // 
-            // textBox6
+            // tbLocationFoundDetails
             // 
-            this.textBox6.Location = new System.Drawing.Point(112, 231);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(175, 23);
-            this.textBox6.TabIndex = 45;
+            this.tbLocationFoundDetails.Location = new System.Drawing.Point(112, 231);
+            this.tbLocationFoundDetails.Multiline = true;
+            this.tbLocationFoundDetails.Name = "tbLocationFoundDetails";
+            this.tbLocationFoundDetails.Size = new System.Drawing.Size(175, 23);
+            this.tbLocationFoundDetails.TabIndex = 45;
             // 
-            // comboBox1
+            // cbSpeciesDetails
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbSpeciesDetails.FormattingEnabled = true;
+            this.cbSpeciesDetails.Items.AddRange(new object[] {
             "Species",
             "Cat",
             "Dog"});
-            this.comboBox1.Location = new System.Drawing.Point(112, 120);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(175, 21);
-            this.comboBox1.TabIndex = 43;
+            this.cbSpeciesDetails.Location = new System.Drawing.Point(112, 120);
+            this.cbSpeciesDetails.Name = "cbSpeciesDetails";
+            this.cbSpeciesDetails.Size = new System.Drawing.Size(175, 21);
+            this.cbSpeciesDetails.TabIndex = 43;
             // 
-            // textBox7
+            // tbRfidDetails
             // 
-            this.textBox7.Location = new System.Drawing.Point(112, 75);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(175, 20);
-            this.textBox7.TabIndex = 42;
-            this.textBox7.TabStop = false;
-            // 
-            // bSave
-            // 
-            this.bSave.Location = new System.Drawing.Point(286, 407);
-            this.bSave.Name = "bSave";
-            this.bSave.Size = new System.Drawing.Size(70, 24);
-            this.bSave.TabIndex = 52;
-            this.bSave.Text = "Save";
-            this.bSave.UseVisualStyleBackColor = true;
-            this.bSave.Click += new System.EventHandler(this.bSave_Click);
+            this.tbRfidDetails.Location = new System.Drawing.Point(112, 75);
+            this.tbRfidDetails.Name = "tbRfidDetails";
+            this.tbRfidDetails.ReadOnly = true;
+            this.tbRfidDetails.Size = new System.Drawing.Size(175, 20);
+            this.tbRfidDetails.TabIndex = 42;
+            this.tbRfidDetails.TabStop = false;
             // 
             // button2
             // 
@@ -1887,16 +1863,59 @@
             this.dtpDobClaim.Size = new System.Drawing.Size(132, 20);
             this.dtpDobClaim.TabIndex = 75;
             // 
+            // dtpDateBroughtDetails
+            // 
+            this.dtpDateBroughtDetails.Location = new System.Drawing.Point(112, 157);
+            this.dtpDateBroughtDetails.Name = "dtpDateBroughtDetails";
+            this.dtpDateBroughtDetails.Size = new System.Drawing.Size(175, 20);
+            this.dtpDateBroughtDetails.TabIndex = 60;
+            // 
+            // dtpLastWalkedDetails
+            // 
+            this.dtpLastWalkedDetails.Location = new System.Drawing.Point(316, 96);
+            this.dtpLastWalkedDetails.Name = "dtpLastWalkedDetails";
+            this.dtpLastWalkedDetails.Size = new System.Drawing.Size(134, 20);
+            this.dtpLastWalkedDetails.TabIndex = 61;
+            // 
+            // btnUpdateDetails
+            // 
+            this.btnUpdateDetails.Location = new System.Drawing.Point(281, 409);
+            this.btnUpdateDetails.Name = "btnUpdateDetails";
+            this.btnUpdateDetails.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdateDetails.TabIndex = 62;
+            this.btnUpdateDetails.Text = "Update";
+            this.btnUpdateDetails.UseVisualStyleBackColor = true;
+            this.btnUpdateDetails.Click += new System.EventHandler(this.btnUpdateDetails_Click);
+            // 
+            // btnDeleteDetails
+            // 
+            this.btnDeleteDetails.Location = new System.Drawing.Point(375, 408);
+            this.btnDeleteDetails.Name = "btnDeleteDetails";
+            this.btnDeleteDetails.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteDetails.TabIndex = 63;
+            this.btnDeleteDetails.Text = "Delete";
+            this.btnDeleteDetails.UseVisualStyleBackColor = true;
+            this.btnDeleteDetails.Click += new System.EventHandler(this.btnDeleteDetails_Click);
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(267, 360);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(127, 13);
+            this.label71.TabIndex = 64;
+            this.label71.Text = "*let it blank for non owner";
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 441);
-            this.Controls.Add(this.AnmDetailsPanel);
-            this.Controls.Add(this.ClaimPanel);
             this.Controls.Add(this.OwnDetailsPanel);
-            this.Controls.Add(this.OwnersPanel);
+            this.Controls.Add(this.AnmDetailsPanel);
             this.Controls.Add(this.AddAnmPanel);
+            this.Controls.Add(this.ClaimPanel);
+            this.Controls.Add(this.OwnersPanel);
             this.Controls.Add(this.AddOwnPanel);
             this.Controls.Add(this.AdoptPanel);
             this.Controls.Add(this.AnimalsPanel);
@@ -2007,19 +2026,16 @@
         private System.Windows.Forms.RadioButton rbNotYetAdoptable;
         private System.Windows.Forms.RadioButton rbAdoptable;
         private System.Windows.Forms.Panel AnmDetailsPanel;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbOwnersIdDetails;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbStatusDetails;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Button bDelete;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox tbDateWalked;
+        private System.Windows.Forms.TextBox tbExtraDetails;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Button bSave;
+        private System.Windows.Forms.TextBox tbLocationFoundDetails;
+        private System.Windows.Forms.ComboBox cbSpeciesDetails;
+        private System.Windows.Forms.TextBox tbRfidDetails;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
@@ -2078,7 +2094,7 @@
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbDescriptionDetails;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.DateTimePicker dtpDobClaim;
         private System.Windows.Forms.Label label70;
@@ -2104,6 +2120,11 @@
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.DateTimePicker dtpDateBroughtDetails;
+        private System.Windows.Forms.DateTimePicker dtpLastWalkedDetails;
+        private System.Windows.Forms.Button btnDeleteDetails;
+        private System.Windows.Forms.Button btnUpdateDetails;
+        private System.Windows.Forms.Label label71;
     }
 }
 
