@@ -31,6 +31,7 @@ namespace ShelterApplication
 
         //Attributes for Adopt and Claim
         Animal animal;
+        Owner owner_claiming;
 
         //Attributes for get
 
@@ -204,7 +205,10 @@ namespace ShelterApplication
             Panel a=(Panel)((Button)sender).Parent;
             foreach (Control t in a.Controls)
             {
-                 t.ResetText(); 
+                if (t.GetType()==typeof(TextBox))
+                {
+                    t.ResetText();
+                }
             }
             a.Hide();
             
@@ -224,7 +228,15 @@ namespace ShelterApplication
 
         private void btnLookForOwner_Click(object sender, EventArgs e)
         {
-            //todo check if owner exists --> yes make box green --> no make box red
+            try
+            {
+                db.getOwnerById(Convert.ToInt32(tbOwner.Text));
+                tbOwner.BackColor = Color.ForestGreen;
+            }
+            catch
+            {
+                tbOwner.BackColor = Color.DarkRed;
+            }
         }
 
 
@@ -273,7 +285,6 @@ namespace ShelterApplication
 
         private void bAdopt_Click(object sender, EventArgs e)
         {
-            //todo adopt the animal
             ownerID = Convert.ToInt32(tbOwnerIDAdopt.Text);
 
  try {  db.Adopt(animal, db.getOwnerById(ownerID)); } catch (Exception er) { MessageBox.Show("Could not adopt: "+er.ToString()); }
@@ -366,25 +377,35 @@ namespace ShelterApplication
                         string species = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                         //Now time for creating the Adopt and Claim function in Database
 
+                        MessageBox.Show(rfidselected + " , " + species);
+                        if (species == "cat")
+                        {
+                            animal = db.getCatByRFID(rfidselected);
+                        }
+                        else if (species == "dog")
+                        {
+                            animal = db.getDogByRFID(rfidselected);
+                        }
+
                         if (condition == "Claim")
                         {
-                            MessageBox.Show(rfidselected+" , "+ species);
-                            AnimalsPanel.Hide();
-                            ClaimPanel.Show();
+                            // if the animal is in the shelter since less than 20 days and have a PO
+                            if (animal.calculateDays() < 20 && animal.getPoId() != 0) {
+                                // TODO put the informations of animal in the good variables (textbox)
+                                // TODO the same with owner (use animal.getPo() to retrieve the owner)
+                                AnimalsPanel.Hide();
+                                ClaimPanel.Show();
+                            }
+                            else {
+                                MessageBox.Show("can't claim this animal");
+                            }
                             
                         }
                         else if (condition == "Adopt")
                         {
-                            MessageBox.Show(rfidselected+" , "+species);
                             if (species == "cat")
-                            {
-                                animal = db.getCatByRFID(rfidselected);
                                 tbExtraAdopt.Text = animal.getExtra();
-                            }
-                            else if(species == "dog")
-                            {
-                                animal = db.getDogByRFID(rfidselected);
-                            }
+
                             tbDateBroughtAdopt.Text = Convert.ToString(animal.getDateBrought());
                             tbRfidAdopt.Text = animal.getRfid();
                             tbSpeciesAdopt.Text = species;
@@ -396,7 +417,7 @@ namespace ShelterApplication
                             AdoptPanel.Show();
 
                             
-                            
+                          
                             //This method will continue to Adopt and showing the overview of animal
                             
                         }
@@ -431,13 +452,38 @@ namespace ShelterApplication
 
         private void bDelete_Click(object sender, EventArgs e)
         {
-            //todo delete the animal
+            try
+            {
+                //todo maybe make this one method cause this is so awkward
+                animal = db.getCatByRFID(textBox7.Text.ToString());
+            }
+            catch
+            {
+                animal = db.getDogByRFID(textBox7.Text.ToString());
+            }
+
+            db.DeleteAnimal(animal);
             Cancel_Click(sender, e);
         }
 
         private void bSave_Click(object sender, EventArgs e)
         {
-            //todo save changes
+            if (comboBox1.Text == "Cat")
+            {
+                animal = new Cat(textBox7.Text, textBox1.Text, dateTimePicker1.Value, textBox6.Text, textBox5.Text, db.getOwnerById(Convert.ToInt32(textBox3.Text)));
+                db.addCat((Cat)animal);
+            }
+            else if (comboBox1.Text == "Dog")
+            {
+                new Dog(textBox7.Text, textBox1.Text, dateTimePicker1.Value, textBox6.Text, db.getOwnerById(Convert.ToInt32(textBox3.Text)));
+                db.addDog((Dog)animal);
+            }
+            else
+            {
+                MessageBox.Show("Please select a species");
+            }
+            bDelete_Click(sender, e);
+
             Cancel_Click(sender, e);
 
         }
@@ -525,6 +571,12 @@ namespace ShelterApplication
         private void bClaim_Click(object sender, EventArgs e)
         {
             //todo claim the animal
+            if (true){ // TODO replace condition with condition to verify the checkboxes are checked (infos and money)
+                db.Claim(animal);
+            }
+            else {
+                MessageBox.Show("you have to check the informations before claiming");
+            }
             Cancel_Click(sender, e);
         }
 
@@ -556,6 +608,10 @@ namespace ShelterApplication
 
             
 
+
+
+            //db.updateAnimal
+            Cancel_Click(sender, e);
 
 
         }

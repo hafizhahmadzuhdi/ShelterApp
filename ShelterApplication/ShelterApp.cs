@@ -83,6 +83,7 @@ namespace ShelterApplication
         public Cat getCatByRFID(string id)
         {
             // TODO do we really need two methods here? I'm pretty sure we can make do with one.
+            int po_id = 0;
             conn.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT * from cat b WHERE b.rfid = @id", conn);
             cmd.Parameters.AddWithValue("@id", id);
@@ -90,32 +91,38 @@ namespace ShelterApplication
             MySqlDataReader rdr = cmd.ExecuteReader();
             rdr.Read();
 
-            Owner po;
             if (rdr[4].GetType() != typeof(DBNull))
-                po = this.getOwnerById(Convert.ToInt32(rdr[4]));
-            else
-                po = null;
+                po_id = Convert.ToInt32(rdr[4]);
 
-            Cat cat = new Cat(Convert.ToString(rdr[0]), Convert.ToString(rdr[1]), Convert.ToDateTime(rdr[2]), Convert.ToString(rdr[3]), Convert.ToString(rdr[5]), po);
+            Cat cat = new Cat(Convert.ToString(rdr[0]), Convert.ToString(rdr[1]), Convert.ToDateTime(rdr[2]), Convert.ToString(rdr[3]), Convert.ToString(rdr[5]), null);
             rdr.Close();
             conn.Close();
+
+            if (po_id != 0)
+                cat.setOwner(this.getOwnerById(po_id));
 
             return cat;
         }
 
         public Dog getDogByRFID(string id)
         {
-
             conn.Open();
+            int po_id = 0;
+
             MySqlCommand cmd = new MySqlCommand("SELECT * from dog a WHERE a.rfid = @id", conn);
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Prepare();
             MySqlDataReader rdr = cmd.ExecuteReader();
             rdr.Read();
+            if (rdr[4].GetType() != typeof(DBNull))
+                po_id = Convert.ToInt32(rdr[4]);
 
             Dog dog = new Dog(Convert.ToString(rdr[0]), Convert.ToString(rdr[1]), Convert.ToDateTime(rdr[2]), Convert.ToString(rdr[3]), null);
             rdr.Close();
             conn.Close();
+
+            if (po_id != 0)
+                dog.setOwner(this.getOwnerById(po_id));
 
             return dog;
 
@@ -187,7 +194,6 @@ namespace ShelterApplication
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Prepare();
             MySqlDataReader rdr = cmd.ExecuteReader();
-            Console.WriteLine("testeeee");
 
             if (rdr.Read())
                 owner = new Owner(Convert.ToInt32(rdr[0]), Convert.ToString(rdr[1]), Convert.ToString(rdr[2]), Convert.ToDateTime(rdr[3]), Convert.ToString(rdr[4]), Convert.ToInt32(rdr[5]), Convert.ToString(rdr[6]));
@@ -236,20 +242,6 @@ namespace ShelterApplication
             DataSet ds = new DataSet();
             conn.Open();
             string query = string.Format("SELECT rfid, 'dog' AS species, status FROM dog WHERE status like '" + status + "' UNION SELECT rfid, 'cat' AS species, status FROM cat WHERE status like '" + status + "'");
-            MySqlCommand command = new MySqlCommand(query, conn);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-            command.ExecuteNonQuery();
-            ds.Clear();
-            adapter.Fill(ds);
-            conn.Close();
-            return ds;
-        }
-
-
-        public DataSet getNotYetAdoptableAnimalsDateBrought(){
-            DataSet ds = new DataSet();
-            conn.Open();
-            string query = string.Format("SELECT rfid, dateBrought FROM dog UNION SELECT rfid, dateBrought FROM cat");
             MySqlCommand command = new MySqlCommand(query, conn);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             command.ExecuteNonQuery();
@@ -368,51 +360,29 @@ namespace ShelterApplication
         }
 
 
-        public void Claim(Animal a, Owner o)
+        public void Claim(Animal a)
         {
-            //we need to assign
+            a.setStatus("claimed");
+            this.updateAnimal(a);
         }
 
         public void Adopt(Animal a, Owner o)
         {
             Console.WriteLine(a.getRfid());
-            if(a.calculateDays() >= 20)
+            int d = a.calculateDays();
+            if ( d >= 20)
             {
                 if(a.getPoId() == 0)
                 {
                     int id = o.getOwnerId();
                     a.setStatus("adopted");
-
-                    if (a.GetType() == typeof(Dog)) 
-                    {
-
-                        a.setStatus("adopted");
-                        a.setOwner(o);
-                        this.updateAnimal(a);
-                        //conn.Open();
-                        //string query = string.Format("UPDATE dog SET status='adopted' WHERE rfid ='" + a.getRfid() + "'");
-                        //MySqlCommand command = new MySqlCommand(query, conn);
-                        //MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                        //command.ExecuteNonQuery();
-                    } else if(a.GetType() == typeof(Cat)){
-                        a.setOwner(o);
-                        a.setStatus("adopted");
-                        this.updateAnimal(a);
-                        //conn.Open();
-                        //string query = string.Format("UPDATE dog SET status='adopted' WHERE rfid ='" + a.getRfid() + "'");
-                        //MySqlCommand command = new MySqlCommand(query, conn);
-                        //MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                        //command.ExecuteNonQuery();
-
-                    }
-
-
-                    //a.setSetatus("adopted");
-
+                    a.setOwner(o);
+                    this.updateAnimal(a);
                 }
 
             } else
             {
+                throw new Exception("Animal cannot be adopted yet, "+(20 - d)+" days remain.");
                 //when somebody clicking the Adopt button while the days are still less than 20
                 
                 //a.setSetatus("notYetAdoptable");
