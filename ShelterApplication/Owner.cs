@@ -17,6 +17,7 @@ namespace ShelterApplication
         private string address { get; set; }
         private string email { get; set; }
 
+
         public Owner(int ownerID, string lastName, string firstName, DateTime dob, string address, int phoneOwner, string email)
         {
             this.ownerID = ownerID;
@@ -34,9 +35,19 @@ namespace ShelterApplication
             return this.ownerID;
         }
 
+        public void setPhoneOwner(int id)
+        {
+            this.phoneOwner = id;
+        }
+
         public int getPhoneOwner()
         {
             return this.phoneOwner;
+        }
+
+        public void setLastName(string x)
+        {
+            this.lastName = x;
         }
 
         public string getLastName()
@@ -44,9 +55,19 @@ namespace ShelterApplication
             return this.lastName;
         }
 
+        public void setFirstName(string x)
+        {
+            this.firstName = x;
+        }
+
         public string getFirstName()
         {
             return this.firstName;
+        }
+
+        public void setDob(string x)
+        {
+            this.dob = Convert.ToDateTime(x);
         }
 
         public DateTime getDob()
@@ -54,9 +75,19 @@ namespace ShelterApplication
             return this.dob;
         }
 
+        public void setAddress(string x)
+        {
+            this.address = x;
+        }
+
         public string getAddress()
         {
             return this.address;
+        }
+
+        public void setEmail(string x)
+        {
+            this.email = x;
         }
 
         public string getEmail()

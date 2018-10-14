@@ -155,11 +155,9 @@
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.OwnDetailsPanel = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
-            this.tbDoB = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.label44 = new System.Windows.Forms.Label();
@@ -173,6 +171,7 @@
             this.label49 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.AddOwnPanel.SuspendLayout();
@@ -1301,6 +1300,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(440, 224);
             this.dataGridView2.TabIndex = 18;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick_1);
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // button3
@@ -1454,11 +1454,10 @@
             // 
             // OwnDetailsPanel
             // 
-            this.OwnDetailsPanel.Controls.Add(this.button5);
+            this.OwnDetailsPanel.Controls.Add(this.dateTimePicker1);
             this.OwnDetailsPanel.Controls.Add(this.textBox9);
             this.OwnDetailsPanel.Controls.Add(this.textBox10);
             this.OwnDetailsPanel.Controls.Add(this.textBox11);
-            this.OwnDetailsPanel.Controls.Add(this.tbDoB);
             this.OwnDetailsPanel.Controls.Add(this.textBox12);
             this.OwnDetailsPanel.Controls.Add(this.textBox13);
             this.OwnDetailsPanel.Controls.Add(this.label44);
@@ -1478,16 +1477,6 @@
             this.OwnDetailsPanel.Size = new System.Drawing.Size(464, 441);
             this.OwnDetailsPanel.TabIndex = 51;
             this.OwnDetailsPanel.Visible = false;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(355, 412);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(70, 24);
-            this.button5.TabIndex = 75;
-            this.button5.Text = "Delete";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // textBox9
             // 
@@ -1510,14 +1499,6 @@
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(215, 20);
             this.textBox11.TabIndex = 70;
-            // 
-            // tbDoB
-            // 
-            this.tbDoB.Location = new System.Drawing.Point(130, 169);
-            this.tbDoB.Name = "tbDoB";
-            this.tbDoB.Size = new System.Drawing.Size(215, 20);
-            this.tbDoB.TabIndex = 69;
-            this.tbDoB.Text = "ddmmyy";
             // 
             // textBox12
             // 
@@ -1573,12 +1554,13 @@
             // 
             this.textBox14.Location = new System.Drawing.Point(130, 58);
             this.textBox14.Name = "textBox14";
+            this.textBox14.ReadOnly = true;
             this.textBox14.Size = new System.Drawing.Size(215, 20);
             this.textBox14.TabIndex = 62;
             // 
             // bEditOwner
             // 
-            this.bEditOwner.Location = new System.Drawing.Point(275, 412);
+            this.bEditOwner.Location = new System.Drawing.Point(339, 407);
             this.bEditOwner.Name = "bEditOwner";
             this.bEditOwner.Size = new System.Drawing.Size(70, 24);
             this.bEditOwner.TabIndex = 74;
@@ -1588,7 +1570,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(43, 412);
+            this.button6.Location = new System.Drawing.Point(29, 404);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(70, 24);
             this.button6.TabIndex = 73;
@@ -1633,36 +1615,28 @@
             this.label51.TabIndex = 58;
             this.label51.Text = "View/Edit Owner";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(130, 163);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(215, 20);
+            this.dateTimePicker1.TabIndex = 76;
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 441);
-
-            // conflicts, commented in case we need to keep this one and not the other
-            //this.Controls.Add(this.AddOwnPanel);
-            //this.Controls.Add(this.HomePanel);
-            //this.Controls.Add(this.AnimalsPanel);
-            //this.Controls.Add(this.AdoptPanel);
-            //this.Controls.Add(this.ClaimPanel);
-            //this.Controls.Add(this.OwnersPanel);
-            //this.Controls.Add(this.AnmDetailsPanel);
-            //this.Controls.Add(this.RfidPanel);
-            //this.Controls.Add(this.AddAnmPanel);
-            //this.Controls.Add(this.OwnDetailsPanel);
-
-
-            this.Controls.Add(this.AddAnmPanel);
-            this.Controls.Add(this.AnmDetailsPanel);
             this.Controls.Add(this.OwnDetailsPanel);
             this.Controls.Add(this.OwnersPanel);
+            this.Controls.Add(this.AddAnmPanel);
+            this.Controls.Add(this.AnmDetailsPanel);
             this.Controls.Add(this.ClaimPanel);
             this.Controls.Add(this.AddOwnPanel);
             this.Controls.Add(this.AdoptPanel);
             this.Controls.Add(this.AnimalsPanel);
             this.Controls.Add(this.RfidPanel);
             this.Controls.Add(this.HomePanel);
-
             this.Name = "HomeForm";
             this.Text = "Home";
             this.Load += new System.EventHandler(this.HomeForm_Load);
@@ -1806,11 +1780,9 @@
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Panel OwnDetailsPanel;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox tbDoB;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Label label44;
@@ -1841,6 +1813,7 @@
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 

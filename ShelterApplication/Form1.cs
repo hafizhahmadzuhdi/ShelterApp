@@ -301,12 +301,12 @@ namespace ShelterApplication
 
         private void rbNotYetAdoptable_CheckedChanged(object sender, EventArgs e)
         {
-            ds = db.getAnimals("notYetAdoptable");
+            ds = db.getAnimalsByStatus("notYetAdoptable");
             dataGridView1.DataSource = ds.Tables[0];
-            dataGridView1.Columns[1].Width = 80;
-            dataGridView1.Columns[1].HeaderText = "Species";
-            dataGridView1.Columns[2].Width = 80;
-            dataGridView1.Columns[2].HeaderText = "Status";
+            //dataGridView1.Columns[1].Width = 80;
+            //dataGridView1.Columns[1].HeaderText = "Species";
+            //dataGridView1.Columns[2].Width = 80;
+            //dataGridView1.Columns[2].HeaderText = "Status";
 
 
             
@@ -316,10 +316,10 @@ namespace ShelterApplication
         {
             ds = db.getAllAnimals();
             dataGridView1.DataSource = ds.Tables[0];
-            dataGridView1.Columns[1].Width = 80;
-            dataGridView1.Columns[1].HeaderText = "Species";
-            dataGridView1.Columns[2].Width = 80;
-            dataGridView1.Columns[2].HeaderText = "Status";
+            //dataGridView1.Columns[1].Width = 80;
+            //dataGridView1.Columns[1].HeaderText = "Species";
+            //dataGridView1.Columns[2].Width = 80;
+            //dataGridView1.Columns[2].HeaderText = "Status";
 
 
             
@@ -417,12 +417,12 @@ namespace ShelterApplication
         {
             //todo change content of grid box , also for other radio buttons
 
-            ds = db.getAnimals("adoptable");
+            ds = db.getAnimalsByStatus("adoptable");
             dataGridView1.DataSource = ds.Tables[0];
-            dataGridView1.Columns[1].Width = 80;
-            dataGridView1.Columns[1].HeaderText = "Species";
-            dataGridView1.Columns[2].Width = 80;
-            dataGridView1.Columns[2].HeaderText = "Status";
+            //dataGridView1.Columns[1].Width = 80;
+            //dataGridView1.Columns[1].HeaderText = "Species";
+            //dataGridView1.Columns[2].Width = 80;
+            //dataGridView1.Columns[2].HeaderText = "Status";
 
             
 
@@ -443,6 +443,79 @@ namespace ShelterApplication
         }
 
 
+        private void dataGridView2_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            Int32 selectedCellCount = dataGridView2.GetCellCount(DataGridViewElementStates.Selected);
+            if (selectedCellCount > 0)
+            {
+                if (dataGridView2.AreAllCellsSelected(true))
+                {
+                    MessageBox.Show("All cells are selected", "Selected Cells");
+                }
+                else
+                {
+                    System.Text.StringBuilder sb =
+                        new System.Text.StringBuilder();
+
+                    for (int i = 0;
+                        i < selectedCellCount; i++)
+                    {
+
+                        //an attributes to know which part we selecting
+                        string condition = dataGridView2.SelectedCells[i].Value
+                            .ToString();
+                        //this is an attribute for getting the value of rfid
+                        int idselected = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString());
+                        //We need to create an attribute for identifying what species is our animal
+
+
+                        if (condition == "Delete")
+                        {
+                            MessageBox.Show(idselected.ToString());
+                            DialogResult dialogResult = MessageBox.Show("Are you sure want to Delete this owner", "Confirmation", MessageBoxButtons.YesNo);
+                            if (dialogResult == DialogResult.Yes)
+                            {
+
+                                db.dropOwner(idselected);
+                                HomePanel.Show();
+                            }
+                            else if (dialogResult == DialogResult.No)
+                            {
+                                OwnersPanel.Show();
+
+                            }
+
+                        }
+                        else if (condition == "Edit")
+                        {
+
+                            po = db.getOwnerById(idselected);
+
+
+                            this.textBox9.Text = po.getAddress();
+                            this.textBox14.Text = Convert.ToString(po.getOwnerId());
+                            this.textBox10.Text = Convert.ToString(po.getPhoneOwner());
+                            this.textBox12.Text = po.getLastName();
+                            this.textBox13.Text = po.getFirstName();
+                            this.dateTimePicker1.Text = Convert.ToString(po.getDob());
+                            this.textBox11.Text = po.getEmail();
+                            //this.tbRfidOwner.Text = animal.getRfidByOwner(po);
+
+
+                            OwnersPanel.Hide();
+                            OwnDetailsPanel.Show();
+
+                        }
+
+                        idselected = 0;
+
+                    }
+
+
+                }
+            }
+        }
+
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //todo add buttons for owner functions
@@ -458,7 +531,32 @@ namespace ShelterApplication
         private void bEditOwner_Click(object sender, EventArgs e)
         {
             //todo save details
-            Cancel_Click(sender, e);
+           
+            po.setAddress(textBox9.Text);
+            po.setDob(dateTimePicker1.Value.ToString());
+            po.setLastName(textBox12.Text);
+            po.setFirstName(textBox13.Text);
+            po.setPhoneOwner(Convert.ToInt32(textBox10.Text));
+            po.setEmail(textBox11.Text);
+
+            
+
+            try
+            {
+                db.updateOwner(po);
+                MessageBox.Show(po.getLastName());
+                MessageBox.Show("Owner Successfully Edited");
+                HomePanel.Show();
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.ToString());
+            }
+
+
+            
+
+
 
         }
 

@@ -151,6 +151,33 @@ namespace ShelterApplication
         //    return cat;
         //}
 
+        public void updateOwner(Owner o)
+        {
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand("UPDATE owner SET lastName=@lastName, firstName=@firstName, dob=@dob, address=@address, phone=@phone, email=@email" + " WHERE ownerID=@ownerID", conn);
+            cmd.Parameters.AddWithValue("@ownerID", o.getOwnerId());
+            cmd.Parameters.AddWithValue("@lastName", o.getLastName());
+            cmd.Parameters.AddWithValue("@firstName", o.getFirstName());
+            cmd.Parameters.AddWithValue("@dob", o.getDob());
+            cmd.Parameters.AddWithValue("@address", o.getAddress());
+            cmd.Parameters.AddWithValue("@phone", o.getOwnerId());
+            cmd.Parameters.AddWithValue("@email", o.getEmail());
+            Console.WriteLine(o.getLastName());
+            Console.WriteLine(o.getOwnerId());
+            cmd.Prepare();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public void dropOwner(int id)
+        {
+            string query = string.Format("DELETE FROM owner WHERE ownerID = '") + id + string.Format("';");
+            conn.Open();
+            MySqlCommand command = new MySqlCommand(query, conn);
+            command.ExecuteNonQuery();
+            conn.Close();
+        }
+
         public Owner getOwnerById(int id){
 
             conn.Open();
@@ -204,11 +231,11 @@ namespace ShelterApplication
             return ds;
         }
 
-        public DataSet getAnimals(string status)
+        public DataSet getAnimalsByStatus(string status)
         {
             DataSet ds = new DataSet();
             conn.Open();
-            string query = string.Format("SELECT rfid, 'dog' AS species, status FROM dog UNION SELECT rfid, 'cat' AS species, status FROM cat WHERE status ="+status);
+            string query = string.Format("SELECT rfid, 'dog' AS species, status FROM dog WHERE status like '" + status + "' UNION SELECT rfid, 'cat' AS species, status FROM cat WHERE status like '" + status + "'");
             MySqlCommand command = new MySqlCommand(query, conn);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
             command.ExecuteNonQuery();
@@ -233,7 +260,7 @@ namespace ShelterApplication
         }
 
         public List<Animal> getAnimalsList(){
-            conn.Open();
+                conn.Open();
             List<Animal> resp = new List<Animal>();
 
             // dogs
